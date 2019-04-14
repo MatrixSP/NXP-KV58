@@ -84,3 +84,13 @@ void FlexPWM_Independent_Init(PWM_Type* base, PWM_SMn subModule)
 	//触发Force事件以强制重载寄存器
 	base->SM[subModule].CTRL2 |= PWM_CTRL2_FORCE(1U);
 }
+
+/**
+ * @name			FlexPWM_Independent_Init
+ * @brief			
+ * @clock			Fast Peripheral clock
+ */
+void FlexPWM_Independent_SetupPwm()
+{
+
+}
