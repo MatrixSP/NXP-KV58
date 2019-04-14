@@ -1,0 +1,673 @@
+/* 
+ * @date   2019年1月31日最后修改
+ * @name   Sora_lib
+ * @group  Akko
+ * @author Afisora
+ * @brief  GPIO Driver
+ */
+
+#ifndef __SORA_GPIO_CFG_H__
+#define __SORA_GPIO_CFG_H__
+
+//定义PTA的端口  
+#define PTA0_OUT     GPIOA->PDORs.PDOR0
+#define PTA1_OUT     GPIOA->PDORs.PDOR1
+#define PTA2_OUT     GPIOA->PDORs.PDOR2
+#define PTA3_OUT     GPIOA->PDORs.PDOR3
+#define PTA4_OUT     GPIOA->PDORs.PDOR4
+#define PTA5_OUT     GPIOA->PDORs.PDOR5
+#define PTA6_OUT     GPIOA->PDORs.PDOR6
+#define PTA7_OUT     GPIOA->PDORs.PDOR7
+#define PTA8_OUT     GPIOA->PDORs.PDOR8
+#define PTA9_OUT     GPIOA->PDORs.PDOR9
+#define PTA10_OUT    GPIOA->PDORs.PDOR10
+#define PTA11_OUT    GPIOA->PDORs.PDOR11
+#define PTA12_OUT    GPIOA->PDORs.PDOR12
+#define PTA13_OUT    GPIOA->PDORs.PDOR13
+#define PTA14_OUT    GPIOA->PDORs.PDOR14
+#define PTA15_OUT    GPIOA->PDORs.PDOR15
+#define PTA16_OUT    GPIOA->PDORs.PDOR16
+#define PTA17_OUT    GPIOA->PDORs.PDOR17
+#define PTA18_OUT    GPIOA->PDORs.PDOR18
+#define PTA19_OUT    GPIOA->PDORs.PDOR19
+#define PTA20_OUT    GPIOA->PDORs.PDOR20
+#define PTA21_OUT    GPIOA->PDORs.PDOR21
+#define PTA22_OUT    GPIOA->PDORs.PDOR22
+#define PTA23_OUT    GPIOA->PDORs.PDOR23
+#define PTA24_OUT    GPIOA->PDORs.PDOR24
+#define PTA25_OUT    GPIOA->PDORs.PDOR25
+#define PTA26_OUT    GPIOA->PDORs.PDOR26
+#define PTA27_OUT    GPIOA->PDORs.PDOR27
+#define PTA28_OUT    GPIOA->PDORs.PDOR28
+#define PTA29_OUT    GPIOA->PDORs.PDOR29
+#define PTA30_OUT    GPIOA->PDORs.PDOR30
+#define PTA31_OUT    GPIOA->PDORs.PDOR31
+
+//定义PTB的端口  
+#define PTB0_OUT     GPIOB->PDORs.PDOR0
+#define PTB1_OUT     GPIOB->PDORs.PDOR1
+#define PTB2_OUT     GPIOB->PDORs.PDOR2
+#define PTB3_OUT     GPIOB->PDORs.PDOR3
+#define PTB4_OUT     GPIOB->PDORs.PDOR4
+#define PTB5_OUT     GPIOB->PDORs.PDOR5
+#define PTB6_OUT     GPIOB->PDORs.PDOR6
+#define PTB7_OUT     GPIOB->PDORs.PDOR7
+#define PTB8_OUT     GPIOB->PDORs.PDOR8
+#define PTB9_OUT     GPIOB->PDORs.PDOR9
+#define PTB10_OUT    GPIOB->PDORs.PDOR10
+#define PTB11_OUT    GPIOB->PDORs.PDOR11
+#define PTB12_OUT    GPIOB->PDORs.PDOR12
+#define PTB13_OUT    GPIOB->PDORs.PDOR13
+#define PTB14_OUT    GPIOB->PDORs.PDOR14
+#define PTB15_OUT    GPIOB->PDORs.PDOR15
+#define PTB16_OUT    GPIOB->PDORs.PDOR16
+#define PTB17_OUT    GPIOB->PDORs.PDOR17
+#define PTB18_OUT    GPIOB->PDORs.PDOR18
+#define PTB19_OUT    GPIOB->PDORs.PDOR19
+#define PTB20_OUT    GPIOB->PDORs.PDOR20
+#define PTB21_OUT    GPIOB->PDORs.PDOR21
+#define PTB22_OUT    GPIOB->PDORs.PDOR22
+#define PTB23_OUT    GPIOB->PDORs.PDOR23
+#define PTB24_OUT    GPIOB->PDORs.PDOR24
+#define PTB25_OUT    GPIOB->PDORs.PDOR25
+#define PTB26_OUT    GPIOB->PDORs.PDOR26
+#define PTB27_OUT    GPIOB->PDORs.PDOR27
+#define PTB28_OUT    GPIOB->PDORs.PDOR28
+#define PTB29_OUT    GPIOB->PDORs.PDOR29
+#define PTB30_OUT    GPIOB->PDORs.PDOR30
+#define PTB31_OUT    GPIOB->PDORs.PDOR31
+
+//定义PTC的端口  
+#define PTC0_OUT     GPIOC->PDORs.PDOR0
+#define PTC1_OUT     GPIOC->PDORs.PDOR1
+#define PTC2_OUT     GPIOC->PDORs.PDOR2
+#define PTC3_OUT     GPIOC->PDORs.PDOR3
+#define PTC4_OUT     GPIOC->PDORs.PDOR4
+#define PTC5_OUT     GPIOC->PDORs.PDOR5
+#define PTC6_OUT     GPIOC->PDORs.PDOR6
+#define PTC7_OUT     GPIOC->PDORs.PDOR7
+#define PTC8_OUT     GPIOC->PDORs.PDOR8
+#define PTC9_OUT     GPIOC->PDORs.PDOR9
+#define PTC10_OUT    GPIOC->PDORs.PDOR10
+#define PTC11_OUT    GPIOC->PDORs.PDOR11
+#define PTC12_OUT    GPIOC->PDORs.PDOR12
+#define PTC13_OUT    GPIOC->PDORs.PDOR13
+#define PTC14_OUT    GPIOC->PDORs.PDOR14
+#define PTC15_OUT    GPIOC->PDORs.PDOR15
+#define PTC16_OUT    GPIOC->PDORs.PDOR16
+#define PTC17_OUT    GPIOC->PDORs.PDOR17
+#define PTC18_OUT    GPIOC->PDORs.PDOR18
+#define PTC19_OUT    GPIOC->PDORs.PDOR19
+#define PTC20_OUT    GPIOC->PDORs.PDOR20
+#define PTC21_OUT    GPIOC->PDORs.PDOR21
+#define PTC22_OUT    GPIOC->PDORs.PDOR22
+#define PTC23_OUT    GPIOC->PDORs.PDOR23
+#define PTC24_OUT    GPIOC->PDORs.PDOR24
+#define PTC25_OUT    GPIOC->PDORs.PDOR25
+#define PTC26_OUT    GPIOC->PDORs.PDOR26
+#define PTC27_OUT    GPIOC->PDORs.PDOR27
+#define PTC28_OUT    GPIOC->PDORs.PDOR28
+#define PTC29_OUT    GPIOC->PDORs.PDOR29
+#define PTC30_OUT    GPIOC->PDORs.PDOR30
+#define PTC31_OUT    GPIOC->PDORs.PDOR31
+
+//定义PTD的端口  
+#define PTD0_OUT     GPIOD->PDORs.PDOR0
+#define PTD1_OUT     GPIOD->PDORs.PDOR1
+#define PTD2_OUT     GPIOD->PDORs.PDOR2
+#define PTD3_OUT     GPIOD->PDORs.PDOR3
+#define PTD4_OUT     GPIOD->PDORs.PDOR4
+#define PTD5_OUT     GPIOD->PDORs.PDOR5
+#define PTD6_OUT     GPIOD->PDORs.PDOR6
+#define PTD7_OUT     GPIOD->PDORs.PDOR7
+#define PTD8_OUT     GPIOD->PDORs.PDOR8
+#define PTD9_OUT     GPIOD->PDORs.PDOR9
+#define PTD10_OUT    GPIOD->PDORs.PDOR10
+#define PTD11_OUT    GPIOD->PDORs.PDOR11
+#define PTD12_OUT    GPIOD->PDORs.PDOR12
+#define PTD13_OUT    GPIOD->PDORs.PDOR13
+#define PTD14_OUT    GPIOD->PDORs.PDOR14
+#define PTD15_OUT    GPIOD->PDORs.PDOR15
+#define PTD16_OUT    GPIOD->PDORs.PDOR16
+#define PTD17_OUT    GPIOD->PDORs.PDOR17
+#define PTD18_OUT    GPIOD->PDORs.PDOR18
+#define PTD19_OUT    GPIOD->PDORs.PDOR19
+#define PTD20_OUT    GPIOD->PDORs.PDOR20
+#define PTD21_OUT    GPIOD->PDORs.PDOR21
+#define PTD22_OUT    GPIOD->PDORs.PDOR22
+#define PTD23_OUT    GPIOD->PDORs.PDOR23
+#define PTD24_OUT    GPIOD->PDORs.PDOR24
+#define PTD25_OUT    GPIOD->PDORs.PDOR25
+#define PTD26_OUT    GPIOD->PDORs.PDOR26
+#define PTD27_OUT    GPIOD->PDORs.PDOR27
+#define PTD28_OUT    GPIOD->PDORs.PDOR28
+#define PTD29_OUT    GPIOD->PDORs.PDOR29
+#define PTD30_OUT    GPIOD->PDORs.PDOR30
+#define PTD31_OUT    GPIOD->PDORs.PDOR31
+
+//定义PTE的端口  
+#define PTE0_OUT     GPIOE->PDORs.PDOR0
+#define PTE1_OUT     GPIOE->PDORs.PDOR1
+#define PTE2_OUT     GPIOE->PDORs.PDOR2
+#define PTE3_OUT     GPIOE->PDORs.PDOR3
+#define PTE4_OUT     GPIOE->PDORs.PDOR4
+#define PTE5_OUT     GPIOE->PDORs.PDOR5
+#define PTE6_OUT     GPIOE->PDORs.PDOR6
+#define PTE7_OUT     GPIOE->PDORs.PDOR7
+#define PTE8_OUT     GPIOE->PDORs.PDOR8
+#define PTE9_OUT     GPIOE->PDORs.PDOR9
+#define PTE10_OUT    GPIOE->PDORs.PDOR10
+#define PTE11_OUT    GPIOE->PDORs.PDOR11
+#define PTE12_OUT    GPIOE->PDORs.PDOR12
+#define PTE13_OUT    GPIOE->PDORs.PDOR13
+#define PTE14_OUT    GPIOE->PDORs.PDOR14
+#define PTE15_OUT    GPIOE->PDORs.PDOR15
+#define PTE16_OUT    GPIOE->PDORs.PDOR16
+#define PTE17_OUT    GPIOE->PDORs.PDOR17
+#define PTE18_OUT    GPIOE->PDORs.PDOR18
+#define PTE19_OUT    GPIOE->PDORs.PDOR19
+#define PTE20_OUT    GPIOE->PDORs.PDOR20
+#define PTE21_OUT    GPIOE->PDORs.PDOR21
+#define PTE22_OUT    GPIOE->PDORs.PDOR22
+#define PTE23_OUT    GPIOE->PDORs.PDOR23
+#define PTE24_OUT    GPIOE->PDORs.PDOR24
+#define PTE25_OUT    GPIOE->PDORs.PDOR25
+#define PTE26_OUT    GPIOE->PDORs.PDOR26
+#define PTE27_OUT    GPIOE->PDORs.PDOR27
+#define PTE28_OUT    GPIOE->PDORs.PDOR28
+#define PTE29_OUT    GPIOE->PDORs.PDOR29
+#define PTE30_OUT    GPIOE->PDORs.PDOR30
+#define PTE31_OUT    GPIOE->PDORs.PDOR31
+
+//定义PTA的输出输入方向  
+#define DDRA0       GPIOA->DDRs.DDR0
+#define DDRA1       GPIOA->DDRs.DDR1
+#define DDRA2       GPIOA->DDRs.DDR2
+#define DDRA3       GPIOA->DDRs.DDR3
+#define DDRA4       GPIOA->DDRs.DDR4
+#define DDRA5       GPIOA->DDRs.DDR5
+#define DDRA6       GPIOA->DDRs.DDR6
+#define DDRA7       GPIOA->DDRs.DDR7
+#define DDRA8       GPIOA->DDRs.DDR8
+#define DDRA9       GPIOA->DDRs.DDR9
+#define DDRA10      GPIOA->DDRs.DDR10
+#define DDRA11      GPIOA->DDRs.DDR11
+#define DDRA12      GPIOA->DDRs.DDR12
+#define DDRA13      GPIOA->DDRs.DDR13
+#define DDRA14      GPIOA->DDRs.DDR14
+#define DDRA15      GPIOA->DDRs.DDR15
+#define DDRA16      GPIOA->DDRs.DDR16
+#define DDRA17      GPIOA->DDRs.DDR17
+#define DDRA18      GPIOA->DDRs.DDR18
+#define DDRA19      GPIOA->DDRs.DDR19
+#define DDRA20      GPIOA->DDRs.DDR20
+#define DDRA21      GPIOA->DDRs.DDR21
+#define DDRA22      GPIOA->DDRs.DDR22
+#define DDRA23      GPIOA->DDRs.DDR23
+#define DDRA24      GPIOA->DDRs.DDR24
+#define DDRA25      GPIOA->DDRs.DDR25
+#define DDRA26      GPIOA->DDRs.DDR26
+#define DDRA27      GPIOA->DDRs.DDR27
+#define DDRA28      GPIOA->DDRs.DDR28
+#define DDRA29      GPIOA->DDRs.DDR29
+#define DDRA30      GPIOA->DDRs.DDR30
+#define DDRA31      GPIOA->DDRs.DDR31
+
+//定义PTB的输出输入方向  
+#define DDRB0       GPIOB->DDRs.DDR0
+#define DDRB1       GPIOB->DDRs.DDR1
+#define DDRB2       GPIOB->DDRs.DDR2
+#define DDRB3       GPIOB->DDRs.DDR3
+#define DDRB4       GPIOB->DDRs.DDR4
+#define DDRB5       GPIOB->DDRs.DDR5
+#define DDRB6       GPIOB->DDRs.DDR6
+#define DDRB7       GPIOB->DDRs.DDR7
+#define DDRB8       GPIOB->DDRs.DDR8
+#define DDRB9       GPIOB->DDRs.DDR9
+#define DDRB10      GPIOB->DDRs.DDR10
+#define DDRB11      GPIOB->DDRs.DDR11
+#define DDRB12      GPIOB->DDRs.DDR12
+#define DDRB13      GPIOB->DDRs.DDR13
+#define DDRB14      GPIOB->DDRs.DDR14
+#define DDRB15      GPIOB->DDRs.DDR15
+#define DDRB16      GPIOB->DDRs.DDR16
+#define DDRB17      GPIOB->DDRs.DDR17
+#define DDRB18      GPIOB->DDRs.DDR18
+#define DDRB19      GPIOB->DDRs.DDR19
+#define DDRB20      GPIOB->DDRs.DDR20
+#define DDRB21      GPIOB->DDRs.DDR21
+#define DDRB22      GPIOB->DDRs.DDR22
+#define DDRB23      GPIOB->DDRs.DDR23
+#define DDRB24      GPIOB->DDRs.DDR24
+#define DDRB25      GPIOB->DDRs.DDR25
+#define DDRB26      GPIOB->DDRs.DDR26
+#define DDRB27      GPIOB->DDRs.DDR27
+#define DDRB28      GPIOB->DDRs.DDR28
+#define DDRB29      GPIOB->DDRs.DDR29
+#define DDRB30      GPIOB->DDRs.DDR30
+#define DDRB31      GPIOB->DDRs.DDR31
+
+//定义PTC的输出输入方向  
+#define DDRC0       GPIOC->DDRs.DDR0
+#define DDRC1       GPIOC->DDRs.DDR1
+#define DDRC2       GPIOC->DDRs.DDR2
+#define DDRC3       GPIOC->DDRs.DDR3
+#define DDRC4       GPIOC->DDRs.DDR4
+#define DDRC5       GPIOC->DDRs.DDR5
+#define DDRC6       GPIOC->DDRs.DDR6
+#define DDRC7       GPIOC->DDRs.DDR7
+#define DDRC8       GPIOC->DDRs.DDR8
+#define DDRC9       GPIOC->DDRs.DDR9
+#define DDRC10      GPIOC->DDRs.DDR10
+#define DDRC11      GPIOC->DDRs.DDR11
+#define DDRC12      GPIOC->DDRs.DDR12
+#define DDRC13      GPIOC->DDRs.DDR13
+#define DDRC14      GPIOC->DDRs.DDR14
+#define DDRC15      GPIOC->DDRs.DDR15
+#define DDRC16      GPIOC->DDRs.DDR16
+#define DDRC17      GPIOC->DDRs.DDR17
+#define DDRC18      GPIOC->DDRs.DDR18
+#define DDRC19      GPIOC->DDRs.DDR19
+#define DDRC20      GPIOC->DDRs.DDR20
+#define DDRC21      GPIOC->DDRs.DDR21
+#define DDRC22      GPIOC->DDRs.DDR22
+#define DDRC23      GPIOC->DDRs.DDR23
+#define DDRC24      GPIOC->DDRs.DDR24
+#define DDRC25      GPIOC->DDRs.DDR25
+#define DDRC26      GPIOC->DDRs.DDR26
+#define DDRC27      GPIOC->DDRs.DDR27
+#define DDRC28      GPIOC->DDRs.DDR28
+#define DDRC29      GPIOC->DDRs.DDR29
+#define DDRC30      GPIOC->DDRs.DDR30
+#define DDRC31      GPIOC->DDRs.DDR31
+
+//定义PTD的输出输入方向  
+#define DDRD0       GPIOD->DDRs.DDR0
+#define DDRD1       GPIOD->DDRs.DDR1
+#define DDRD2       GPIOD->DDRs.DDR2
+#define DDRD3       GPIOD->DDRs.DDR3
+#define DDRD4       GPIOD->DDRs.DDR4
+#define DDRD5       GPIOD->DDRs.DDR5
+#define DDRD6       GPIOD->DDRs.DDR6
+#define DDRD7       GPIOD->DDRs.DDR7
+#define DDRD8       GPIOD->DDRs.DDR8
+#define DDRD9       GPIOD->DDRs.DDR9
+#define DDRD10      GPIOD->DDRs.DDR10
+#define DDRD11      GPIOD->DDRs.DDR11
+#define DDRD12      GPIOD->DDRs.DDR12
+#define DDRD13      GPIOD->DDRs.DDR13
+#define DDRD14      GPIOD->DDRs.DDR14
+#define DDRD15      GPIOD->DDRs.DDR15
+#define DDRD16      GPIOD->DDRs.DDR16
+#define DDRD17      GPIOD->DDRs.DDR17
+#define DDRD18      GPIOD->DDRs.DDR18
+#define DDRD19      GPIOD->DDRs.DDR19
+#define DDRD20      GPIOD->DDRs.DDR20
+#define DDRD21      GPIOD->DDRs.DDR21
+#define DDRD22      GPIOD->DDRs.DDR22
+#define DDRD23      GPIOD->DDRs.DDR23
+#define DDRD24      GPIOD->DDRs.DDR24
+#define DDRD25      GPIOD->DDRs.DDR25
+#define DDRD26      GPIOD->DDRs.DDR26
+#define DDRD27      GPIOD->DDRs.DDR27
+#define DDRD28      GPIOD->DDRs.DDR28
+#define DDRD29      GPIOD->DDRs.DDR29
+#define DDRD30      GPIOD->DDRs.DDR30
+#define DDRD31      GPIOD->DDRs.DDR31
+
+//定义PTE的输出输入方向  
+#define DDRE0       GPIOE->DDRs.DDR0
+#define DDRE1       GPIOE->DDRs.DDR1
+#define DDRE2       GPIOE->DDRs.DDR2
+#define DDRE3       GPIOE->DDRs.DDR3
+#define DDRE4       GPIOE->DDRs.DDR4
+#define DDRE5       GPIOE->DDRs.DDR5
+#define DDRE6       GPIOE->DDRs.DDR6
+#define DDRE7       GPIOE->DDRs.DDR7
+#define DDRE8       GPIOE->DDRs.DDR8
+#define DDRE9       GPIOE->DDRs.DDR9
+#define DDRE10      GPIOE->DDRs.DDR10
+#define DDRE11      GPIOE->DDRs.DDR11
+#define DDRE12      GPIOE->DDRs.DDR12
+#define DDRE13      GPIOE->DDRs.DDR13
+#define DDRE14      GPIOE->DDRs.DDR14
+#define DDRE15      GPIOE->DDRs.DDR15
+#define DDRE16      GPIOE->DDRs.DDR16
+#define DDRE17      GPIOE->DDRs.DDR17
+#define DDRE18      GPIOE->DDRs.DDR18
+#define DDRE19      GPIOE->DDRs.DDR19
+#define DDRE20      GPIOE->DDRs.DDR20
+#define DDRE21      GPIOE->DDRs.DDR21
+#define DDRE22      GPIOE->DDRs.DDR22
+#define DDRE23      GPIOE->DDRs.DDR23
+#define DDRE24      GPIOE->DDRs.DDR24
+#define DDRE25      GPIOE->DDRs.DDR25
+#define DDRE26      GPIOE->DDRs.DDR26
+#define DDRE27      GPIOE->DDRs.DDR27
+#define DDRE28      GPIOE->DDRs.DDR28
+#define DDRE29      GPIOE->DDRs.DDR29
+#define DDRE30      GPIOE->DDRs.DDR30
+#define DDRE31      GPIOE->DDRs.DDR31
+
+
+//定义PTA的输入端口  
+#define PTA0_IN     GPIOA->PDIRs.PDIR0
+#define PTA1_IN     GPIOA->PDIRs.PDIR1
+#define PTA2_IN     GPIOA->PDIRs.PDIR2
+#define PTA3_IN     GPIOA->PDIRs.PDIR3
+#define PTA4_IN     GPIOA->PDIRs.PDIR4
+#define PTA5_IN     GPIOA->PDIRs.PDIR5
+#define PTA6_IN     GPIOA->PDIRs.PDIR6
+#define PTA7_IN     GPIOA->PDIRs.PDIR7
+#define PTA8_IN     GPIOA->PDIRs.PDIR8
+#define PTA9_IN     GPIOA->PDIRs.PDIR9
+#define PTA10_IN    GPIOA->PDIRs.PDIR10
+#define PTA11_IN    GPIOA->PDIRs.PDIR11
+#define PTA12_IN    GPIOA->PDIRs.PDIR12
+#define PTA13_IN    GPIOA->PDIRs.PDIR13
+#define PTA14_IN    GPIOA->PDIRs.PDIR14
+#define PTA15_IN    GPIOA->PDIRs.PDIR15
+#define PTA16_IN    GPIOA->PDIRs.PDIR16
+#define PTA17_IN    GPIOA->PDIRs.PDIR17
+#define PTA18_IN    GPIOA->PDIRs.PDIR18
+#define PTA19_IN    GPIOA->PDIRs.PDIR19
+#define PTA20_IN    GPIOA->PDIRs.PDIR20
+#define PTA21_IN    GPIOA->PDIRs.PDIR21
+#define PTA22_IN    GPIOA->PDIRs.PDIR22
+#define PTA23_IN    GPIOA->PDIRs.PDIR23
+#define PTA24_IN    GPIOA->PDIRs.PDIR24
+#define PTA25_IN    GPIOA->PDIRs.PDIR25
+#define PTA26_IN    GPIOA->PDIRs.PDIR26
+#define PTA27_IN    GPIOA->PDIRs.PDIR27
+#define PTA28_IN    GPIOA->PDIRs.PDIR28
+#define PTA29_IN    GPIOA->PDIRs.PDIR29
+#define PTA30_IN    GPIOA->PDIRs.PDIR30
+#define PTA31_IN    GPIOA->PDIRs.PDIR31
+
+//定义PTB的输入端口  
+#define PTB0_IN     GPIOB->PDIRs.PDIR0
+#define PTB1_IN     GPIOB->PDIRs.PDIR1
+#define PTB2_IN     GPIOB->PDIRs.PDIR2
+#define PTB3_IN     GPIOB->PDIRs.PDIR3
+#define PTB4_IN     GPIOB->PDIRs.PDIR4
+#define PTB5_IN     GPIOB->PDIRs.PDIR5
+#define PTB6_IN     GPIOB->PDIRs.PDIR6
+#define PTB7_IN     GPIOB->PDIRs.PDIR7
+#define PTB8_IN     GPIOB->PDIRs.PDIR8
+#define PTB9_IN     GPIOB->PDIRs.PDIR9
+#define PTB10_IN    GPIOB->PDIRs.PDIR10
+#define PTB11_IN    GPIOB->PDIRs.PDIR11
+#define PTB12_IN    GPIOB->PDIRs.PDIR12
+#define PTB13_IN    GPIOB->PDIRs.PDIR13
+#define PTB14_IN    GPIOB->PDIRs.PDIR14
+#define PTB15_IN    GPIOB->PDIRs.PDIR15
+#define PTB16_IN    GPIOB->PDIRs.PDIR16
+#define PTB17_IN    GPIOB->PDIRs.PDIR17
+#define PTB18_IN    GPIOB->PDIRs.PDIR18
+#define PTB19_IN    GPIOB->PDIRs.PDIR19
+#define PTB20_IN    GPIOB->PDIRs.PDIR20
+#define PTB21_IN    GPIOB->PDIRs.PDIR21
+#define PTB22_IN    GPIOB->PDIRs.PDIR22
+#define PTB23_IN    GPIOB->PDIRs.PDIR23
+#define PTB24_IN    GPIOB->PDIRs.PDIR24
+#define PTB25_IN    GPIOB->PDIRs.PDIR25
+#define PTB26_IN    GPIOB->PDIRs.PDIR26
+#define PTB27_IN    GPIOB->PDIRs.PDIR27
+#define PTB28_IN    GPIOB->PDIRs.PDIR28
+#define PTB29_IN    GPIOB->PDIRs.PDIR29
+#define PTB30_IN    GPIOB->PDIRs.PDIR30
+#define PTB31_IN    GPIOB->PDIRs.PDIR31
+
+//定义PTC的输入端口  
+#define PTC0_IN     GPIOC->PDIRs.PDIR0
+#define PTC1_IN     GPIOC->PDIRs.PDIR1
+#define PTC2_IN     GPIOC->PDIRs.PDIR2
+#define PTC3_IN     GPIOC->PDIRs.PDIR3
+#define PTC4_IN     GPIOC->PDIRs.PDIR4
+#define PTC5_IN     GPIOC->PDIRs.PDIR5
+#define PTC6_IN     GPIOC->PDIRs.PDIR6
+#define PTC7_IN     GPIOC->PDIRs.PDIR7
+#define PTC8_IN     GPIOC->PDIRs.PDIR8
+#define PTC9_IN     GPIOC->PDIRs.PDIR9
+#define PTC10_IN    GPIOC->PDIRs.PDIR10
+#define PTC11_IN    GPIOC->PDIRs.PDIR11
+#define PTC12_IN    GPIOC->PDIRs.PDIR12
+#define PTC13_IN    GPIOC->PDIRs.PDIR13
+#define PTC14_IN    GPIOC->PDIRs.PDIR14
+#define PTC15_IN    GPIOC->PDIRs.PDIR15
+#define PTC16_IN    GPIOC->PDIRs.PDIR16
+#define PTC17_IN    GPIOC->PDIRs.PDIR17
+#define PTC18_IN    GPIOC->PDIRs.PDIR18
+#define PTC19_IN    GPIOC->PDIRs.PDIR19
+#define PTC20_IN    GPIOC->PDIRs.PDIR20
+#define PTC21_IN    GPIOC->PDIRs.PDIR21
+#define PTC22_IN    GPIOC->PDIRs.PDIR22
+#define PTC23_IN    GPIOC->PDIRs.PDIR23
+#define PTC24_IN    GPIOC->PDIRs.PDIR24
+#define PTC25_IN    GPIOC->PDIRs.PDIR25
+#define PTC26_IN    GPIOC->PDIRs.PDIR26
+#define PTC27_IN    GPIOC->PDIRs.PDIR27
+#define PTC28_IN    GPIOC->PDIRs.PDIR28
+#define PTC29_IN    GPIOC->PDIRs.PDIR29
+#define PTC30_IN    GPIOC->PDIRs.PDIR30
+#define PTC31_IN    GPIOC->PDIRs.PDIR31
+
+//定义PTD的输入端口  
+#define PTD0_IN     GPIOD->PDIRs.PDIR0
+#define PTD1_IN     GPIOD->PDIRs.PDIR1
+#define PTD2_IN     GPIOD->PDIRs.PDIR2
+#define PTD3_IN     GPIOD->PDIRs.PDIR3
+#define PTD4_IN     GPIOD->PDIRs.PDIR4
+#define PTD5_IN     GPIOD->PDIRs.PDIR5
+#define PTD6_IN     GPIOD->PDIRs.PDIR6
+#define PTD7_IN     GPIOD->PDIRs.PDIR7
+#define PTD8_IN     GPIOD->PDIRs.PDIR8
+#define PTD9_IN     GPIOD->PDIRs.PDIR9
+#define PTD10_IN    GPIOD->PDIRs.PDIR10
+#define PTD11_IN    GPIOD->PDIRs.PDIR11
+#define PTD12_IN    GPIOD->PDIRs.PDIR12
+#define PTD13_IN    GPIOD->PDIRs.PDIR13
+#define PTD14_IN    GPIOD->PDIRs.PDIR14
+#define PTD15_IN    GPIOD->PDIRs.PDIR15
+#define PTD16_IN    GPIOD->PDIRs.PDIR16
+#define PTD17_IN    GPIOD->PDIRs.PDIR17
+#define PTD18_IN    GPIOD->PDIRs.PDIR18
+#define PTD19_IN    GPIOD->PDIRs.PDIR19
+#define PTD20_IN    GPIOD->PDIRs.PDIR20
+#define PTD21_IN    GPIOD->PDIRs.PDIR21
+#define PTD22_IN    GPIOD->PDIRs.PDIR22
+#define PTD23_IN    GPIOD->PDIRs.PDIR23
+#define PTD24_IN    GPIOD->PDIRs.PDIR24
+#define PTD25_IN    GPIOD->PDIRs.PDIR25
+#define PTD26_IN    GPIOD->PDIRs.PDIR26
+#define PTD27_IN    GPIOD->PDIRs.PDIR27
+#define PTD28_IN    GPIOD->PDIRs.PDIR28
+#define PTD29_IN    GPIOD->PDIRs.PDIR29
+#define PTD30_IN    GPIOD->PDIRs.PDIR30
+#define PTD31_IN    GPIOD->PDIRs.PDIR31
+
+//定义PTE的输入端口  
+#define PTE0_IN     GPIOE->PDIRs.PDIR0
+#define PTE1_IN     GPIOE->PDIRs.PDIR1
+#define PTE2_IN     GPIOE->PDIRs.PDIR2
+#define PTE3_IN     GPIOE->PDIRs.PDIR3
+#define PTE4_IN     GPIOE->PDIRs.PDIR4
+#define PTE5_IN     GPIOE->PDIRs.PDIR5
+#define PTE6_IN     GPIOE->PDIRs.PDIR6
+#define PTE7_IN     GPIOE->PDIRs.PDIR7
+#define PTE8_IN     GPIOE->PDIRs.PDIR8
+#define PTE9_IN     GPIOE->PDIRs.PDIR9
+#define PTE10_IN    GPIOE->PDIRs.PDIR10
+#define PTE11_IN    GPIOE->PDIRs.PDIR11
+#define PTE12_IN    GPIOE->PDIRs.PDIR12
+#define PTE13_IN    GPIOE->PDIRs.PDIR13
+#define PTE14_IN    GPIOE->PDIRs.PDIR14
+#define PTE15_IN    GPIOE->PDIRs.PDIR15
+#define PTE16_IN    GPIOE->PDIRs.PDIR16
+#define PTE17_IN    GPIOE->PDIRs.PDIR17
+#define PTE18_IN    GPIOE->PDIRs.PDIR18
+#define PTE19_IN    GPIOE->PDIRs.PDIR19
+#define PTE20_IN    GPIOE->PDIRs.PDIR20
+#define PTE21_IN    GPIOE->PDIRs.PDIR21
+#define PTE22_IN    GPIOE->PDIRs.PDIR22
+#define PTE23_IN    GPIOE->PDIRs.PDIR23
+#define PTE24_IN    GPIOE->PDIRs.PDIR24
+#define PTE25_IN    GPIOE->PDIRs.PDIR25
+#define PTE26_IN    GPIOE->PDIRs.PDIR26
+#define PTE27_IN    GPIOE->PDIRs.PDIR27
+#define PTE28_IN    GPIOE->PDIRs.PDIR28
+#define PTE29_IN    GPIOE->PDIRs.PDIR29
+#define PTE30_IN    GPIOE->PDIRs.PDIR30
+#define PTE31_IN    GPIOE->PDIRs.PDIR31
+
+//定义PTA的8位端口  
+#define PTA_BYTE0_OUT   GPIOA->PDORByte.Byte0
+#define PTA_BYTE1_OUT   GPIOA->PDORByte.Byte1
+#define PTA_BYTE2_OUT   GPIOA->PDORByte.Byte2
+#define PTA_BYTE3_OUT   GPIOA->PDORByte.Byte3
+
+//定义PTB的8位端口  
+#define PTB_BYTE0_OUT   GPIOB->PDORByte.Byte0
+#define PTB_BYTE1_OUT   GPIOB->PDORByte.Byte1
+#define PTB_BYTE2_OUT   GPIOB->PDORByte.Byte2
+#define PTB_BYTE3_OUT   GPIOB->PDORByte.Byte3
+
+//定义PTC的8位端口  
+#define PTC_BYTE0_OUT   GPIOC->PDORByte.Byte0
+#define PTC_BYTE1_OUT   GPIOC->PDORByte.Byte1
+#define PTC_BYTE2_OUT   GPIOC->PDORByte.Byte2
+#define PTC_BYTE3_OUT   GPIOC->PDORByte.Byte3
+
+//定义PTD的8位端口  
+#define PTD_BYTE0_OUT   GPIOD->PDORByte.Byte0
+#define PTD_BYTE1_OUT   GPIOD->PDORByte.Byte1
+#define PTD_BYTE2_OUT   GPIOD->PDORByte.Byte2
+#define PTD_BYTE3_OUT   GPIOD->PDORByte.Byte3
+
+//定义PTE的8位端口  
+#define PTE_BYTE0_OUT   GPIOE->PDORByte.Byte0
+#define PTE_BYTE1_OUT   GPIOE->PDORByte.Byte1
+#define PTE_BYTE2_OUT   GPIOE->PDORByte.Byte2
+#define PTE_BYTE3_OUT   GPIOE->PDORByte.Byte3
+
+//定义PTA的8位输出输入方向  
+#define DDRA_BYTE0   GPIOA->DDRByte.Byte0
+#define DDRA_BYTE1   GPIOA->DDRByte.Byte1
+#define DDRA_BYTE2   GPIOA->DDRByte.Byte2
+#define DDRA_BYTE3   GPIOA->DDRByte.Byte3
+
+//定义PTB的8位输出输入方向  
+#define DDRB_BYTE0   GPIOB->DDRByte.Byte0
+#define DDRB_BYTE1   GPIOB->DDRByte.Byte1
+#define DDRB_BYTE2   GPIOB->DDRByte.Byte2
+#define DDRB_BYTE3   GPIOB->DDRByte.Byte3
+
+//定义PTC的8位输出输入方向  
+#define DDRC_BYTE0   GPIOC->DDRByte.Byte0
+#define DDRC_BYTE1   GPIOC->DDRByte.Byte1
+#define DDRC_BYTE2   GPIOC->DDRByte.Byte2
+#define DDRC_BYTE3   GPIOC->DDRByte.Byte3
+
+//定义PTD的8位输出输入方向  
+#define DDRD_BYTE0   GPIOD->DDRByte.Byte0
+#define DDRD_BYTE1   GPIOD->DDRByte.Byte1
+#define DDRD_BYTE2   GPIOD->DDRByte.Byte2
+#define DDRD_BYTE3   GPIOD->DDRByte.Byte3
+
+//定义PTE的8位输出输入方向  
+#define DDRE_BYTE0   GPIOE->DDRByte.Byte0
+#define DDRE_BYTE1   GPIOE->DDRByte.Byte1
+#define DDRE_BYTE2   GPIOE->DDRByte.Byte2
+#define DDRE_BYTE3   GPIOE->DDRByte.Byte3
+
+//定义PTA的8位输入端口  
+#define PTA_BYTE0_IN   GPIOA->PDIRByte.Byte0
+#define PTA_BYTE1_IN   GPIOA->PDIRByte.Byte1
+#define PTA_BYTE2_IN   GPIOA->PDIRByte.Byte2
+#define PTA_BYTE3_IN   GPIOA->PDIRByte.Byte3
+
+//定义PTB的8位输入端口  
+#define PTB_BYTE0_IN   GPIOB->PDIRByte.Byte0
+#define PTB_BYTE1_IN   GPIOB->PDIRByte.Byte1
+#define PTB_BYTE2_IN   GPIOB->PDIRByte.Byte2
+#define PTB_BYTE3_IN   GPIOB->PDIRByte.Byte3
+
+//定义PTC的8位输入端口  
+#define PTC_BYTE0_IN   GPIOC->PDIRByte.Byte0
+#define PTC_BYTE1_IN   GPIOC->PDIRByte.Byte1
+#define PTC_BYTE2_IN   GPIOC->PDIRByte.Byte2
+#define PTC_BYTE3_IN   GPIOC->PDIRByte.Byte3
+
+//定义PTD的8位输入端口  
+#define PTD_BYTE0_IN   GPIOD->PDIRByte.Byte0
+#define PTD_BYTE1_IN   GPIOD->PDIRByte.Byte1
+#define PTD_BYTE2_IN   GPIOD->PDIRByte.Byte2
+#define PTD_BYTE3_IN   GPIOD->PDIRByte.Byte3
+
+//定义PTE的8位输入端口  
+#define PTE_BYTE0_IN   GPIOE->PDIRByte.Byte0
+#define PTE_BYTE1_IN   GPIOE->PDIRByte.Byte1
+#define PTE_BYTE2_IN   GPIOE->PDIRByte.Byte2
+#define PTE_BYTE3_IN   GPIOE->PDIRByte.Byte3
+
+//定义PTA的16位端口  
+#define PTA_WORD0_OUT   GPIOA->PDORWord.Word0
+#define PTA_WORD1_OUT   GPIOA->PDORWord.Word1
+
+//定义PTB的16位端口  
+#define PTB_WORD0_OUT   GPIOB->PDORWord.Word0
+#define PTB_WORD1_OUT   GPIOB->PDORWord.Word1
+
+//定义PTC的16位端口  
+#define PTC_WORD0_OUT   GPIOC->PDORWord.Word0
+#define PTC_WORD1_OUT   GPIOC->PDORWord.Word1
+
+//定义PTD的16位端口  
+#define PTD_WORD0_OUT   GPIOD->PDORWord.Word0
+#define PTD_WORD1_OUT   GPIOD->PDORWord.Word1
+
+//定义PTE的16位端口  
+#define PTE_WORD0_OUT   GPIOE->PDORWord.Word0
+#define PTE_WORD1_OUT   GPIOE->PDORWord.Word1
+
+//定义PTA的16位输出输入方向  
+#define DDRA_WORD0   GPIOA->DDRWord.Word0
+#define DDRA_WORD1   GPIOA->DDRWord.Word1
+
+//定义PTB的16位输出输入方向  
+#define DDRB_WORD0   GPIOB->DDRWord.Word0
+#define DDRB_WORD1   GPIOB->DDRWord.Word1
+
+//定义PTC的16位输出输入方向  
+#define DDRC_WORD0   GPIOC->DDRWord.Word0
+#define DDRC_WORD1   GPIOC->DDRWord.Word1
+
+//定义PTD的16位输出输入方向  
+#define DDRD_WORD0   GPIOD->DDRWord.Word0
+#define DDRD_WORD1   GPIOD->DDRWord.Word1
+
+//定义PTE的16位输出输入方向  
+#define DDRE_WORD0   GPIOE->DDRWord.Word0
+#define DDRE_WORD1   GPIOE->DDRWord.Word1
+
+//定义PTA的16位输入端口  
+#define PTA_WORD0_IN   GPIOA->PDIRWord.Word0
+#define PTA_WORD1_IN   GPIOA->PDIRWord.Word1
+
+//定义PTB的16位输入端口  
+#define PTB_WORD0_IN   GPIOB->PDIRWord.Word0
+#define PTB_WORD1_IN   GPIOB->PDIRWord.Word1
+
+//定义PTC的16位输入端口  
+#define PTC_WORD0_IN   GPIOC->PDIRWord.Word0
+#define PTC_WORD1_IN   GPIOC->PDIRWord.Word1
+
+//定义PTD的16位输入端口  
+#define PTD_WORD0_IN   GPIOD->PDIRWord.Word0
+#define PTD_WORD1_IN   GPIOD->PDIRWord.Word1
+
+//定义PTE的16位输入端口  
+#define PTE_WORD0_IN   GPIOE->PDIRWord.Word0
+#define PTE_WORD1_IN   GPIOE->PDIRWord.Word1
+
+#endif

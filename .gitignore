@@ -1,0 +1,9 @@
+/debug/
+/.vs/
+.*.swp
+*.tmp
+*.out
+*.o
+*.pbi
+*.xcl
+*.map

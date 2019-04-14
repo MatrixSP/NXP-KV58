@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{90F88886-7CC5-E391-A5DE-D139910A1920}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Sora_lib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>bin\Debug\</OutDir>
+    <IntDir>obj\Debug\</IntDir>
+    <TargetName>Sora_lib</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <IncludePath>$(VC_IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>bin\Release\</OutDir>
+    <IntDir>obj\Release\</IntDir>
+    <TargetName>Sora_lib</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <IncludePath>$(VC_IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>DEBUG;CPU_MKV58F1M0VLQ24;TWR_KV58F220M;TOWER;ARM_MATH_CM7;ARM_MATH_MATRIX_CHECK;ARM_MATH_ROUNDING;__FPU_PRESENT;__FPU_USED;_IAR_;__ICCARM__;_Pragma(x)=;__interrupt=;__packed=;__weak=;__intrinsic;__IAR_FT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>board;source;CMSIS;board\src;doc;drivers;startup;utilities;middleware;middleware\dma_manager;device;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>NDEBUG;_IAR_;__ICCARM__;_Pragma(x)=;__interrupt=;__packed=;__weak=;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="CMSIS\MKV58F24.h" />
+    <ClInclude Include="CMSIS\MKV58F24_features.h" />
+    <ClInclude Include="CMSIS\arm_common_tables.h" />
+    <ClInclude Include="CMSIS\arm_const_structs.h" />
+    <ClInclude Include="CMSIS\arm_math.h" />
+    <ClInclude Include="CMSIS\cmsis_armcc.h" />
+    <ClInclude Include="CMSIS\cmsis_armclang.h" />
+    <ClInclude Include="CMSIS\cmsis_compiler.h" />
+    <ClInclude Include="CMSIS\cmsis_gcc.h" />
+    <ClInclude Include="CMSIS\cmsis_iccarm.h" />
+    <ClInclude Include="CMSIS\cmsis_version.h" />
+    <ClInclude Include="CMSIS\core_armv8mbl.h" />
+    <ClInclude Include="CMSIS\core_armv8mml.h" />
+    <ClInclude Include="CMSIS\core_cm7.h" />
+    <ClInclude Include="CMSIS\fsl_device_registers.h" />
+    <ClInclude Include="CMSIS\mpu_armv7.h" />
+    <ClInclude Include="CMSIS\mpu_armv8.h" />
+    <ClInclude Include="CMSIS\system_MKV58F24.h" />
+    <ClInclude Include="board\pin_mux.h" />
+    <ClInclude Include="board\src\clock_config.h" />
+    <ClInclude Include="device\sora_camera.h" />
+    <ClInclude Include="device\sora_camera_mt9v032.h" />
+    <ClInclude Include="device\sora_lcd.h" />
+    <ClInclude Include="drivers\fsl_adc16.h" />
+    <ClInclude Include="drivers\fsl_aoi.h" />
+    <ClInclude Include="drivers\fsl_clock.h" />
+    <ClInclude Include="drivers\fsl_cmp.h" />
+    <ClInclude Include="drivers\fsl_common.h" />
+    <ClInclude Include="drivers\fsl_crc.h" />
+    <ClInclude Include="drivers\fsl_dac.h" />
+    <ClInclude Include="drivers\fsl_dmamux.h" />
+    <ClInclude Include="drivers\fsl_dspi.h" />
+    <ClInclude Include="drivers\fsl_dspi_edma.h" />
+    <ClInclude Include="drivers\fsl_edma.h" />
+    <ClInclude Include="drivers\fsl_enc.h" />
+    <ClInclude Include="drivers\fsl_enet.h" />
+    <ClInclude Include="drivers\fsl_ewm.h" />
+    <ClInclude Include="drivers\fsl_flash.h" />
+    <ClInclude Include="drivers\fsl_flexbus.h" />
+    <ClInclude Include="drivers\fsl_flexcan.h" />
+    <ClInclude Include="drivers\fsl_flexcan_edma.h" />
+    <ClInclude Include="drivers\fsl_ftfx_adapter.h" />
+    <ClInclude Include="drivers\fsl_ftfx_cache.h" />
+    <ClInclude Include="drivers\fsl_ftfx_controller.h" />
+    <ClInclude Include="drivers\fsl_ftfx_features.h" />
+    <ClInclude Include="drivers\fsl_ftfx_flash.h" />
+    <ClInclude Include="drivers\fsl_ftfx_flexnvm.h" />
+    <ClInclude Include="drivers\fsl_ftfx_utilities.h" />
+    <ClInclude Include="drivers\fsl_ftm.h" />
+    <ClInclude Include="drivers\fsl_gpio.h" />
+    <ClInclude Include="drivers\fsl_hsadc.h" />
+    <ClInclude Include="drivers\fsl_i2c.h" />
+    <ClInclude Include="drivers\fsl_i2c_edma.h" />
+    <ClInclude Include="drivers\fsl_llwu.h" />
+    <ClInclude Include="drivers\fsl_lptmr.h" />
+    <ClInclude Include="drivers\fsl_pdb.h" />
+    <ClInclude Include="drivers\fsl_pit.h" />
+    <ClInclude Include="drivers\fsl_pmc.h" />
+    <ClInclude Include="drivers\fsl_port.h" />
+    <ClInclude Include="drivers\fsl_pwm.h" />
+    <ClInclude Include="drivers\fsl_rcm.h" />
+    <ClInclude Include="drivers\fsl_sim.h" />
+    <ClInclude Include="drivers\fsl_smc.h" />
+    <ClInclude Include="drivers\fsl_sysmpu.h" />
+    <ClInclude Include="drivers\fsl_trng.h" />
+    <ClInclude Include="drivers\fsl_uart.h" />
+    <ClInclude Include="drivers\fsl_uart_edma.h" />
+    <ClInclude Include="drivers\fsl_wdog.h" />
+    <ClInclude Include="drivers\fsl_xbara.h" />
+    <ClInclude Include="drivers\fsl_xbarb.h" />
+    <ClInclude Include="middleware\dma_manager\fsl_dma_manager.h" />
+    <ClInclude Include="source\common.h" />
+    <ClInclude Include="source\include.h" />
+    <ClInclude Include="source\sora_dwt.h" />
+    <ClInclude Include="source\sora_edma.h" />
+    <ClInclude Include="source\sora_gpio.h" />
+    <ClInclude Include="source\sora_gpio_cfg.h" />
+    <ClInclude Include="source\sora_lptmr.h" />
+    <ClInclude Include="source\sora_pit.h" />
+    <ClInclude Include="source\sora_port.h" />
+    <ClInclude Include="source\sora_pwm.h" />
+    <ClInclude Include="source\sora_system.h" />
+    <ClInclude Include="source\sora_uart.h" />
+    <ClInclude Include="utilities\fsl_debug_console.h" />
+    <ClInclude Include="utilities\fsl_debug_console_conf.h" />
+    <ClInclude Include="utilities\fsl_io.h" />
+    <ClInclude Include="utilities\fsl_log.h" />
+    <ClInclude Include="utilities\fsl_shell.h" />
+    <ClInclude Include="utilities\fsl_str.h" />
+    <ClInclude Include="utilities\fsl_swo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CMSIS\system_MKV58F24.c" />
+    <ClCompile Include="board\pin_mux.c" />
+    <ClCompile Include="board\src\clock_config.c" />
+    <ClCompile Include="device\sora_camera.c" />
+    <ClCompile Include="device\sora_camera_mt9v032.c" />
+    <ClCompile Include="device\sora_lcd.c" />
+    <ClCompile Include="drivers\fsl_adc16.c" />
+    <ClCompile Include="drivers\fsl_aoi.c" />
+    <ClCompile Include="drivers\fsl_clock.c" />
+    <ClCompile Include="drivers\fsl_cmp.c" />
+    <ClCompile Include="drivers\fsl_common.c" />
+    <ClCompile Include="drivers\fsl_crc.c" />
+    <ClCompile Include="drivers\fsl_dac.c" />
+    <ClCompile Include="drivers\fsl_dmamux.c" />
+    <ClCompile Include="drivers\fsl_dspi.c" />
+    <ClCompile Include="drivers\fsl_dspi_edma.c" />
+    <ClCompile Include="drivers\fsl_edma.c" />
+    <ClCompile Include="drivers\fsl_enc.c" />
+    <ClCompile Include="drivers\fsl_enet.c" />
+    <ClCompile Include="drivers\fsl_ewm.c" />
+    <ClCompile Include="drivers\fsl_flexbus.c" />
+    <ClCompile Include="drivers\fsl_flexcan.c" />
+    <ClCompile Include="drivers\fsl_flexcan_edma.c" />
+    <ClCompile Include="drivers\fsl_ftfx_cache.c" />
+    <ClCompile Include="drivers\fsl_ftfx_controller.c" />
+    <ClCompile Include="drivers\fsl_ftfx_flash.c" />
+    <ClCompile Include="drivers\fsl_ftfx_flexnvm.c" />
+    <ClCompile Include="drivers\fsl_ftm.c" />
+    <ClCompile Include="drivers\fsl_gpio.c" />
+    <ClCompile Include="drivers\fsl_hsadc.c" />
+    <ClCompile Include="drivers\fsl_i2c.c" />
+    <ClCompile Include="drivers\fsl_i2c_edma.c" />
+    <ClCompile Include="drivers\fsl_llwu.c" />
+    <ClCompile Include="drivers\fsl_lptmr.c" />
+    <ClCompile Include="drivers\fsl_pdb.c" />
+    <ClCompile Include="drivers\fsl_pit.c" />
+    <ClCompile Include="drivers\fsl_pmc.c" />
+    <ClCompile Include="drivers\fsl_pwm.c" />
+    <ClCompile Include="drivers\fsl_rcm.c" />
+    <ClCompile Include="drivers\fsl_sim.c" />
+    <ClCompile Include="drivers\fsl_smc.c" />
+    <ClCompile Include="drivers\fsl_sysmpu.c" />
+    <ClCompile Include="drivers\fsl_trng.c" />
+    <ClCompile Include="drivers\fsl_uart.c" />
+    <ClCompile Include="drivers\fsl_uart_edma.c" />
+    <ClCompile Include="drivers\fsl_wdog.c" />
+    <ClCompile Include="drivers\fsl_xbara.c" />
+    <ClCompile Include="drivers\fsl_xbarb.c" />
+    <ClCompile Include="middleware\dma_manager\fsl_dma_manager.c" />
+    <ClCompile Include="source\main.c" />
+    <ClCompile Include="source\sora_dwt.c" />
+    <ClCompile Include="source\sora_edma.c" />
+    <ClCompile Include="source\sora_gpio.c" />
+    <ClCompile Include="source\sora_lptmr.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\sora_pit.c" />
+    <ClCompile Include="source\sora_port.c" />
+    <ClCompile Include="source\sora_pwm.c" />
+    <ClCompile Include="source\sora_system.c" />
+    <ClCompile Include="source\sora_uart.c" />
+    <ClCompile Include="startup\startup_MKV58F24.s" />
+    <ClCompile Include="utilities\fsl_assert.c" />
+    <ClCompile Include="utilities\fsl_debug_console.c" />
+    <ClCompile Include="utilities\fsl_io.c" />
+    <ClCompile Include="utilities\fsl_log.c" />
+    <ClCompile Include="utilities\fsl_shell.c" />
+    <ClCompile Include="utilities\fsl_str.c" />
+    <ClCompile Include="utilities\fsl_swo.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

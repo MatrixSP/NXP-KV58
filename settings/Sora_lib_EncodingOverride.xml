@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<userOverrides>
+    <override>
+        <path>E:\Work\KV58\IAR\KV58 Test #0.2.0 官方库重建\device\sora_lcd.c</path>
+        <encoding>GB2312</encoding>
+    </override>
+    <override>
+        <path>E:\Work\KV58\IAR\KV58 Test #0.2.0 官方库重建\device\sora_lcd.h</path>
+        <encoding>GB2312</encoding>
+    </override>
+    <override>
+        <path>E:\Work\KV58\IAR\KV58 Test #0.2.0 官方库重建\source\sora_edma.c</path>
+        <encoding>GB2312</encoding>
+    </override>
+    <override>
+        <path>E:\Work\KV58\IAR\KV58 Test #0.2.0 官方库重建\source\sora_gpio.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>E:\Work\KV58\IAR\KV58 Test #0.2.0 官方库重建\source\sora_port.c</path>
+        <encoding>GB2312</encoding>
+    </override>
+    <override>
+        <path>E:\Work\KV58\IAR\KV58 Test #0.2.0 官方库重建\source\sora_pwm.c</path>
+        <encoding>GB2312</encoding>
+    </override>
+</userOverrides>

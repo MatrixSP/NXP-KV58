@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CMSIS">
+      <UniqueIdentifier>{E40DE70C-5022-0FBE-19A4-B21D85770BEF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="board">
+      <UniqueIdentifier>{4DEB2A0F-B9FF-52C0-8281-F61FEE544FF1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="board\src">
+      <UniqueIdentifier>{E4873536-50F2-E9AC-9930-9B5205DAC701}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="device">
+      <UniqueIdentifier>{150F89F8-01B1-B3CE-EA6B-C722D6AC3A1F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="drivers">
+      <UniqueIdentifier>{E4EE1927-50CE-98C2-59E6-2399C544FF23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="middleware">
+      <UniqueIdentifier>{A3A20214-8F5A-4461-F861-1DBDE438DF51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{76FF3A1C-62A1-65F2-4B5C-7946379DEC42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="startup">
+      <UniqueIdentifier>{181ADBAD-84F9-5949-8D11-E51FF96FC0AA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utilities">
+      <UniqueIdentifier>{212A0ED3-8D94-C249-D6D2-73EF427CA09E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CMSIS\MKV58F24.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\MKV58F24_features.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\arm_common_tables.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\arm_const_structs.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\arm_math.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\cmsis_armcc.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\cmsis_armclang.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\cmsis_compiler.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\cmsis_gcc.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\cmsis_iccarm.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\cmsis_version.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\core_armv8mbl.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\core_armv8mml.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\core_cm7.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\fsl_device_registers.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\mpu_armv7.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\mpu_armv8.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="CMSIS\system_MKV58F24.h">
+      <Filter>CMSIS</Filter>
+    </ClInclude>
+    <ClInclude Include="board\pin_mux.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="board\src\clock_config.h">
+      <Filter>board\src</Filter>
+    </ClInclude>
+    <ClInclude Include="device\sora_camera.h">
+      <Filter>device</Filter>
+    </ClInclude>
+    <ClInclude Include="device\sora_camera_mt9v032.h">
+      <Filter>device</Filter>
+    </ClInclude>
+    <ClInclude Include="device\sora_lcd.h">
+      <Filter>device</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_adc16.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_aoi.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_clock.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_cmp.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_common.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_crc.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_dac.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_dmamux.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_dspi.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_dspi_edma.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_edma.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_enc.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_enet.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_ewm.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_flash.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_flexbus.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_flexcan.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_flexcan_edma.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_ftfx_adapter.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_ftfx_cache.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_ftfx_controller.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_ftfx_features.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_ftfx_flash.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_ftfx_flexnvm.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_ftfx_utilities.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_ftm.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_gpio.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_hsadc.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_i2c.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_i2c_edma.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_llwu.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_lptmr.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_pdb.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_pit.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_pmc.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_port.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_pwm.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_rcm.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_sim.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_smc.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_sysmpu.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_trng.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_uart.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_uart_edma.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_wdog.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_xbara.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers\fsl_xbarb.h">
+      <Filter>drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="middleware\dma_manager\fsl_dma_manager.h">
+      <Filter>middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="source\common.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\include.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sora_dwt.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sora_edma.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sora_gpio.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sora_gpio_cfg.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sora_lptmr.h">
+      <Filter>middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sora_pit.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sora_port.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sora_pwm.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sora_system.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sora_uart.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\fsl_debug_console.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\fsl_debug_console_conf.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\fsl_io.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\fsl_log.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\fsl_shell.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\fsl_str.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\fsl_swo.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CMSIS\system_MKV58F24.c">
+      <Filter>CMSIS</Filter>
+    </ClCompile>
+    <ClCompile Include="board\pin_mux.c">
+      <Filter>board</Filter>
+    </ClCompile>
+    <ClCompile Include="board\src\clock_config.c">
+      <Filter>board\src</Filter>
+    </ClCompile>
+    <ClCompile Include="device\sora_camera.c">
+      <Filter>device</Filter>
+    </ClCompile>
+    <ClCompile Include="device\sora_camera_mt9v032.c">
+      <Filter>device</Filter>
+    </ClCompile>
+    <ClCompile Include="device\sora_lcd.c">
+      <Filter>device</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_adc16.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_aoi.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_clock.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_cmp.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_common.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_crc.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_dac.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_dmamux.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_dspi.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_dspi_edma.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_edma.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_enc.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_enet.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_ewm.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_flexbus.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_flexcan.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_flexcan_edma.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_ftfx_cache.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_ftfx_controller.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_ftfx_flash.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_ftfx_flexnvm.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_ftm.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_gpio.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_hsadc.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_i2c.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_i2c_edma.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_llwu.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_lptmr.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_pdb.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_pit.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_pmc.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_pwm.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_rcm.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_sim.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_smc.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_sysmpu.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_trng.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_uart.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_uart_edma.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_wdog.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_xbara.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers\fsl_xbarb.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="middleware\dma_manager\fsl_dma_manager.c">
+      <Filter>middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sora_dwt.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sora_edma.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sora_gpio.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sora_lptmr.c">
+      <Filter>middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sora_pit.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sora_port.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sora_pwm.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sora_system.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sora_uart.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="startup\startup_MKV58F24.s">
+      <Filter>startup</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\fsl_assert.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\fsl_debug_console.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\fsl_io.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\fsl_log.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\fsl_shell.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\fsl_str.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\fsl_swo.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
