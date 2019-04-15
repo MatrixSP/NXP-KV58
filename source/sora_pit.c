@@ -29,7 +29,7 @@ void PIT_IRQ_Init(PITn pitn, uint32 cnt)
   /* 定时器加载值设置 Timer Load Value Register (PIT_LDVALn) */
   //设置溢出中断时间
   //LDVAL trigger = (period / clock period) - 1
-  PIT->CHANNEL[pitn].LDVAL = cnt * Bus_Clock - 1;  //ms * kHz - 1
+  PIT->CHANNEL[pitn].LDVAL = (int)(cnt * Bus_Clock) - 1;  //ms * kHz - 1
   
   //定时时间到了后，TIF置1。写1的时候就会清0
   //清中断标志位
