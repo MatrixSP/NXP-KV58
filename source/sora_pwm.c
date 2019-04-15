@@ -113,7 +113,8 @@ void FlexPWM_Independent_Submodule_Init(PWM_Type* base, PWM_SMn subModule, PWM_A
 	base->SM[subModule].CTRL = (0U
 		| PWM_CTRL_PRSC(0U)		//预分频使用1分频
 		| PWM_CTRL_LDFQ(0U)		//PWM重载频率使用每个周期重载
-		| PWM_CTRL_LDMOD(1U)	//缓存立即重载至寄存器
+		| PWM_CTRL_LDMOD(0U)	//禁用缓存立即重载至寄存器
+		| PWM_CTRL_FULL(1U)		//每个PWM周期重载一次寄存器
 		);
 
 	//配置错误寄存器
@@ -186,9 +187,6 @@ void FlexPWM_Independent_Submodule_Init(PWM_Type* base, PWM_SMn subModule, PWM_A
 	default:
 		break;
 	}
-
-	//启动子模块
-	base->MCTRL |= PWM_MCTRL_RUN(1U << subModule);
 }
 
 /**
@@ -218,17 +216,23 @@ void FlexPWM_Independent_Channel_Init(PWM_CHn ch)
 	case 0:PORT_Init(pin, 6, pull_up); break;	//PTA
 	case 1:PORT_Init(pin, 5, pull_up); break;	//PTB
 	case 2:PORT_Init(pin, 5, pull_up); break;	//PTC
-	case 3:PORT_Init(pin, 6, pull_up); break;	//PTE
-	case 4:PORT_Init(pin, 5, pull_up); break;	//PTD
+	case 3:PORT_Init(pin, 6, pull_up); break;	//PTD
+	case 4:PORT_Init(pin, 5, pull_up); break;	//PTE
 	default: 
 		return;
 	}
+
+	//禁用子模块
+	base->MCTRL &= ~PWM_MCTRL_RUN(1U << subModule);
 
 	//开启管脚PWM输出
 	base->OUTEN |= (1U << (outputEnableShift + subModule));
 
 	//加载寄存器缓冲
 	base->MCTRL |= PWM_MCTRL_LDOK(1U << subModule);
+
+	//启用子模块
+	base->MCTRL |= PWM_MCTRL_RUN(1U << subModule);
 }
 
 /**
