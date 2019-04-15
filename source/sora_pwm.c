@@ -17,8 +17,11 @@
  * @return			无
  * @example			FlexPWM_Independent_Init(PWM0, PWM_SM0);
  */
-void FlexPWM_Independent_Init(PWM_Type* base, PWM_SMn subModule)
+void FlexPWM_Independent_Init(PWM_Type* base, PWM_SMn subModule, PWM_Align mode, uint32_t freq)
 {
+	uint16_t pulseCnt = 0;
+	uint16_t pwmHighPulse = 0;
+	int16_t modulo = 0;
 	//开启时钟
 	//子模块0的时钟不能选择“跟随子模块0的时钟”
 	//子模块0的重载源不能选择“以子模块0为重载源”
@@ -83,14 +86,53 @@ void FlexPWM_Independent_Init(PWM_Type* base, PWM_SMn subModule)
 
 	//触发Force事件以强制重载寄存器
 	base->SM[subModule].CTRL2 |= PWM_CTRL2_FORCE(1U);
+
+	//配置频率
+	pulseCnt = (Fast_Peripheral_Clock * 1000 / freq);
+	switch (mode)
+	{
+	case PWM_Signed_CenterAligned:
+	{
+		//有符号中心对齐
+		modulo = pulseCnt >> 1;
+		base->SM[subModule].INIT = (-modulo);
+		base->SM[subModule].VAL0 = 0;
+		base->SM[subModule].VAL1 = modulo;
+	}
+	case PWM_Unsigned_CenterAligned:
+	{
+		//无符号中心对齐
+		base->SM[subModule].INIT = 0;
+		base->SM[subModule].VAL0 = (pulseCnt / 2);
+		base->SM[subModule].VAL1 = pulseCnt;
+	}
+	case PWM_Signed_EdgeAligned:
+	{
+		//有符号边缘对齐
+		modulo = pulseCnt >> 1;
+		base->SM[subModule].INIT = (-modulo);
+		base->SM[subModule].VAL0 = 0;
+		base->SM[subModule].VAL1 = modulo;
+	}
+	case PWM_Unsigned_EdgeAligned:
+	{
+		//无符号边缘对齐
+		base->SM[subModule].INIT = 0;
+		base->SM[subModule].VAL0 = (pulseCnt / 2);
+		base->SM[subModule].VAL1 = pulseCnt;
+	}
+	default:
+		break;
+	}
 }
 
 /**
- * @name			FlexPWM_Independent_Init
+ * @name			FlexPWM_Independent_SetupPwm
  * @brief			
  * @clock			Fast Peripheral clock
  */
-void FlexPWM_Independent_SetupPwm()
+void FlexPWM_Independent_SetupPwm(PWM_Type *base, PWM_SMn subModule, PWM_CHn channel, uint32_t freq)
 {
-
+	uint32_t pwmClock;
+	uint16_t pulseCnt = 0;
 }

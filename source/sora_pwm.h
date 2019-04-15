@@ -26,6 +26,14 @@ typedef enum PWM_CHn
 	PWM_CHX,
 } PWM_CHn;
 
-void FlexPWM_Independent_Init(PWM_Type* base, PWM_SMn subModule);
+typedef enum PWM_Align
+{
+	PWM_Signed_CenterAligned,
+	PWM_Unsigned_CenterAligned,
+	PWM_Signed_EdgeAligned,
+	PWM_Unsigned_EdgeAligned,
+}PWM_Align;
+
+void FlexPWM_Independent_Init(PWM_Type* base, PWM_SMn subModule, PWM_Align mode, uint32_t freq);
 
 #endif
