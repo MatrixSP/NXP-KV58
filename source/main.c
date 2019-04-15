@@ -39,15 +39,10 @@
 int main(void)
 {
 	LCD_Init();
-	XBARA_Init(XBARA);
-	XBARA_SetSignalsConnection(XBARA, kXBARA_InputVdd, kXBARA_OutputPwm0Fault0);
-	XBARA_SetSignalsConnection(XBARA, kXBARA_InputVdd, kXBARA_OutputPwm0Fault1);
-	XBARA_SetSignalsConnection(XBARA, kXBARA_InputVdd, kXBARA_OutputPwm0Fault2);
-	XBARA_SetSignalsConnection(XBARA, kXBARA_InputVdd, kXBARA_OutputPwm0Fault3);
 	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Signed_CenterAligned, 1000);
 	FlexPWM_Independent_Channel_Init(PWM0_SM1_CHA);
 	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 50);
-        FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 10);
+	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 10);
 	while (1U)
 	{
 		LCD_P6x8Str(0, 1, "PWM");
@@ -347,24 +342,24 @@ int main(void)
 
 			//串口发送图片
 			//红树上位机
-	        //UART_Put_Char(UART_0, 0xFF);
-	        //for(int j = 0;j < Camera_Height;j++)
-	        //{
-	        //  for(int i = 0;i < Camera_Width;i++)
-	        //  {
-	        //    if(img_buff[j][i] == 0xFF)
-	        //    {
-	        //      img_buff[j][i] = 0xFE;
-	        //    }
-	        //    UART_Put_Char(UART_0, img_buff[j][i]);
-	        //  }
-	        //}
+			//UART_Put_Char(UART_0, 0xFF);
+			//for(int j = 0;j < Camera_Height;j++)
+			//{
+			//  for(int i = 0;i < Camera_Width;i++)
+			//  {
+			//    if(img_buff[j][i] == 0xFF)
+			//    {
+			//      img_buff[j][i] = 0xFE;
+			//    }
+			//    UART_Put_Char(UART_0, img_buff[j][i]);
+			//  }
+			//}
 			//逐飞上位机
-	        //UART_Put_Char(UART_0, 0x00);
-	        //UART_Put_Char(UART_0, 0xFF);
-	        //UART_Put_Char(UART_0, 0x01);
-	        //UART_Put_Char(UART_0, 0x01);
-	        //UART_Put_Buff(UART_0, (uint8 *)img_buff, Camera_Width * Camera_Height);
+			//UART_Put_Char(UART_0, 0x00);
+			//UART_Put_Char(UART_0, 0xFF);
+			//UART_Put_Char(UART_0, 0x01);
+			//UART_Put_Char(UART_0, 0x01);
+			//UART_Put_Buff(UART_0, (uint8 *)img_buff, Camera_Width * Camera_Height);
 
 			img_flag = IMG_START;
 			PORT_IRQ_CLEAN(Camera_VS);
@@ -455,29 +450,29 @@ int main(void)
 			LCD_Fill(0x00);
 			LCD_P6x8Str(50, 1, "Finish");
 			//绘制缩略图
-	        //for(int j = 0;j < Camera_Height;j += 2)
-	        //{
-	        //  for(int i = Camera_Width - 1;i > 0;i -= 2)
-	        //  {
-	        //    if(img_buff[j][i] > 20)
-	        //    {
-	        //      LCD_PutPixel(i/2, j/2);
-	        //    }
-	        //  }
-	        //}
+			//for(int j = 0;j < Camera_Height;j += 2)
+			//{
+			//  for(int i = Camera_Width - 1;i > 0;i -= 2)
+			//  {
+			//    if(img_buff[j][i] > 20)
+			//    {
+			//      LCD_PutPixel(i/2, j/2);
+			//    }
+			//  }
+			//}
 			//串口发送图片
-	        //UART_Put_Char(UART_0, 0xFF);
-	        //for(int j = 0;j < Camera_Height;j++)
-	        //{
-	        //  for(int i = 0;i < Camera_Width;i++)
-	        //  {
-	        //    if(img_buff[j][i] == 0xFF)
-	        //    {
-	        //      img_buff[j][i] = 0xFE;
-	        //    }
-	        //    UART_Put_Char(UART_0, img_buff[j][i]);
-	        //  }
-	        //}
+			//UART_Put_Char(UART_0, 0xFF);
+			//for(int j = 0;j < Camera_Height;j++)
+			//{
+			//  for(int i = 0;i < Camera_Width;i++)
+			//  {
+			//    if(img_buff[j][i] == 0xFF)
+			//    {
+			//      img_buff[j][i] = 0xFE;
+			//    }
+			//    UART_Put_Char(UART_0, img_buff[j][i]);
+			//  }
+			//}
 			UART_Put_Char(UART_0, 0x00);
 			UART_Put_Char(UART_0, 0xFF);
 			UART_Put_Char(UART_0, 0x01);

@@ -60,6 +60,20 @@ void FlexPWM_Independent_Submodule_Init(PWM_Type* base, PWM_SMn subModule, PWM_A
 	uint16_t	pulseCnt = 0;
 	uint16_t	pwmHighPulse = 0;
 	int16_t		modulo = 0;
+	static bool	config = false;
+
+	//XBARA初始化，桥接错误通道
+	//Fault通道直接控制了PWM子模块的运行
+	if (!config)
+	{
+		XBARA_Init(XBARA);
+		XBARA_SetSignalsConnection(XBARA, kXBARA_InputVdd, kXBARA_OutputPwm0Fault0);
+		XBARA_SetSignalsConnection(XBARA, kXBARA_InputVdd, kXBARA_OutputPwm0Fault1);
+		XBARA_SetSignalsConnection(XBARA, kXBARA_InputVdd, kXBARA_OutputPwm0Fault2);
+		XBARA_SetSignalsConnection(XBARA, kXBARA_InputVdd, kXBARA_OutputPwm0Fault3);
+		config = true;
+	}
+
 	//开启时钟
 	//子模块0的时钟不能选择“跟随子模块0的时钟”
 	//子模块0的重载源不能选择“以子模块0为重载源”
