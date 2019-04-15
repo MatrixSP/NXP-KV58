@@ -61,6 +61,7 @@ void FlexPWM_Independent_Submodule_Init(PWM_Type* base, PWM_SMn subModule, PWM_A
 	uint16_t	pwmHighPulse = 0;
 	int16_t		modulo = 0;
 	static bool	config = false;
+	uint32_t	pwmClock;
 
 	//XBARA初始化，桥接错误通道
 	//Fault通道直接控制了PWM子模块的运行
@@ -145,7 +146,8 @@ void FlexPWM_Independent_Submodule_Init(PWM_Type* base, PWM_SMn subModule, PWM_A
 	base->SM[subModule].CTRL2 |= PWM_CTRL2_FORCE(1U);
 
 	//配置频率并初始化占空比为0
-	pulseCnt = (Fast_Peripheral_Clock * 1000 / freq);
+	pwmClock = CLOCK_GetFreq(kCLOCK_FastPeriphClk) / (1U << ((base->SM[subModule].CTRL & PWM_CTRL_PRSC_MASK) >> PWM_CTRL_PRSC_SHIFT));
+	pulseCnt = (pwmClock / freq);
 	switch (mode)
 	{
 	case PWM_Signed_CenterAligned:
