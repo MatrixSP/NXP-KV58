@@ -34,6 +34,6 @@ typedef enum PWM_Align
 	PWM_Unsigned_EdgeAligned,
 }PWM_Align;
 
-void FlexPWM_Independent_Init(PWM_Type* base, PWM_SMn subModule, PWM_Align mode, uint32_t freq);
+void FlexPWM_Independent_Submodule_Init(PWM_Type* base, PWM_SMn subModule, PWM_Align mode, uint32_t freq);
 
 #endif

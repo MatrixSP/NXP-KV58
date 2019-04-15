@@ -39,13 +39,12 @@
 int main(void)
 {
 	LCD_Init();
-	FlexPWM_Independent_Init(PWM0, PWM_SM0);
+	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM0, PWM_Signed_CenterAligned, 1000);
 
 	while (1U)
 	{
 		LCD_P6x8Str(0, 1, "PWM");
 	}
-	return 0;
 }
 
 #endif
