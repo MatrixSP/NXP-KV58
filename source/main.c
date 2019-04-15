@@ -1,5 +1,5 @@
 ﻿/*
- * @date   2019年04月14日最后修改
+ * @date   2019年04月16日最后修改
  * @name   Sora_lib
  * @group  Akko
  * @author Afisora
@@ -40,6 +40,7 @@ int main(void)
 {
 	LCD_Init();
 	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM0, PWM_Signed_CenterAligned, 1000);
+	FlexPWM_Independent_Channel_Init(PWM0_SM0_CHA);
 
 	while (1U)
 	{

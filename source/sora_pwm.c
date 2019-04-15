@@ -1,5 +1,5 @@
 /*
- * @date   2019年04月14日最后修改
+ * @date   2019年04月16日最后修改
  * @name   Sora_lib
  * @group  Akko
  * @author Afisora
@@ -8,28 +8,40 @@
 
 #include "sora_system.h"
 
-struct PWM_Alignedmode_status
+ //PWM管脚定义
+ //ALT:A6 B5 C5 D6 E5
+const PTXn_e PWM_Pin[16] =
 {
-	PWM_Align pwm0sm0;
-	PWM_Align pwm0sm1;
-	PWM_Align pwm0sm2;
-	PWM_Align pwm0sm3;
-	PWM_Align pwm1sm0;
-	PWM_Align pwm1sm1;
-	PWM_Align pwm1sm2;
-	PWM_Align pwm1sm3;
+	//Pin	Channel    		MUX  
+	PTD0,	//pwm0sm0chA	//PTA3  PTD14	PTA3与J-Link冲突
+	PTD1,	//pwm0sm0chB	//PTA4  PTD15
+	PTD2,	//pwm0sm1chA	//PTD12	
+	PTD3,	//pwm0sm1chB	//PTD13
+	PTD4,	//pwm0sm2chA	//PTD10
+	PTD5,	//pwm0sm2chB	//PTD11
+	PTC1,	//pwm0sm3chA	//PTD8
+	PTC2,	//pwm0sm3chB	//PTD9
+	PTE5,	//pwm1sm0chA	//PTC14 PTD0
+	PTE6,	//pwm1sm0chB	//PTC15 PTD1
+	PTE7,	//pwm1sm1chA	//PTB18 PTC12 PTD2
+	PTE8,	//pwm1sm1chB	//PTB19 PTC13 PTD3
+	PTE9,	//pwm1sm2chA	//PTC8  PTC16
+	PTE10,	//pwm1sm2chB	//PTC9  PTC17
+	PTE11,	//pwm1sm3chA	//PTC10 PTC18
+	PTE12,	//pwm1sm3chB	//PTC11 PTC19
 };
 
-struct PWM_Alignedmode_status pwm_alignedmode_status =
+//PWM对齐模式保存区
+PWM_Align PWM_Alignedmode_status[8] = 
 {
-	.pwm0sm0 = PWM_Signed_CenterAligned,
-	.pwm0sm1 = PWM_Signed_CenterAligned,
-	.pwm0sm2 = PWM_Signed_CenterAligned,
-	.pwm0sm3 = PWM_Signed_CenterAligned,
-	.pwm1sm0 = PWM_Signed_CenterAligned,
-	.pwm1sm1 = PWM_Signed_CenterAligned,
-	.pwm1sm2 = PWM_Signed_CenterAligned,
-	.pwm1sm3 = PWM_Signed_CenterAligned,
+	PWM_Signed_CenterAligned,	//pwm0sm0
+	PWM_Signed_CenterAligned,	//pwm0sm1
+	PWM_Signed_CenterAligned,	//pwm0sm2
+	PWM_Signed_CenterAligned,	//pwm0sm3
+	PWM_Signed_CenterAligned,	//pwm1sm0
+	PWM_Signed_CenterAligned,	//pwm1sm1
+	PWM_Signed_CenterAligned,	//pwm1sm2
+	PWM_Signed_CenterAligned,	//pwm1sm3
 };
 
 /**
@@ -45,75 +57,39 @@ struct PWM_Alignedmode_status pwm_alignedmode_status =
  */
 void FlexPWM_Independent_Submodule_Init(PWM_Type* base, PWM_SMn subModule, PWM_Align mode, uint32_t freq)
 {
-	uint16_t pulseCnt = 0;
-	uint16_t pwmHighPulse = 0;
-	int16_t modulo = 0;
-	//开启时钟并记录PWM对齐设置
+	uint16_t	pulseCnt = 0;
+	uint16_t	pwmHighPulse = 0;
+	int16_t		modulo = 0;
+	//开启时钟
 	//子模块0的时钟不能选择“跟随子模块0的时钟”
 	//子模块0的重载源不能选择“以子模块0为重载源”
 	if (base == PWM0)
 	{
 		switch (subModule)
 		{
-		case PWM_SM0:
-		{
-			CLOCK_EnableClock(kCLOCK_Pwm0_Sm0);
-			pwm_alignedmode_status.pwm0sm0 = mode;
-			break;
-		}
-		case PWM_SM1:
-		{
-			CLOCK_EnableClock(kCLOCK_Pwm0_Sm1);
-			pwm_alignedmode_status.pwm0sm1 = mode;
-			break;
-		}
-		case PWM_SM2:
-		{
-			CLOCK_EnableClock(kCLOCK_Pwm0_Sm2);
-			pwm_alignedmode_status.pwm0sm2 = mode;
-			break;
-		}
-		case PWM_SM3:
-		{
-			CLOCK_EnableClock(kCLOCK_Pwm0_Sm3);
-			pwm_alignedmode_status.pwm0sm3 = mode;
-			break;
-		}
+		case PWM_SM0:CLOCK_EnableClock(kCLOCK_Pwm0_Sm0);break;
+		case PWM_SM1:CLOCK_EnableClock(kCLOCK_Pwm0_Sm1);break;
+		case PWM_SM2:CLOCK_EnableClock(kCLOCK_Pwm0_Sm2);break;
+		case PWM_SM3:CLOCK_EnableClock(kCLOCK_Pwm0_Sm3);break;
 		default:
 			return;
 		}
+		//记录PWM对齐设置
+		PWM_Alignedmode_status[subModule] = mode;
 	}
 	else if (base == PWM1)
 	{
 		switch (subModule)
 		{
-		case PWM_SM0:
-		{
-			CLOCK_EnableClock(kCLOCK_Pwm1_Sm0);
-			pwm_alignedmode_status.pwm1sm0 = mode;
-			break;
-		}
-		case PWM_SM1:
-		{
-			CLOCK_EnableClock(kCLOCK_Pwm1_Sm1);
-			pwm_alignedmode_status.pwm1sm1 = mode;
-			break;
-		}
-		case PWM_SM2:
-		{
-			CLOCK_EnableClock(kCLOCK_Pwm1_Sm2);
-			pwm_alignedmode_status.pwm1sm2 = mode;
-			break;
-		}
-		case PWM_SM3:
-		{
-			CLOCK_EnableClock(kCLOCK_Pwm1_Sm3);
-			pwm_alignedmode_status.pwm1sm3 = mode;
-			break;
-		}
+		case PWM_SM0:CLOCK_EnableClock(kCLOCK_Pwm1_Sm0);break;
+		case PWM_SM1:CLOCK_EnableClock(kCLOCK_Pwm1_Sm1);break;
+		case PWM_SM2:CLOCK_EnableClock(kCLOCK_Pwm1_Sm2);break;
+		case PWM_SM3:CLOCK_EnableClock(kCLOCK_Pwm1_Sm3);break;
 		default:
 			return;
 		}
+		//记录PWM对齐设置
+		PWM_Alignedmode_status[4 + subModule] = mode;
 	}
 	else
 		return;
@@ -210,15 +186,50 @@ void FlexPWM_Independent_Submodule_Init(PWM_Type* base, PWM_SMn subModule, PWM_A
 	default:
 		break;
 	}
+
+	//启动子模块
+	base->MCTRL |= PWM_MCTRL_RUN(1U << subModule);
 }
 
 /**
- * @name			FlexPWM_Independent_SetupPwm
- * @brief
- * @clock			Fast Peripheral clock
+ * @name		FlexPWM_Independent_Channel_Init
+ * @brief		PWM通道初始化并开启输出
+ * @clock		Fast Peripheral clock
+ * @param ch	通道号
+ * @return		无
+ * @example		FlexPWM_Independent_Channel_Init(PWM0_SM0_CHA);
  */
-void FlexPWM_Independent_Channel_Init(PWM_Type * base, PWM_SMn subModule, PWM_CHn channel)
+
+void FlexPWM_Independent_Channel_Init(PWM_CHn ch)
 {
-	uint32_t pwmClock;
-	uint16_t pulseCnt = 0;
+	PTXn_e		pin = PWM_Pin[ch];
+	PWM_Type*	base;
+	PWM_SMn		subModule = (PWM_SMn)((ch % 8U) / 2U);
+	PWM_Align	mode;
+	uint8_t		outputEnableShift = 0;
+
+	//初始配置读取
+	if (ch / 8U == 0) base = PWM0;
+	else base = PWM1;
+	mode = PWM_Alignedmode_status[ch / 2U];
+	if(ch % 2U == 0) outputEnableShift = PWM_OUTEN_PWMA_EN_SHIFT;
+	else outputEnableShift = PWM_OUTEN_PWMB_EN_SHIFT;
+
+	//设置管脚复用
+	switch (PTX(pin))
+	{
+	case 0:PORT_Init(pin, 6, pull_up); break;	//PTA
+	case 1:PORT_Init(pin, 5, pull_up); break;	//PTB
+	case 2:PORT_Init(pin, 5, pull_up); break;	//PTC
+	case 3:PORT_Init(pin, 6, pull_up); break;	//PTE
+	case 4:PORT_Init(pin, 5, pull_up); break;	//PTD
+	default: 
+		return;
+	}
+
+	//开启管脚PWM输出
+	base->OUTEN |= (1U << (outputEnableShift + subModule));
+
+	//加载寄存器缓冲
+	base->MCTRL |= PWM_MCTRL_LDOK(1U << subModule);
 }
