@@ -10,7 +10,8 @@
  *    2.DSP功能测试
  *    3.内核system库编写
  *    4.DMA与UART IDLE结合的LOG信息发送
- *    5.IIC、SPI、PWM、FTM、ADC、LCD
+ *    5.IIC、SPI、FTM、ADC、LCD
+ *    6.DWT、PIT时钟或许有误
  * @}
  * @note
  * @{
@@ -28,21 +29,21 @@
 #include "include.h"
 
  /*
-  * @date   2019年04月14日备份
+  * @date   2019年04月16日备份
   * @brief  测试主程序#8
   * @mode   PWM
   * @done
   * @note
   */
 #ifdef main_8
-
+uint32_t a;
 int main(void)
 {
 	LCD_Init();
 	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Signed_CenterAligned, 1000);
 	FlexPWM_Independent_Channel_Init(PWM0_SM1_CHA);
 	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 90);
-	//FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 10);
+	a = CLOCK_GetFreq(kCLOCK_BusClk);
 	while (1U)
 	{
 		LCD_P6x8Str(0, 1, "PWM");

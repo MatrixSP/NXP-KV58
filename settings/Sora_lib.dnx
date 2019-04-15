@@ -27,7 +27,7 @@
         <MultiCoreRunAll>1</MultiCoreRunAll>
     </Simulator>
     <DebugChecksum>
-        <Checksum>2965625304</Checksum>
+        <Checksum>3250366520</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -131,7 +131,7 @@
     <watch_formats>
         <Fmt0>{W}42:0x40049000u	4	0</Fmt0>
         <Fmt1>{W}42:Line_Count	3	0</Fmt1>
-        <Fmt2>{W}42:a	1	0</Fmt2>
+        <Fmt2>{W}42:a	3	0</Fmt2>
         <Fmt3>{W}42:address	4	0</Fmt3>
         <Fmt4>{W}42:b	1	0</Fmt4>
         <Fmt5>{W}42:buff	4	0</Fmt5>

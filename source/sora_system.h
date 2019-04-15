@@ -14,7 +14,7 @@
 /*
  * 时钟频率（khz）
  */
-#if 1   
+#if 0   
 #define Core_Clock              237500
 #define Fast_Peripheral_Clock   118750
 #define FlexBus_Clock           59375
@@ -29,7 +29,7 @@
 #define Fast_Peripheral_Clock   128125
 #define FlexBus_Clock           64062.5
 #define Bus_Clock               32031.25
-#elif   0   
+#elif   1   
 #define Core_Clock              262500
 #define Fast_Peripheral_Clock   131250
 #define FlexBus_Clock           65625
