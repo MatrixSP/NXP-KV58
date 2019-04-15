@@ -41,8 +41,8 @@ int main(void)
 	LCD_Init();
 	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Signed_CenterAligned, 1000);
 	FlexPWM_Independent_Channel_Init(PWM0_SM1_CHA);
-	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 50);
-	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 10);
+	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 90);
+	//FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 10);
 	while (1U)
 	{
 		LCD_P6x8Str(0, 1, "PWM");

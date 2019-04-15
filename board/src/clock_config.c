@@ -182,23 +182,19 @@ const mcg_config_t mcgConfig_HSCLOCK =
         .dmx32 = kMCG_Dmx32Default,               /* DCO has a default range of 25% */
         .pll0Config =
             {
-                .enableMode = MCG_PLL_DISABLE,    /* MCGPLLCLK disabled */
-                //.prdiv = 0x3U,                    /* PLL Reference divider: divided by 4 */
-                //.vdiv = 0x16U,                    /* VCO divider: multiplied by 38 */
-                
+                .enableMode = MCG_PLL_DISABLE,    /* MCGPLLCLK disabled */    
                 .prdiv = 0x3U,                    /* PLL Reference divider: divided by 3 */
-                .vdiv = 0x1AU,                    /* VCO divider: multiplied by 42 */
+                .vdiv = 0x16U,                    /* VCO divider: multiplied by 42 */
             },
     };
 const sim_clock_config_t simConfig_HSCLOCK =
     {
         .pllFllSel = SIM_PLLFLLSEL_MCGPLLCLK_CLK, /* PLLFLL select: MCGPLLCLK clock */
         .er32kSrc = SIM_OSC32KSEL_LPO_CLK,        /* OSC32KSEL select: LPO clock */
-        .clkdiv1 = 0x1370000U,                    /* SIM_CLKDIV1 - OUTDIV1: /1, OUTDIV2: /2, OUTDIV3: /4, OUTDIV4: /10 */
+        .clkdiv1 = 0x1390000U,                    /* SIM_CLKDIV1 - OUTDIV1: /1, OUTDIV2: /2, OUTDIV3: /4, OUTDIV4: /10 */
     };
 const osc_config_t oscConfig_HSCLOCK =
     {
-        //.freq = 48000000U,                        /* Oscillator frequency: 48000000Hz */
         .freq = 50000000U,                        /* Oscillator frequency: 50000000Hz */
         .capLoad = (OSC_CAP0P),                   /* Oscillator capacity load: 0pF */
         .workMode = kOSC_ModeExt,                 /* Use external clock */
