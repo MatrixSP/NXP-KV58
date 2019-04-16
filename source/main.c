@@ -718,45 +718,47 @@ void PORTB_IRQHandler()
  * @done   LED闪烁测试（分别以延时、PIT定时中断、外部中断实现）
  */
 #ifdef main_1
- //void main()
- //{
- //  BOARD_InitBootClocks();
- //  BOARD_InitBootPins();
- //  
- //  DisableInterrupts;
- //  
- //  LCD_Init(); 
- //  GPIO_Init(PTC0 , GPO, 0);
- //  GPIO_Init(PTA17, GPO, 0);
- //  GPIO_Init(PTE29 ,GPO, 0);
- //  LCD_Show_Number(20, 1, 123);
- //  LCD_P6x8Str(20, 2, "abc");
- //  PITn_Init(PIT0, 500);
- //  EXTI_Init(PTA11, rising, pull_up);
- //  
- //  EnableInterrupts;
- //  
- //  while (1)
- //  {
- //    PTA17_OUT = 0;
- //    DELAY_MS(500);
- //    PTA17_OUT = 1;
- //    DELAY_MS(500);
- //  }
- //}
- //
- //void PIT0_IRQHandler()
- //{
- //  PIT_Flag_Clear(PIT0);
- //  GPIO_Reverse(PTC0);
- //}
- //
- //void PORTA_IRQHandler()
- //{
- //  if(PORT_IRQ_GET(PTA11))
- //  {
- //    GPIO_Reverse(PTE29);
- //    PORT_IRQ_CLEAN(PTA11);
- //  }
- //}
+uint32_t bus_clock;
+void main()
+{
+	BOARD_InitBootClocks();
+	BOARD_InitBootPins();
+
+	DisableInterrupts;
+
+	LCD_Init();
+	GPIO_Init(PTC0, GPO, 0);
+	GPIO_Init(PTA17, GPO, 0);
+	GPIO_Init(PTE29, GPO, 0);
+	LCD_Show_Number(20, 1, 123);
+	LCD_P6x8Str(20, 2, "abc");
+	PIT_IRQ_Init(PIT0, 500);
+	EXTI_Init(PTA11, rising, pull_up);
+
+	EnableInterrupts;
+
+	while (1)
+	{
+		bus_clock = Bus_Clock;
+		PTA17_OUT = 0;
+		DELAY_MS(500);
+		PTA17_OUT = 1;
+		DELAY_MS(500);
+	}
+}
+
+void PIT0_IRQHandler()
+{
+	PIT_Flag_Clear(PIT0);
+	GPIO_Reverse(PTC0);
+}
+
+void PORTA_IRQHandler()
+{
+	if (PORT_IRQ_GET(PTA11))
+	{
+		GPIO_Reverse(PTE29);
+		PORT_IRQ_CLEAN(PTA11);
+	}
+}
 #endif

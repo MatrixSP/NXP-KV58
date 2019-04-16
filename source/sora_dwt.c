@@ -34,7 +34,7 @@ void dwt_delay_us(uint32 uSec)
   int ticks_start, ticks_end, ticks_delay;
   dwt_init();
   ticks_start = DWT_CYCCNT;
-  ticks_delay = (uSec * (Core_Clock / 1000)); //将微秒数换算成滴答数          
+  ticks_delay = (uSec * (Core_Clock / 1000000)); //将微秒数换算成滴答数          
   ticks_end = ticks_start + ticks_delay;
   if(ticks_end < ticks_start)
   {

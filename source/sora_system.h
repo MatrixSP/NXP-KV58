@@ -12,6 +12,22 @@
 #include "include.h"
 
 /*
+ * 时钟频率（hz）
+ */
+#define Core_Clock              CLOCK_GetFreq(kCLOCK_CoreSysClk)
+#define Fast_Peripheral_Clock   CLOCK_GetFreq(kCLOCK_FastPeriphClk)
+#define FlexBus_Clock           CLOCK_GetFreq(kCLOCK_FlexBusClk)
+#define Bus_Clock               CLOCK_GetFreq(kCLOCK_BusClk)
+#define System_clock            Core_Clock
+#define Flash_Clock             Bus_Clock
+#define MCGIRCLK                CLOCK_GetFreq(kCLOCK_McgInternalRefClk)
+#define MCGFFCLK                CLOCK_GetFreq(kCLOCK_McgFixedFreqClk)
+#define OSCERCLK                CLOCK_GetFreq(kCLOCK_Osc0ErClk)
+#define OSCERCLK_Undiv          CLOCK_GetFreq(kCLOCK_Osc0ErClkUndiv)
+#define ERCLK32K                CLOCK_GetFreq(kCLOCK_Er32kClk)
+#define LPO_Clock               CLOCK_GetFreq(kCLOCK_LpoClk)
+
+/*
  * 时钟频率（khz）
  */
 #if 0   
@@ -29,7 +45,7 @@
 #define Fast_Peripheral_Clock   128125
 #define FlexBus_Clock           64062.5
 #define Bus_Clock               32031.25
-#elif   1   
+#elif   0   
 #define Core_Clock              262500
 #define Fast_Peripheral_Clock   131250
 #define FlexBus_Clock           65625
@@ -41,15 +57,15 @@
 #define Bus_Clock               26875
 #endif
 
-#define System_clock            Core_Clock
-#define Flash_Clock             Bus_Clock
-#define MCGIRCLK                32768
-#define MCGFFCLK                1562.5
-#define OSCERCLK                50000
-#define OSCERCLK_Undiv          50000
-#define ERCLK32K                1
-#define MCK_Clock               237500
-#define LPO_Clock               1
+//#define System_clock            Core_Clock
+//#define Flash_Clock             Bus_Clock
+//#define MCGIRCLK                32768
+//#define MCGFFCLK                1562.5
+//#define OSCERCLK                50000
+//#define OSCERCLK_Undiv          50000
+//#define ERCLK32K                1
+//#define MCK_Clock               237500
+//#define LPO_Clock               1
 
 /*
  * 延时
