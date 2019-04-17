@@ -24,16 +24,74 @@
  * @}
  */
 
-#define main_8
+#define main_10
 
 #include "include.h"
+ /*
+   * @date   2019年04月17日备份
+   * @brief  测试主程序#10
+   * @mode   PWM重载DMA请求
+   * @done
+   * @note   驱动WS2812 LED串
+   */
+
+#ifdef main_10
+
+int main(void)
+{
+	LCD_Init();
+	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Signed_CenterAligned, 1000);
+	FlexPWM_Independent_Channel_Init(PWM0_SM1_CHA);
+	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 0);
+
+	while (1U)
+	{
+		LCD_P6x8Str(0, 1, "PWM");
+	}
+}
+
+
+#endif
 
  /*
-  * @date   2019年04月16日备份
+  * @date   2019年04月17日备份
+  * @brief  测试主程序#9
+  * @mode   PWM重载中断
+  * @note   在低速比如1KHz下能够修改每个周期占空比
+  *         但速率加快后，中断计算时就已经过了好几个周期
+  */
+#ifdef main_9
+
+int main(void)
+{
+	LCD_Init();
+	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Signed_CenterAligned, 1000);
+	PWM0->SM[PWM_SM1].INTEN |= PWM_INTEN_RIE(1);
+	FlexPWM_Independent_Channel_Init(PWM0_SM1_CHA);
+	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 0);
+	NVIC_EnableIRQ(PWM0_RELOAD1_IRQn);
+
+	while (1U)
+	{
+		LCD_P6x8Str(0, 1, "PWM");
+	}
+}
+
+void PWM0_RELOAD1_IRQHandler()
+{
+	static uint8_t duty = 0;
+	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, duty);
+	duty += 10;
+	if (duty > 100) duty = 0;
+	PWM0->SM[PWM_SM1].STS |= PWM_STS_RF(1);
+}
+
+#endif
+
+ /*
+  * @date   2019年04月17日备份
   * @brief  测试主程序#8
   * @mode   PWM
-  * @done
-  * @note
   */
 #ifdef main_8
 
