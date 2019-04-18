@@ -365,8 +365,21 @@ void EDMA_UART_RX_Start(DMA_CHn CHn, uint32 DADDR, uint32 count)
   DMA_EN(CHn);
 } 
 
+/**
+ * @name        EDMA_Transport_Init
+ * @brief       
+ * @clock       System (CPU) clock
+ * @param CHn   DMA通道号
+ * @param SADDR 源地址
+ * @param byten 传输数据大小
+ * @return      无
+ * @example     
+ * @note        
+ */
+void EDMA_FlexPWM_Init(DMA_CHn CHn, uint32 SADDR, DMA_BYTEn byten)
+{
 
-
+}
 
 
 

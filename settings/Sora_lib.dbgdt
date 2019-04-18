@@ -956,7 +956,7 @@
                     <item>fps</item>
                     <item>buff_console</item>
                     <item>bus_clock</item>
-                    <item></item>
+                    <item />
                 </expressions>
                 <col-names>
                     <item>Expression</item>
