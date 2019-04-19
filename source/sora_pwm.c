@@ -367,3 +367,118 @@ void FlexPWM_Independent_Channel_Duty(PWM_CHn ch, float dutyCyclePercent)
 	//加载寄存器缓冲
 	base->MCTRL |= PWM_MCTRL_LDOK(1U << subModule);
 }
+
+
+/**
+ * @name					FlexPWM_Independent_Channel_Duty_Buff
+ * @brief					PWM通道设定占空比，寄存器数据缓存
+ * @clock					Fast Peripheral clock
+ * @param ch				通道号
+ * @param dutyCyclePercent	占空比
+ * @return					无
+ * @example
+ */
+void FlexPWM_Independent_Channel_Duty_Buff(PWM_CHn ch, float dutyCyclePercent, int16_t* VALH, int16_t* VALL)
+{
+	PWM_Type*	base;
+	PWM_SMn		subModule = (PWM_SMn)((ch % 8U) / 2U);
+	PWM_Align	mode;
+	uint16_t	pulseCnt = 0;
+	uint16_t	pwmHighPulse = 0;
+	int16_t		modulo = 0;
+
+	//初始配置读取
+	if (ch / 8U == 0) base = PWM0;
+	else base = PWM1;
+	mode = PWM_Alignedmode_status[ch / 2U];
+
+	//配置占空比
+	switch (mode)
+	{
+	case PWM_Signed_CenterAligned:
+	{
+		//有符号中心对齐
+		modulo = base->SM[subModule].VAL1;
+		pulseCnt = modulo * 2;
+		/* Calculate pulse width */
+		pwmHighPulse = (uint16_t)((pulseCnt * dutyCyclePercent) / 100);
+		/* Calculate pulse width */
+		if (ch % 2U == 0)
+		{
+			//Channel A
+			*VALH = (-(pwmHighPulse / 2));
+			*VALL = (pwmHighPulse / 2);
+		}
+		else
+		{
+			//Channel B
+			*VALH = (-(pwmHighPulse / 2));
+			*VALL = (pwmHighPulse / 2);
+		}
+		break;
+	}
+	case PWM_Unsigned_CenterAligned:
+	{
+		//无符号中心对齐
+		pulseCnt = base->SM[subModule].VAL1;
+		/* Calculate pulse width */
+		pwmHighPulse = (uint16_t)((pulseCnt * dutyCyclePercent) / 100);
+		if (ch % 2U == 0)
+		{
+			//Channel A
+			*VALH = ((pulseCnt - pwmHighPulse) / 2);
+			*VALL = ((pulseCnt + pwmHighPulse) / 2);
+		}
+		else
+		{
+			//Channel B
+			*VALH = ((pulseCnt - pwmHighPulse) / 2);
+			*VALL = ((pulseCnt + pwmHighPulse) / 2);
+		}
+		break;
+	}
+	case PWM_Signed_EdgeAligned:
+	{
+		//有符号边缘对齐
+		modulo = base->SM[subModule].VAL1;
+		pulseCnt = modulo * 2;
+		/* Calculate pulse width */
+		pwmHighPulse = (uint16_t)((pulseCnt * dutyCyclePercent) / 100);
+		if (ch % 2U == 0)
+		{
+			//Channel A
+			*VALH = (-modulo);
+			*VALL = (-modulo + pwmHighPulse);
+		}
+		else
+		{
+			//Channel B
+			*VALH = (-modulo);
+			*VALL = (-modulo + pwmHighPulse);
+		}
+		break;
+	}
+	case PWM_Unsigned_EdgeAligned:
+	{
+		//无符号边缘对齐
+		pulseCnt = base->SM[subModule].VAL1;
+		/* Calculate pulse width */
+		pwmHighPulse = (uint16_t)((pulseCnt * dutyCyclePercent) / 100);
+		if (ch % 2U == 0)
+		{
+			//Channel A
+			*VALH = 0;
+			*VALL = pwmHighPulse;
+		}
+		else
+		{
+			//Channel B
+			*VALH = 0;
+			*VALL = pwmHighPulse;
+		}
+		break;
+	}
+	default:
+		break;
+	}
+}

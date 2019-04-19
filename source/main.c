@@ -24,7 +24,7 @@
  * @}
  */
 
-#define main_10
+#define main_9
 
 #include "include.h"
  /*
@@ -37,12 +37,66 @@
 
 #ifdef main_10
 
+#define Led_Num 4
+#define VAL_Size (Led_Num + 1) * 24
+
+uint32_t RGB[Led_Num] = { 0xFFFFFF, 0xFFFFFF, 0xFFFFFF, 0xFFFFFF };
+int16_t VALH[Led_Num + 1][24] = { 0 };
+int16_t VALL[Led_Num + 1][24] = { 0 };
+
+#define DutyTrue	32
+#define DutyFalse	68
+
+//输出顺序由高到低GRB
+void RGB2VAL(PWM_CHn ch, uint32_t RGB, int16_t VALH[], int16_t VALL[])
+{
+	uint8_t i = 0;
+	uint8_t R = RGB >> 16;
+	uint8_t G = (RGB >> 8) & 0xFF;
+	uint8_t B = RGB & 0xFF;
+	uint8_t GRB[24] =
+	{
+		(G >> 7) & 0x01,(G >> 6) & 0x01,(G >> 5) & 0x01,(G >> 4) & 0x01,
+		(G >> 3) & 0x01,(G >> 2) & 0x01,(G >> 1) & 0x01,(G >> 0) & 0x01,
+		(R >> 7) & 0x01,(R >> 6) & 0x01,(R >> 5) & 0x01,(R >> 4) & 0x01,
+		(R >> 3) & 0x01,(R >> 2) & 0x01,(R >> 1) & 0x01,(R >> 0) & 0x01,
+		(B >> 7) & 0x01,(B >> 6) & 0x01,(B >> 5) & 0x01,(B >> 4) & 0x01,
+		(B >> 3) & 0x01,(B >> 2) & 0x01,(B >> 1) & 0x01,(B >> 0) & 0x01,
+	};
+
+	for (i = 0; i < 24; i++)
+	{
+		if (GRB[i] == 1)
+		{
+			FlexPWM_Independent_Channel_Duty_Buff(ch, DutyTrue, &VALH[i], &VALL[i]);
+		}
+		else
+		{
+			FlexPWM_Independent_Channel_Duty_Buff(ch, DutyFalse, &VALH[i], &VALL[i]);
+		}
+	}
+}
+
 int main(void)
 {
+	uint8_t i;
 	LCD_Init();
 	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Signed_CenterAligned, 800000);
 	FlexPWM_Independent_Channel_Init(PWM0_SM1_CHA);
-	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 32);
+	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 0);
+	EDMA_FlexPWM_Init(PWM0_SM1_CHA, DMA_CH7, (uint32_t)VALH, DMA_CH8, (uint32_t)VALL);
+	
+	for (i = 0; i < Led_Num; i++)
+	{
+		RGB2VAL(PWM0_SM1_CHA, RGB[i], VALH[i], VALL[i]);
+	}
+	for (i = 0; i < 24; i++)
+	{
+		FlexPWM_Independent_Channel_Duty_Buff(PWM0_SM1_CHA, 0, &VALH[Led_Num][i], &VALL[Led_Num][i]);
+	}
+
+	EDMA_FlexPWM_StartOnce(DMA_CH7, VAL_Size);
+	PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(1);
 
 	while (1U)
 	{
@@ -50,7 +104,16 @@ int main(void)
 	}
 }
 
-
+void DMA7_DMA23_IRQHandler()
+{
+	if (DMA0->INT & (1 << 7))
+	{
+		DMA0->CINT |= DMA_CINT_CINT(7);
+		DMA_DIS(DMA_CH7);
+		PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(0);
+		return;
+	}
+}
 #endif
 
  /*

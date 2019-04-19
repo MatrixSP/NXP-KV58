@@ -49,18 +49,18 @@ void EDMA_Transport_Init(DMA_CHn CHn, uint32 SADDR, DMA_BYTEn byten)
   DMA0->TCD[CHn].DLAST_SGA = DMA_DLAST_SGA_DLASTSGA(0);
   //TCD传输属性
   DMA0->TCD[CHn].ATTR  = (0
-                          | DMA_ATTR_DSIZE(byten) //目标数据传输大小
-                          | DMA_ATTR_DMOD (0)     //禁用目标地址取模
-                          | DMA_ATTR_SSIZE(byten) //源数据传输大小
-                          | DMA_ATTR_SMOD (0)     //禁用源地址取模
-                         );
+						  | DMA_ATTR_DSIZE(byten) //目标数据传输大小
+						  | DMA_ATTR_DMOD (0)     //禁用目标地址取模
+						  | DMA_ATTR_SSIZE(byten) //源数据传输大小
+						  | DMA_ATTR_SMOD (0)     //禁用源地址取模
+						 );
   //TCD有符号副循环偏移TCD：设置每次传输字节数，不启用副循环源地址偏移和目的地址偏移
   DMA0->TCD[CHn].NBYTES_MLNO = DMA_NBYTES_MLOFFYES_NBYTES(BYTEs);
   //TCD控制与状态寄存器TCD
   DMA0->TCD[CHn].CSR = (0
-                        //| DMA_CSR_DREQ(1)     //对应通道DMA硬件请求使能EQR在主循环传输后自动清0（屏蔽硬件DMA请求）
-                        | DMA_CSR_INTMAJOR(1) //主循环传输结束，即CITER为0时使能中断
-                       );
+						//| DMA_CSR_DREQ(1)     //对应通道DMA硬件请求使能EQR在主循环传输后自动清0（屏蔽硬件DMA请求）
+						| DMA_CSR_INTMAJOR(1) //主循环传输结束，即CITER为0时使能中断
+					   );
   //DMA中断开启
   //DMA_IRQ_EN(CHn);                                
 }
@@ -82,14 +82,14 @@ void EDMA_Transport_StartOnce(DMA_CHn CHn, uint32 DADDR, uint32 count)
   DMA0->TCD[CHn].DADDR         = DMA_DADDR_DADDR(DADDR);
   //TCD当前副循环链接，主循环计数
   DMA0->TCD[CHn].CITER_ELINKNO = (0 
-                                  | DMA_CITER_ELINKNO_ELINK(0)     //禁用副循环链接
-                                  | DMA_CITER_ELINKNO_CITER(count) //当前主循环计数值
-                                 );
+								  | DMA_CITER_ELINKNO_ELINK(0)     //禁用副循环链接
+								  | DMA_CITER_ELINKNO_CITER(count) //当前主循环计数值
+								 );
   //TCD起始副循环链接，主循环计数
   DMA0->TCD[CHn].BITER_ELINKNO = (0 
-                                  | DMA_BITER_ELINKNO_ELINK(0)     //禁用副循环链接
-                                  | DMA_BITER_ELINKNO_BITER(count) //初始主循环计数值
-                                 );
+								  | DMA_BITER_ELINKNO_ELINK(0)     //禁用副循环链接
+								  | DMA_BITER_ELINKNO_BITER(count) //初始主循环计数值
+								 );
   //使能DMA硬件请求
   DMA0->TCD[CHn].CSR |= DMA_CSR_START(1);
 } 
@@ -143,33 +143,33 @@ void EDMA_PORT_Init(DMA_CHn CHn, void *SADDR, void *DADDR, DMA_BYTEn byten, PTXn
   DMA0->TCD[CHn].DLAST_SGA = DMA_DLAST_SGA_DLASTSGA(0);
   //TCD传输属性
   DMA0->TCD[CHn].ATTR  = (0
-                          | DMA_ATTR_DSIZE(byten) //目标数据传输大小
-                          | DMA_ATTR_DMOD (0)     //禁用目标地址取模
-                          | DMA_ATTR_SSIZE(byten) //源数据传输大小
-                          | DMA_ATTR_SMOD (0)     //禁用源地址取模
-                         );
+						  | DMA_ATTR_DSIZE(byten) //目标数据传输大小
+						  | DMA_ATTR_DMOD (0)     //禁用目标地址取模
+						  | DMA_ATTR_SSIZE(byten) //源数据传输大小
+						  | DMA_ATTR_SMOD (0)     //禁用源地址取模
+						 );
   //TCD当前副循环链接，主循环计数
   DMA0->TCD[CHn].CITER_ELINKNO = (0 
-                                  | DMA_CITER_ELINKNO_ELINK(0)     //禁用副循环链接
-                                  | DMA_CITER_ELINKNO_CITER(count) //当前主循环计数值
-                                 );
+								  | DMA_CITER_ELINKNO_ELINK(0)     //禁用副循环链接
+								  | DMA_CITER_ELINKNO_CITER(count) //当前主循环计数值
+								 );
   //TCD起始副循环链接，主循环计数
   DMA0->TCD[CHn].BITER_ELINKNO = (0 
-                                  | DMA_BITER_ELINKNO_ELINK(0)     //禁用副循环链接
-                                  | DMA_BITER_ELINKNO_BITER(count) //初始主循环计数值
-                                 );
+								  | DMA_BITER_ELINKNO_ELINK(0)     //禁用副循环链接
+								  | DMA_BITER_ELINKNO_BITER(count) //初始主循环计数值
+								 );
   //TCD有符号副循环偏移TCD：设置每次传输字节数，不启用副循环源地址偏移和目的地址偏移
   DMA0->TCD[CHn].NBYTES_MLNO = DMA_NBYTES_MLOFFYES_NBYTES(BYTEs);
   //TCD控制与状态寄存器TCD
   DMA0->TCD[CHn].CSR = (0
-                        | DMA_CSR_DREQ(1)     //对应通道DMA硬件请求使能EQR在主循环传输后自动清0（屏蔽硬件DMA请求）
-                        | DMA_CSR_INTMAJOR(1) //主循环传输结束，即CITER为0时使能中断
-                       );
+						| DMA_CSR_DREQ(1)     //对应通道DMA硬件请求使能EQR在主循环传输后自动清0（屏蔽硬件DMA请求）
+						| DMA_CSR_INTMAJOR(1) //主循环传输结束，即CITER为0时使能中断
+					   );
   //DMAMUX配置：设置触发源为PORTX
   DMAMUX->CHCFG[CHn] = (0
-                        | DMAMUX_CHCFG_ENBL(1)
-                        | DMAMUX_CHCFG_SOURCE(PTX(ptxn) + DMA_Port_A)
-                       );
+						| DMAMUX_CHCFG_ENBL(1)
+						| DMAMUX_CHCFG_SOURCE(PTX(ptxn) + DMA_Port_A)
+					   );
   //PORT设置DMA触发
   EXTI_Init(ptxn, ecfg, pcfg);
   //输入PORT初始化
@@ -192,9 +192,9 @@ void EDMA_PORT_Init(DMA_CHn CHn, void *SADDR, void *DADDR, DMA_BYTEn byten, PTXn
   
   while(ptx0 <= ptxm)
   {
-    GPIO_Init((PTXn_e)ptx0, GPI, 0);       //设置为输入
-    PORT_Init((PTXn_e)ptx0, 1, pull_down); //输入源应该下拉，默认读取到的是0
-    ptx0++;
+	GPIO_Init((PTXn_e)ptx0, GPI, 0);       //设置为输入
+	PORT_Init((PTXn_e)ptx0, 1, pull_down); //输入源应该下拉，默认读取到的是0
+	ptx0++;
   }
   //使能DMA硬件请求
   //DMA_EN(CHn);
@@ -218,14 +218,14 @@ void EDMA_PORT_StartOnce(DMA_CHn CHn, uint32 DADDR, uint32 count)
   DMA0->TCD[CHn].DADDR         = DMA_DADDR_DADDR(DADDR);
   //TCD当前副循环链接，主循环计数
   DMA0->TCD[CHn].CITER_ELINKNO = (0 
-                                  | DMA_CITER_ELINKNO_ELINK(0)     //禁用副循环链接
-                                  | DMA_CITER_ELINKNO_CITER(count) //当前主循环计数值
-                                 );
+								  | DMA_CITER_ELINKNO_ELINK(0)     //禁用副循环链接
+								  | DMA_CITER_ELINKNO_CITER(count) //当前主循环计数值
+								 );
   //TCD起始副循环链接，主循环计数
   DMA0->TCD[CHn].BITER_ELINKNO = (0 
-                                  | DMA_BITER_ELINKNO_ELINK(0)     //禁用副循环链接
-                                  | DMA_BITER_ELINKNO_BITER(count) //初始主循环计数值
-                                 );
+								  | DMA_BITER_ELINKNO_ELINK(0)     //禁用副循环链接
+								  | DMA_BITER_ELINKNO_BITER(count) //初始主循环计数值
+								 );
   //使能DMA硬件请求
   DMA_EN(CHn);
 } 
@@ -258,59 +258,59 @@ void EDMA_UART_RX_Init(DMA_CHn CHn, UARTn_e uartn)
   DMA0->TCD[CHn].SLAST     = DMA_SLAST_SLAST(0);
   //TCD传输属性
   DMA0->TCD[CHn].ATTR  = (0
-                          | DMA_ATTR_DSIZE(byten) //目标数据传输大小
-                          | DMA_ATTR_DMOD (0)     //禁用目标地址取模
-                          | DMA_ATTR_SSIZE(byten) //源数据传输大小
-                          | DMA_ATTR_SMOD (0)     //禁用源地址取模
-                         );
+						  | DMA_ATTR_DSIZE(byten) //目标数据传输大小
+						  | DMA_ATTR_DMOD (0)     //禁用目标地址取模
+						  | DMA_ATTR_SSIZE(byten) //源数据传输大小
+						  | DMA_ATTR_SMOD (0)     //禁用源地址取模
+						 );
   //TCD有符号副循环偏移TCD：设置每次传输字节数，不启用副循环源地址偏移和目的地址偏移
   DMA0->TCD[CHn].NBYTES_MLNO = DMA_NBYTES_MLOFFYES_NBYTES(BYTEs);
   //TCD控制与状态寄存器TCD
   DMA0->TCD[CHn].CSR = (0
-                        | DMA_CSR_DREQ(1)     //对应通道DMA硬件请求使能EQR在主循环传输后自动清0（屏蔽硬件DMA请求）
-                        | DMA_CSR_INTMAJOR(0) //主循环传输结束，即CITER为0时使能中断
-                       );
+						| DMA_CSR_DREQ(1)     //对应通道DMA硬件请求使能EQR在主循环传输后自动清0（屏蔽硬件DMA请求）
+						| DMA_CSR_INTMAJOR(0) //主循环传输结束，即CITER为0时使能中断
+					   );
   //DMAMUX配置：设置触发源为PORTX
   switch(uartn)
   {
    case UART_0:
-    DMAMUX->CHCFG[CHn] = (0
-                          | DMAMUX_CHCFG_ENBL(1)
-                          | DMAMUX_CHCFG_SOURCE(DMA_UART0_Rx)
-                         );
-    break;
+	DMAMUX->CHCFG[CHn] = (0
+						  | DMAMUX_CHCFG_ENBL(1)
+						  | DMAMUX_CHCFG_SOURCE(DMA_UART0_Rx)
+						 );
+	break;
    case UART_1:
-    DMAMUX->CHCFG[CHn] = (0
-                          | DMAMUX_CHCFG_ENBL(1)
-                          | DMAMUX_CHCFG_SOURCE(DMA_UART1_Rx)
-                         );
-    break;
+	DMAMUX->CHCFG[CHn] = (0
+						  | DMAMUX_CHCFG_ENBL(1)
+						  | DMAMUX_CHCFG_SOURCE(DMA_UART1_Rx)
+						 );
+	break;
    case UART_2:
-    DMAMUX->CHCFG[CHn] = (0
-                          | DMAMUX_CHCFG_ENBL(1)
-                          | DMAMUX_CHCFG_SOURCE(DMA_UART2_Rx)
-                         );
-    break;
+	DMAMUX->CHCFG[CHn] = (0
+						  | DMAMUX_CHCFG_ENBL(1)
+						  | DMAMUX_CHCFG_SOURCE(DMA_UART2_Rx)
+						 );
+	break;
    case UART_3:
-    DMAMUX->CHCFG[CHn] = (0
-                          | DMAMUX_CHCFG_ENBL(1)
-                          | DMAMUX_CHCFG_SOURCE(DMA_UART3_Rx)
-                         );
-    break;
+	DMAMUX->CHCFG[CHn] = (0
+						  | DMAMUX_CHCFG_ENBL(1)
+						  | DMAMUX_CHCFG_SOURCE(DMA_UART3_Rx)
+						 );
+	break;
    case UART_4:
-    DMAMUX->CHCFG[CHn] = (0
-                          | DMAMUX_CHCFG_ENBL(1)
-                          | DMAMUX_CHCFG_SOURCE(DMA_UART4_Rx)
-                         );
-    break;
+	DMAMUX->CHCFG[CHn] = (0
+						  | DMAMUX_CHCFG_ENBL(1)
+						  | DMAMUX_CHCFG_SOURCE(DMA_UART4_Rx)
+						 );
+	break;
    case UART_5:
-    DMAMUX->CHCFG[CHn] = (0
-                          | DMAMUX_CHCFG_ENBL(1)
-                          | DMAMUX_CHCFG_SOURCE(DMA_UART5_Rx)
-                         );
-    break;
+	DMAMUX->CHCFG[CHn] = (0
+						  | DMAMUX_CHCFG_ENBL(1)
+						  | DMAMUX_CHCFG_SOURCE(DMA_UART5_Rx)
+						 );
+	break;
    default:
-    break;
+	break;
   }
   
   //使能DMA硬件请求
@@ -353,36 +353,156 @@ void EDMA_UART_RX_Start(DMA_CHn CHn, uint32 DADDR, uint32 count)
   DMA0->TCD[CHn].DLAST_SGA     = DMA_DLAST_SGA_DLASTSGA(0);
   //TCD当前副循环链接，主循环计数
   DMA0->TCD[CHn].CITER_ELINKNO = (0 
-                                  | DMA_CITER_ELINKNO_ELINK(0)     //禁用副循环链接
-                                  | DMA_CITER_ELINKNO_CITER(count) //当前主循环计数值
-                                 );
+								  | DMA_CITER_ELINKNO_ELINK(0)     //禁用副循环链接
+								  | DMA_CITER_ELINKNO_CITER(count) //当前主循环计数值
+								 );
   //TCD起始副循环链接，主循环计数
   DMA0->TCD[CHn].BITER_ELINKNO = (0 
-                                  | DMA_BITER_ELINKNO_ELINK(0)     //禁用副循环链接
-                                  | DMA_BITER_ELINKNO_BITER(count) //初始主循环计数值
-                                 );
+								  | DMA_BITER_ELINKNO_ELINK(0)     //禁用副循环链接
+								  | DMA_BITER_ELINKNO_BITER(count) //初始主循环计数值
+								 );
   //使能DMA硬件请求
   DMA_EN(CHn);
 } 
 
 /**
- * @name        EDMA_Transport_Init
+ * @name        EDMA_FlexPWM_Init
  * @brief       
  * @clock       System (CPU) clock
- * @param CHn   DMA通道号
- * @param SADDR 源地址
- * @param byten 传输数据大小
  * @return      无
  * @example     
  * @note        
  */
-void EDMA_FlexPWM_Init(DMA_CHn CHn, uint32 SADDR, DMA_BYTEn byten)
+void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn1, uint32_t SADDR1, DMA_CHn CHn2, uint32_t SADDR2)
 {
+	uint8_t		BYTEs = 2;
+	DMA_BYTEn	byten = DMA_BYTE2;
+	PWM_Type*	base;
+	PWM_SMn		subModule = (PWM_SMn)((ch % 8U) / 2U);
+	uint32_t	DADDR1;
+	uint32_t	DADDR2;
 
+	//初始配置读取
+	if (ch / 8U == 0) base = PWM0;
+	else base = PWM1;
+
+	if (ch % 2U == 0)
+	{
+		DADDR1 = (uint32)& base->SM[subModule].VAL2;
+		DADDR2 = (uint32)& base->SM[subModule].VAL3;
+	}
+	else
+	{
+		DADDR1 = (uint32)& base->SM[subModule].VAL4;
+		DADDR2 = (uint32)& base->SM[subModule].VAL5;
+	}
+
+	//开启时钟
+	CLOCK_EnableClock(kCLOCK_Dmamux0);
+	CLOCK_EnableClock(kCLOCK_Dma0);
+
+	//通道1配置
+
+	//TCD源地址设置
+	DMA0->TCD[CHn1].SADDR = DMA_SADDR_SADDR(SADDR1);
+	//TCD目的地址设置
+	DMA0->TCD[CHn1].DADDR = DMA_DADDR_DADDR(DADDR1);
+	//TCD源地址偏移设置：按传输数据大小偏移
+	DMA0->TCD[CHn1].SOFF = DMA_SOFF_SOFF(BYTEs);
+	//TCD目标地址偏移设置：无偏移
+	DMA0->TCD[CHn1].DOFF = DMA_DOFF_DOFF(0);
+	//TCD最终源地址调整：无调整
+	DMA0->TCD[CHn1].SLAST = DMA_SLAST_SLAST(0);
+	//TCD最终目的地址调整/分散聚集地址：无调整
+	DMA0->TCD[CHn1].DLAST_SGA = DMA_DLAST_SGA_DLASTSGA(0);
+	//TCD传输属性
+	DMA0->TCD[CHn1].ATTR = (0
+		| DMA_ATTR_DSIZE(byten)	//目标数据传输大小
+		| DMA_ATTR_DMOD(0)		//禁用目标地址取模
+		| DMA_ATTR_SSIZE(byten)	//源数据传输大小
+		| DMA_ATTR_SMOD(0)		//禁用源地址取模
+		);
+	//TCD有符号副循环偏移TCD：设置每次传输字节数，不启用副循环源地址偏移和目的地址偏移
+	DMA0->TCD[CHn1].NBYTES_MLNO = DMA_NBYTES_MLOFFYES_NBYTES(BYTEs);
+	//TCD控制与状态寄存器TCD
+	DMA0->TCD[CHn1].CSR = (0
+		| DMA_CSR_MAJORELINK(CHn2)	//主循环链接
+		| DMA_CSR_DREQ(1)			//对应通道DMA硬件请求使能EQR在主循环传输后自动清0（屏蔽硬件DMA请求）
+		| DMA_CSR_INTMAJOR(1)		//主循环传输结束，即CITER为0时使能中断
+		);
+	//DMAMUX配置：设置触发源为flexPWM_WR
+	if (base == PWM0)
+	{
+		DMAMUX->CHCFG[CHn1] = (0
+			| DMAMUX_CHCFG_ENBL(1)
+			| DMAMUX_CHCFG_SOURCE(subModule + DMA_flexPWM0_WR0)
+			);
+	}
+	else
+	{
+		DMAMUX->CHCFG[CHn1] = (0
+			| DMAMUX_CHCFG_ENBL(1)
+			| DMAMUX_CHCFG_SOURCE(subModule + DMA_flexPWM1_WR0)
+			);
+	}
+
+	//通道2配置
+
+	//TCD源地址设置
+	DMA0->TCD[CHn2].SADDR = DMA_SADDR_SADDR(SADDR2);
+	//TCD目的地址设置
+	DMA0->TCD[CHn2].DADDR = DMA_DADDR_DADDR(DADDR2);
+	//TCD源地址偏移设置：按传输数据大小偏移
+	DMA0->TCD[CHn2].SOFF = DMA_SOFF_SOFF(BYTEs);
+	//TCD目标地址偏移设置：无偏移
+	DMA0->TCD[CHn2].DOFF = DMA_DOFF_DOFF(0);
+	//TCD最终源地址调整：无调整
+	DMA0->TCD[CHn2].SLAST = DMA_SLAST_SLAST(0);
+	//TCD最终目的地址调整/分散聚集地址：无调整
+	DMA0->TCD[CHn2].DLAST_SGA = DMA_DLAST_SGA_DLASTSGA(0);
+	//TCD传输属性
+	DMA0->TCD[CHn2].ATTR = (0
+		| DMA_ATTR_DSIZE(byten)	//目标数据传输大小
+		| DMA_ATTR_DMOD(0)		//禁用目标地址取模
+		| DMA_ATTR_SSIZE(byten)	//源数据传输大小
+		| DMA_ATTR_SMOD(0)		//禁用源地址取模
+		);
+	//TCD有符号副循环偏移TCD：设置每次传输字节数，不启用副循环源地址偏移和目的地址偏移
+	DMA0->TCD[CHn2].NBYTES_MLNO = DMA_NBYTES_MLOFFYES_NBYTES(BYTEs);
+	//TCD控制与状态寄存器TCD
+	DMA0->TCD[CHn2].CSR = (0
+		| DMA_CSR_DREQ(1)			//对应通道DMA硬件请求使能EQR在主循环传输后自动清0（屏蔽硬件DMA请求）
+		| DMA_CSR_INTMAJOR(0)		//主循环传输结束，即CITER为0时使能中断
+		);
+
+	//DMA中断开启
+	DMA_IRQ_EN(CHn1);                                
 }
 
 
-
+/**
+ * @name        EDMA_FlexPWM_StartOnce
+ * @brief
+ * @clock       System (CPU) clock
+ * @return      无
+ * @example
+ * @note
+ */
+void EDMA_FlexPWM_StartOnce(DMA_CHn CHn, uint32 count)
+{
+	//TCD当前副循环链接，主循环计数
+	DMA0->TCD[CHn].CITER_ELINKNO = (0
+		| DMA_CITER_ELINKNO_ELINK(0)     //禁用副循环链接
+		| DMA_CITER_ELINKNO_CITER(count) //当前主循环计数值
+		);
+	//TCD起始副循环链接，主循环计数
+	DMA0->TCD[CHn].BITER_ELINKNO = (0
+		| DMA_BITER_ELINKNO_ELINK(0)     //禁用副循环链接
+		| DMA_BITER_ELINKNO_BITER(count) //初始主循环计数值
+		);
+	//使能DMA硬件请求
+	DMA_EN(CHn);
+}
 
 
 
