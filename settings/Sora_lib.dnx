@@ -27,7 +27,7 @@
         <MultiCoreRunAll>1</MultiCoreRunAll>
     </Simulator>
     <DebugChecksum>
-        <Checksum>1991583755</Checksum>
+        <Checksum>3097518847</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -124,6 +124,11 @@
         <Probe0>I0</Probe0>
         <ProbeSetup0>2 1 1 2 0 0</ProbeSetup0>
     </PowerProbe>
+    <struct_types>
+        <Fmt0>struct PWM_Value-VAL1	4	0</Fmt0>
+        <Fmt1>struct PWM_Value-VAL2	4	0</Fmt1>
+        <Fmt2>struct PWM_Value-VAL3	4	0</Fmt2>
+    </struct_types>
     <array_types>
         <Fmt0>int16[2]	3	0</Fmt0>
         <Fmt1>uint8[188]	3	0</Fmt1>
