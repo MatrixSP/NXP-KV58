@@ -27,7 +27,7 @@
         <MultiCoreRunAll>1</MultiCoreRunAll>
     </Simulator>
     <DebugChecksum>
-        <Checksum>2392991971</Checksum>
+        <Checksum>3973917332</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -131,7 +131,8 @@
     </struct_types>
     <array_types>
         <Fmt0>int16[2]	3	0</Fmt0>
-        <Fmt1>uint8[188]	3	0</Fmt1>
+        <Fmt1>int16_t[10]	4	0</Fmt1>
+        <Fmt2>uint8[188]	3	0</Fmt2>
     </array_types>
     <watch_formats>
         <Fmt0>{W}42:0x40049000u	4	0</Fmt0>

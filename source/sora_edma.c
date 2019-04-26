@@ -385,16 +385,18 @@ void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
 	if (ch / 8U == 0) base = PWM0;
 	else base = PWM1;
 
-	//if (ch % 2U == 0)
-	//{
-	//	DADDR = (uint32)& base->SM[subModule].VAL2;
-	//}
-	//else
-	//{
-	//	DADDR = (uint32)& base->SM[subModule].VAL4;
-	//}
+	if (ch % 2U == 0)
+	{
+		//DADDR = (uint32)& base->SM[subModule].VAL2;
+		DADDR = (uint32)& base->SM[subModule].VAL3;
+	}
+	else
+	{
+		//DADDR = (uint32)& base->SM[subModule].VAL4;
+		DADDR = (uint32)& base->SM[subModule].VAL5;
+	}
 
-	DADDR = (uint32)& base->SM[subModule].VAL0;
+	//DADDR = (uint32)& base->SM[subModule].VAL0;
 
 	//开启时钟
 	CLOCK_EnableClock(kCLOCK_Dmamux0);
@@ -407,11 +409,11 @@ void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
 	//TCD源地址偏移设置：按传输数据大小偏移
 	DMA0->TCD[CHn].SOFF = DMA_SOFF_SOFF(BYTEs);
 	//TCD目标地址偏移设置：按传输数据大小偏移
-	DMA0->TCD[CHn].DOFF = DMA_DOFF_DOFF(BYTEs);
-	//TCD最终源地址调整：无调整
-	DMA0->TCD[CHn].SLAST = DMA_SLAST_SLAST(-22);
-	//TCD最终目的地址调整/分散聚集地址：无调整
-	DMA0->TCD[CHn].DLAST_SGA = DMA_DLAST_SGA_DLASTSGA(-22);
+	DMA0->TCD[CHn].DOFF = DMA_DOFF_DOFF(0);
+	//TCD最终源地址调整：调整至初始位置
+	DMA0->TCD[CHn].SLAST = DMA_SLAST_SLAST(-20);
+	//TCD最终目的地址调整/分散聚集地址：调整至初始位置
+	DMA0->TCD[CHn].DLAST_SGA = DMA_DLAST_SGA_DLASTSGA(0);
 	//TCD传输属性
 	DMA0->TCD[CHn].ATTR = (0
 		| DMA_ATTR_DSIZE(byten)	//目标数据传输大小
@@ -420,21 +422,23 @@ void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
 		| DMA_ATTR_SMOD(0)		//禁用源地址取模
 		);
 	//DMA控制寄存器
-	DMA0->CR |= DMA_CR_EMLM(1);		//使能副循环映射
-	//TCD有符号副循环偏移TCD：设置每次传输字节数，不启用副循环源地址偏移和目的地址偏移
-	//DMA0->TCD[CHn].NBYTES_MLNO = DMA_NBYTES_MLOFFYES_NBYTES(BYTEs);
+	//DMA0->CR |= DMA_CR_EMLM(1);		//使能副循环映射
 
-	DMA0->TCD[CHn].NBYTES_MLOFFYES = (0
-		| DMA_NBYTES_MLOFFYES_SMLOE(1)
-		| DMA_NBYTES_MLOFFYES_DMLOE(1)
-		| DMA_NBYTES_MLOFFYES_MLOFF(2)
-		| DMA_NBYTES_MLOFFYES_NBYTES(22)
-		);
+	//TCD有符号副循环偏移TCD：设置每次传输字节数，不启用副循环源地址偏移和目的地址偏移
+	DMA0->TCD[CHn].NBYTES_MLNO = DMA_NBYTES_MLOFFYES_NBYTES(BYTEs);
+
+	//TCD有符号副循环偏移TCD：设置每次传输字节数，启用副循环源地址偏移和目的地址偏移
+	//DMA0->TCD[CHn].NBYTES_MLOFFYES = (0
+	//	| DMA_NBYTES_MLOFFYES_SMLOE(1)		//使能副循环源地址偏移
+	//	| DMA_NBYTES_MLOFFYES_DMLOE(1)		//使能副循环目标地址偏移
+	//	| DMA_NBYTES_MLOFFYES_MLOFF(2)		//地址偏移量设置
+	//	| DMA_NBYTES_MLOFFYES_NBYTES(22)	//副循环总传输字节数
+	//	);
 
 	//TCD控制与状态寄存器TCD
 	DMA0->TCD[CHn].CSR = (0
 		| DMA_CSR_MAJORLINKCH(0)	//主循环链接通道
-		| DMA_CSR_MAJORELINK(0)		//使能主循环链接
+		| DMA_CSR_MAJORELINK(0)		//禁用主循环链接
 		| DMA_CSR_DREQ(1)			//对应通道DMA硬件请求使能EQR在主循环传输后自动清0（屏蔽硬件DMA请求）
 		| DMA_CSR_INTMAJOR(1)		//主循环传输结束，即CITER为0时使能中断
 		);

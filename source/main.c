@@ -24,7 +24,7 @@
  * @}
  */
 
-#define main_10
+#define main_11
 
 #include "include.h"
  /*
@@ -190,32 +190,30 @@ void DMA7_DMA23_IRQHandler()
 /*
    * @date		2019年04月26日备份
    * @brief		测试主程序#11
-   * @mode		PWM重载DMA请求测试 连续传递所有参数
+   * @mode		PWM重载DMA请求测试 
+   *
+   * 主循环十次连续传递所有参数 十次完成触发DMA完成中断
+   *
    * @done		生成5% 15% 25% ... 95%十个PWM波，观察波形数量
-   * @note		1khz\10khz，
-   *			100khz，
-   *			1mhz，
-   *			800khz，
+   * @note		1khz\10khz，观测正常
+   *			100khz，观测正常
+   *			1mhz，观测到16个左右波形，后几个波形均为95%，因此为中断处理过程中产生
+   *			800khz，观测到13个左右波形，后三个波形均为95%，因此为中断处理过程中产生
    */
 
 #ifdef main_11
 
 
-typedef struct
-{
-	int16_t VAL_High_reg;
-	int16_t VAL_Low_reg;
-}PWM_Value;
+int16_t ValueH[10] = { 0 };
+int16_t ValueL[10] = { 0 };
 
-PWM_Value pwm_buff[10];
-
-void VALSET(PWM_CHn ch, PWM_Value reg[])
+void VALSET(PWM_CHn ch, int16_t VH[], int16_t VL[])
 {
 	uint8_t i = 0;
 	uint8_t j = 5;
 	for (i = 0; i < 10; i++)
 	{
-		FlexPWM_Independent_Channel_Duty_Buff(ch, j, &reg[i].VAL_High_reg, &reg[i].VAL_Low_reg);
+		FlexPWM_Independent_Channel_Duty_Buff(ch, j, &VH[i], &VL[i]);
 		j += 10;
 	}
 }
@@ -223,14 +221,14 @@ void VALSET(PWM_CHn ch, PWM_Value reg[])
 int main(void)
 {
 	LCD_Init();
-	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Signed_CenterAligned, 1000);
+	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Unsigned_EdgeAligned, 1000000);
 	FlexPWM_Independent_Channel_Init(PWM0_SM1_CHA);
 	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 0);
-	EDMA_FlexPWM_Init(PWM0_SM1_CHA, DMA_CH7, (uint32_t)& pwm_buff);
+	EDMA_FlexPWM_Init(PWM0_SM1_CHA, DMA_CH7, (uint32_t)ValueL);
 
-	VALSET(PWM0_SM1_CHA, pwm_buff);
+	VALSET(PWM0_SM1_CHA, ValueH, ValueL);
 
-	EDMA_FlexPWM_StartOnce(DMA_CH7, 1);
+	EDMA_FlexPWM_StartOnce(DMA_CH7, 10);
 	//EDMA_FlexPWM_StartOnce(DMA_CH7, VAL_Size);
 	PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(1);
 
@@ -245,10 +243,7 @@ void DMA7_DMA23_IRQHandler()
 	if (DMA0->INT & (1 << 7))
 	{
 		DMA0->CINT |= DMA_CINT_CINT(7);
-
-		DMA0->TCD[DMA_CH7].SADDR = DMA_SADDR_SADDR((uint32_t)& pwm_buff);
-		DMA0->TCD[DMA_CH7].DADDR = DMA_DADDR_DADDR(0x4003306A);
-		EDMA_FlexPWM_StartOnce(DMA_CH7, 1);
+		EDMA_FlexPWM_StartOnce(DMA_CH7, 10);
 
 		//DMA_DIS(DMA_CH7);
 		//PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(0);
@@ -260,7 +255,7 @@ void DMA7_DMA23_IRQHandler()
 
 /*
    * @date		2019年04月26日备份
-   * @brief		测试主程序#11
+   * @brief		测试主程序#10
    * @mode		PWM重载DMA请求测试
    * @done		生成5% 15% 25% ... 95%十个PWM波，观察波形数量
    * @note		1khz\10khz测试正常，正好10个
