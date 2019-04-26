@@ -406,8 +406,10 @@ void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
 	DMA0->TCD[CHn].DADDR = DMA_DADDR_DADDR(DADDR);
 	//TCD源地址偏移设置：按传输数据大小偏移
 	DMA0->TCD[CHn].SOFF = DMA_SOFF_SOFF(BYTEs);
+	//DMA0->TCD[CHn].SOFF = DMA_SOFF_SOFF(0);
 	//TCD目标地址偏移设置：按传输数据大小偏移
 	DMA0->TCD[CHn].DOFF = DMA_DOFF_DOFF(BYTEs);
+	//DMA0->TCD[CHn].DOFF = DMA_DOFF_DOFF(0);
 	//TCD最终源地址调整：无调整
 	DMA0->TCD[CHn].SLAST = DMA_SLAST_SLAST(0);
 	//TCD最终目的地址调整/分散聚集地址：无调整
@@ -419,8 +421,18 @@ void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
 		| DMA_ATTR_SSIZE(byten)	//源数据传输大小
 		| DMA_ATTR_SMOD(0)		//禁用源地址取模
 		);
+	//DMA控制寄存器
+	DMA0->CR |= DMA_CR_EMLM(1);		//使能副循环映射
 	//TCD有符号副循环偏移TCD：设置每次传输字节数，不启用副循环源地址偏移和目的地址偏移
-	DMA0->TCD[CHn].NBYTES_MLNO = DMA_NBYTES_MLOFFYES_NBYTES(BYTEs);
+	//DMA0->TCD[CHn].NBYTES_MLNO = DMA_NBYTES_MLOFFYES_NBYTES(BYTEs);
+
+	DMA0->TCD[CHn].NBYTES_MLOFFYES = (0
+		| DMA_NBYTES_MLOFFYES_SMLOE(1)
+		| DMA_NBYTES_MLOFFYES_DMLOE(1)
+		| DMA_NBYTES_MLOFFYES_MLOFF(2)
+		| DMA_NBYTES_MLOFFYES_NBYTES(22)
+		);
+
 	//TCD控制与状态寄存器TCD
 	DMA0->TCD[CHn].CSR = (0
 		| DMA_CSR_MAJORLINKCH(0)	//主循环链接通道
@@ -428,6 +440,7 @@ void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
 		| DMA_CSR_DREQ(1)			//对应通道DMA硬件请求使能EQR在主循环传输后自动清0（屏蔽硬件DMA请求）
 		| DMA_CSR_INTMAJOR(1)		//主循环传输结束，即CITER为0时使能中断
 		);
+
 	//DMAMUX配置：设置触发源为flexPWM_WR
 	if (base == PWM0)
 	{

@@ -28,14 +28,14 @@
 
 #include "include.h"
  /*
-   * @date   2019年04月17日备份
-   * @brief  测试主程序#10
-   * @mode   PWM重载DMA请求
+   * @date		2019年04月26日备份
+   * @brief		测试主程序#11
+   * @mode		PWM重载DMA请求
    * @done
-   * @note   驱动WS2812 LED串
+   * @note		重载寄存器有误，中断或将影响时序
    */
 
-#ifdef main_10
+#ifdef main_11
 
 #define Led_Num 24
 #define VAL_Size (Led_Num + 1) * 24
@@ -61,7 +61,7 @@ struct PWM_Value pwm_buff;
 
 uint32_t RGB[Led_Num] = 
 { 
-	0x0000FF, 0x000000, 0x000000, 0x000000, 
+	0x000000, 0x000000, 0x000000, 0x000000, 
 	0x000000, 0x000000, 0x000000, 0x000000,
 	0x000000, 0x000000, 0x000000, 0x000000,
 	0x000000, 0x000000, 0x000000, 0x000000,
@@ -71,8 +71,8 @@ uint32_t RGB[Led_Num] =
 int16_t VALH[Led_Num + 40][24] = { 0 };
 int16_t VALL[Led_Num + 40][24] = { 0 };
 
-#define DutyTrue	68
-#define DutyFalse	32
+#define DutyTrue	72//68
+#define DutyFalse	28//32
 
 //输出顺序由高到低GRB
 void RGB2VAL(PWM_CHn ch, uint32_t RGB, int16_t VALH[], int16_t VALL[])
@@ -117,10 +117,10 @@ int main(void)
 	{
 		RGB2VAL(PWM0_SM1_CHA, RGB[i], VALH[i], VALL[i]);
 	}
-	for (i = 0; i < 24; i++)
-	{
-		FlexPWM_Independent_Channel_Duty_Buff(PWM0_SM1_CHA, 0, &VALH[Led_Num][i], &VALL[Led_Num][i]);
-	}
+//	for (i = 0; i < 24; i++)
+//	{
+//		FlexPWM_Independent_Channel_Duty_Buff(PWM0_SM1_CHA, 0, &VALH[Led_Num][i], &VALL[Led_Num][i]);
+//	}
 
 
 	pwm_buff.VAL0 = PWM0->SM[1].VAL0;
@@ -135,7 +135,7 @@ int main(void)
 	pwm_buff.FRACVAL4 = PWM0->SM[1].FRACVAL4;
 	pwm_buff.FRACVAL5 = PWM0->SM[1].FRACVAL5;
 
-	EDMA_FlexPWM_StartOnce(DMA_CH7, 11);
+	EDMA_FlexPWM_StartOnce(DMA_CH7, 1);
 	//EDMA_FlexPWM_StartOnce(DMA_CH7, VAL_Size);
 	PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(1);
 
@@ -175,12 +175,11 @@ void DMA7_DMA23_IRQHandler()
 				led = 0;
 				DMA_DIS(DMA_CH7);
 				PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(0);
-			}
-						
+			}	
 		}
 		DMA0->TCD[DMA_CH7].SADDR = DMA_SADDR_SADDR((uint32_t)& pwm_buff);
 		DMA0->TCD[DMA_CH7].DADDR = DMA_DADDR_DADDR(0x4003306A);
-		EDMA_FlexPWM_StartOnce(DMA_CH7, 11);
+		EDMA_FlexPWM_StartOnce(DMA_CH7, 1);
 		//DMA_DIS(DMA_CH7);
 		//PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(0);
 		return;
@@ -188,6 +187,120 @@ void DMA7_DMA23_IRQHandler()
 }
 #endif
 
+
+/*
+   * @date		2019年04月26日备份
+   * @brief		测试主程序#11
+   * @mode		PWM重载DMA请求测试
+   * @done		生成5% 15% 25% ... 95%十个PWM波，观察波形数量
+   * @note		1khz\10khz测试正常，正好10个
+   *			100khz，观测到14个波形，或由中断处理时间引起，当注释掉大量赋值语句后，观测正常
+   *			1mhz，测试失败，观察到过多波形
+   *			800khz，测试失败，观察到过多波形，应当避免使用中断处理，集中一个区域储存所有数据
+   */
+
+#ifdef main_10
+
+
+struct PWM_Value
+{
+	int16_t VAL0;
+	uint16_t FRACVAL1;
+	int16_t VAL1;
+	uint16_t FRACVAL2;
+	int16_t VAL2;
+	uint16_t FRACVAL3;
+	int16_t VAL3;
+	uint16_t FRACVAL4;
+	int16_t VAL4;
+	uint16_t FRACVAL5;
+	int16_t VAL5;
+};
+
+struct PWM_Value pwm_buff;
+
+int16_t VALH[10] = { 0 };
+int16_t VALL[10] = { 0 };
+
+
+void VALSET(PWM_CHn ch, int16_t VALH[], int16_t VALL[])
+{
+	uint8_t i = 0;
+	uint8_t j = 5;
+	for (i = 0; i < 10; i++)
+	{
+		FlexPWM_Independent_Channel_Duty_Buff(ch, j, &VALH[i], &VALL[i]);
+		j += 10;
+	}
+}
+
+int main(void)
+{
+	LCD_Init();
+	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Signed_CenterAligned, 800000);
+	FlexPWM_Independent_Channel_Init(PWM0_SM1_CHA);
+	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 0);
+	EDMA_FlexPWM_Init(PWM0_SM1_CHA, DMA_CH7, (uint32_t)& pwm_buff);
+
+	VALSET(PWM0_SM1_CHA, VALH, VALL);
+
+
+	pwm_buff.VAL0 = PWM0->SM[1].VAL0;
+	pwm_buff.VAL1 = PWM0->SM[1].VAL1;
+	pwm_buff.VAL2 = PWM0->SM[1].VAL2;
+	pwm_buff.VAL3 = PWM0->SM[1].VAL3;
+	pwm_buff.VAL4 = PWM0->SM[1].VAL4;
+	pwm_buff.VAL5 = PWM0->SM[1].VAL5;
+	pwm_buff.FRACVAL1 = PWM0->SM[1].FRACVAL1;
+	pwm_buff.FRACVAL2 = PWM0->SM[1].FRACVAL2;
+	pwm_buff.FRACVAL3 = PWM0->SM[1].FRACVAL3;
+	pwm_buff.FRACVAL4 = PWM0->SM[1].FRACVAL4;
+	pwm_buff.FRACVAL5 = PWM0->SM[1].FRACVAL5;
+
+	EDMA_FlexPWM_StartOnce(DMA_CH7, 1);
+	//EDMA_FlexPWM_StartOnce(DMA_CH7, VAL_Size);
+	PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(1);
+
+	while (1U)
+	{
+		LCD_P6x8Str(0, 1, "PWM");
+	}
+}
+
+void DMA7_DMA23_IRQHandler()
+{
+	static uint8_t i = 0;
+	if (DMA0->INT & (1 << 7))
+	{
+		DMA0->CINT |= DMA_CINT_CINT(7);
+
+		//pwm_buff.VAL0 = PWM0->SM[1].VAL0;
+		//pwm_buff.VAL1 = PWM0->SM[1].VAL1;
+		pwm_buff.VAL2 = VALH[i];
+		pwm_buff.VAL3 = VALL[i];
+		//pwm_buff.VAL4 = PWM0->SM[1].VAL4;
+		//pwm_buff.VAL5 = PWM0->SM[1].VAL5;
+		//pwm_buff.FRACVAL1 = PWM0->SM[1].FRACVAL1;
+		//pwm_buff.FRACVAL2 = PWM0->SM[1].FRACVAL2;
+		//pwm_buff.FRACVAL3 = PWM0->SM[1].FRACVAL3;
+		//pwm_buff.FRACVAL4 = PWM0->SM[1].FRACVAL4;
+		//pwm_buff.FRACVAL5 = PWM0->SM[1].FRACVAL5;
+
+		i++;
+		if (i >= 10)
+		{
+			i = 0;
+		}
+		DMA0->TCD[DMA_CH7].SADDR = DMA_SADDR_SADDR((uint32_t)& pwm_buff);
+		DMA0->TCD[DMA_CH7].DADDR = DMA_DADDR_DADDR(0x4003306A);
+		EDMA_FlexPWM_StartOnce(DMA_CH7, 1);
+		//DMA_DIS(DMA_CH7);
+		//PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(0);
+		return;
+	}
+}
+
+#endif
  /*
   * @date   2019年04月17日备份
   * @brief  测试主程序#9
