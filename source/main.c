@@ -29,13 +29,13 @@
 #include "include.h"
  /*
    * @date		2019年04月26日备份
-   * @brief		测试主程序#11
+   * @brief		测试主程序#12
    * @mode		PWM重载DMA请求
    * @done
    * @note		重载寄存器有误，中断或将影响时序
    */
 
-#ifdef main_11
+#ifdef main_12
 
 #define Led_Num 24
 #define VAL_Size (Led_Num + 1) * 24
@@ -187,6 +187,76 @@ void DMA7_DMA23_IRQHandler()
 }
 #endif
 
+/*
+   * @date		2019年04月26日备份
+   * @brief		测试主程序#11
+   * @mode		PWM重载DMA请求测试 连续传递所有参数
+   * @done		生成5% 15% 25% ... 95%十个PWM波，观察波形数量
+   * @note		1khz\10khz，
+   *			100khz，
+   *			1mhz，
+   *			800khz，
+   */
+
+#ifdef main_11
+
+
+typedef struct
+{
+	int16_t VAL_High_reg;
+	int16_t VAL_Low_reg;
+}PWM_Value;
+
+PWM_Value pwm_buff[10];
+
+void VALSET(PWM_CHn ch, PWM_Value reg[])
+{
+	uint8_t i = 0;
+	uint8_t j = 5;
+	for (i = 0; i < 10; i++)
+	{
+		FlexPWM_Independent_Channel_Duty_Buff(ch, j, &reg[i].VAL_High_reg, &reg[i].VAL_Low_reg);
+		j += 10;
+	}
+}
+
+int main(void)
+{
+	LCD_Init();
+	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Signed_CenterAligned, 1000);
+	FlexPWM_Independent_Channel_Init(PWM0_SM1_CHA);
+	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 0);
+	EDMA_FlexPWM_Init(PWM0_SM1_CHA, DMA_CH7, (uint32_t)& pwm_buff);
+
+	VALSET(PWM0_SM1_CHA, pwm_buff);
+
+	EDMA_FlexPWM_StartOnce(DMA_CH7, 1);
+	//EDMA_FlexPWM_StartOnce(DMA_CH7, VAL_Size);
+	PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(1);
+
+	while (1U)
+	{
+		LCD_P6x8Str(0, 1, "PWM");
+	}
+}
+
+void DMA7_DMA23_IRQHandler()
+{
+	if (DMA0->INT & (1 << 7))
+	{
+		DMA0->CINT |= DMA_CINT_CINT(7);
+
+		DMA0->TCD[DMA_CH7].SADDR = DMA_SADDR_SADDR((uint32_t)& pwm_buff);
+		DMA0->TCD[DMA_CH7].DADDR = DMA_DADDR_DADDR(0x4003306A);
+		EDMA_FlexPWM_StartOnce(DMA_CH7, 1);
+
+		//DMA_DIS(DMA_CH7);
+		//PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(0);
+		return;
+	}
+}
+
+#endif
 
 /*
    * @date		2019年04月26日备份
@@ -237,7 +307,7 @@ void VALSET(PWM_CHn ch, int16_t VALH[], int16_t VALL[])
 int main(void)
 {
 	LCD_Init();
-	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Signed_CenterAligned, 800000);
+	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Signed_CenterAligned, 10000);
 	FlexPWM_Independent_Channel_Init(PWM0_SM1_CHA);
 	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 0);
 	EDMA_FlexPWM_Init(PWM0_SM1_CHA, DMA_CH7, (uint32_t)& pwm_buff);
@@ -291,8 +361,6 @@ void DMA7_DMA23_IRQHandler()
 		{
 			i = 0;
 		}
-		DMA0->TCD[DMA_CH7].SADDR = DMA_SADDR_SADDR((uint32_t)& pwm_buff);
-		DMA0->TCD[DMA_CH7].DADDR = DMA_DADDR_DADDR(0x4003306A);
 		EDMA_FlexPWM_StartOnce(DMA_CH7, 1);
 		//DMA_DIS(DMA_CH7);
 		//PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(0);
@@ -301,6 +369,7 @@ void DMA7_DMA23_IRQHandler()
 }
 
 #endif
+
  /*
   * @date   2019年04月17日备份
   * @brief  测试主程序#9

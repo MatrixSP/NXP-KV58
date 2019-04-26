@@ -394,8 +394,8 @@ void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
 	//	DADDR = (uint32)& base->SM[subModule].VAL4;
 	//}
 
-	//DADDR = (uint32)& base->SM[subModule].VAL0;
-	DADDR = 0x4003306A;
+	DADDR = (uint32)& base->SM[subModule].VAL0;
+
 	//开启时钟
 	CLOCK_EnableClock(kCLOCK_Dmamux0);
 	CLOCK_EnableClock(kCLOCK_Dma0);
@@ -406,14 +406,12 @@ void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
 	DMA0->TCD[CHn].DADDR = DMA_DADDR_DADDR(DADDR);
 	//TCD源地址偏移设置：按传输数据大小偏移
 	DMA0->TCD[CHn].SOFF = DMA_SOFF_SOFF(BYTEs);
-	//DMA0->TCD[CHn].SOFF = DMA_SOFF_SOFF(0);
 	//TCD目标地址偏移设置：按传输数据大小偏移
 	DMA0->TCD[CHn].DOFF = DMA_DOFF_DOFF(BYTEs);
-	//DMA0->TCD[CHn].DOFF = DMA_DOFF_DOFF(0);
 	//TCD最终源地址调整：无调整
-	DMA0->TCD[CHn].SLAST = DMA_SLAST_SLAST(0);
+	DMA0->TCD[CHn].SLAST = DMA_SLAST_SLAST(-22);
 	//TCD最终目的地址调整/分散聚集地址：无调整
-	DMA0->TCD[CHn].DLAST_SGA = DMA_DLAST_SGA_DLASTSGA(0);
+	DMA0->TCD[CHn].DLAST_SGA = DMA_DLAST_SGA_DLASTSGA(-22);
 	//TCD传输属性
 	DMA0->TCD[CHn].ATTR = (0
 		| DMA_ATTR_DSIZE(byten)	//目标数据传输大小
