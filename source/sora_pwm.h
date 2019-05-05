@@ -60,5 +60,6 @@ void FlexPWM_Independent_Submodule_Init(PWM_Type* base, PWM_SMn subModule, PWM_A
 void FlexPWM_Independent_Channel_Init(PWM_CHn ch);
 void FlexPWM_Independent_Channel_Duty(PWM_CHn ch, float dutyCyclePercent);
 void FlexPWM_Independent_Channel_Duty_Buff(PWM_CHn ch, float dutyCyclePercent, int16_t* VALH, int16_t* VALL);
+void FlexPWM_VALDE_Control(PWM_CHn ch, bool able);
 
 #endif

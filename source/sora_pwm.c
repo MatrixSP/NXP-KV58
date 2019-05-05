@@ -376,7 +376,7 @@ void FlexPWM_Independent_Channel_Duty(PWM_CHn ch, float dutyCyclePercent)
  * @param ch				通道号
  * @param dutyCyclePercent	占空比
  * @return					无
- * @example
+ * @example					FlexPWM_Independent_Channel_Duty_Buff(ch, j, &VH[i], &VL[i]);
  */
 void FlexPWM_Independent_Channel_Duty_Buff(PWM_CHn ch, float dutyCyclePercent, int16_t* VALH, int16_t* VALL)
 {
@@ -480,5 +480,34 @@ void FlexPWM_Independent_Channel_Duty_Buff(PWM_CHn ch, float dutyCyclePercent, i
 	}
 	default:
 		break;
+	}
+}
+
+/**
+ * @name					FlexPWM_VALDE_Control
+ * @brief					Value寄存器重载DMA使能控制
+ * @clock					Fast Peripheral clock
+ * @param ch				通道号
+ * @param able				使能控制
+ * @return					无
+ * @example					
+ */
+void FlexPWM_VALDE_Control(PWM_CHn ch, bool able)
+{
+	PWM_Type*	base;
+	PWM_SMn		subModule = (PWM_SMn)((ch % 8U) / 2U);
+
+	//初始配置读取
+	if (ch / 8U == 0) base = PWM0;
+	else base = PWM1;
+
+	//设置Value装载DMA控制器
+	if (able)
+	{
+		base->SM[subModule].DMAEN |= PWM_DMAEN_VALDE(1);
+	}
+	else
+	{
+		base->SM[subModule].DMAEN &= ~PWM_DMAEN_VALDE(1);
 	}
 }

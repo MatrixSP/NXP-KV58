@@ -174,7 +174,7 @@ void DMA7_DMA23_IRQHandler()
 			{
 				led = 0;
 				DMA_DIS(DMA_CH7);
-				PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(0);
+				PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(0); 
 			}	
 		}
 		DMA0->TCD[DMA_CH7].SADDR = DMA_SADDR_SADDR((uint32_t)& pwm_buff);
@@ -229,8 +229,8 @@ int main(void)
 	VALSET(PWM0_SM1_CHA, ValueH, ValueL);
 
 	EDMA_FlexPWM_StartOnce(DMA_CH7, 10);
-	//EDMA_FlexPWM_StartOnce(DMA_CH7, VAL_Size);
-	PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(1);
+	FlexPWM_VALDE_Control(PWM0_SM1_CHA, true);
+	//PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(1);
 
 	while (1U)
 	{
