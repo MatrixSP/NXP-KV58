@@ -1,5 +1,5 @@
 /* 
- * @date   2019年02月25日最后修改
+ * @date   2019年05月06日最后修改
  * @name   Sora_lib
  * @group  Akko
  * @author Afisora
@@ -367,11 +367,14 @@ void EDMA_UART_RX_Start(DMA_CHn CHn, uint32 DADDR, uint32 count)
 
 /**
  * @name        EDMA_FlexPWM_Init
- * @brief       
+ * @brief       初始化FlexPWM的DMA服务
  * @clock       System (CPU) clock
+ * @param ch	PWM通道号
+ * @param CHn	DMA通道号
+ * @param SADDR DMA源地址
  * @return      无
- * @example     
- * @note        
+ * @example     EDMA_FlexPWM_Init(PWM0_SM1_CHA, DMA_CH7, (uint32_t)ValueL);
+ * @note		PWM的对齐模式只可选择无符号边缘对齐
  */
 void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
 {
@@ -387,16 +390,12 @@ void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
 
 	if (ch % 2U == 0)
 	{
-		//DADDR = (uint32)& base->SM[subModule].VAL2;
 		DADDR = (uint32)& base->SM[subModule].VAL3;
 	}
 	else
 	{
-		//DADDR = (uint32)& base->SM[subModule].VAL4;
 		DADDR = (uint32)& base->SM[subModule].VAL5;
 	}
-
-	//DADDR = (uint32)& base->SM[subModule].VAL0;
 
 	//开启时钟
 	CLOCK_EnableClock(kCLOCK_Dmamux0);
@@ -421,19 +420,9 @@ void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
 		| DMA_ATTR_SSIZE(byten)	//源数据传输大小
 		| DMA_ATTR_SMOD(0)		//禁用源地址取模
 		);
-	//DMA控制寄存器
-	//DMA0->CR |= DMA_CR_EMLM(1);		//使能副循环映射
 
 	//TCD有符号副循环偏移TCD：设置每次传输字节数，不启用副循环源地址偏移和目的地址偏移
 	DMA0->TCD[CHn].NBYTES_MLNO = DMA_NBYTES_MLOFFYES_NBYTES(BYTEs);
-
-	//TCD有符号副循环偏移TCD：设置每次传输字节数，启用副循环源地址偏移和目的地址偏移
-	//DMA0->TCD[CHn].NBYTES_MLOFFYES = (0
-	//	| DMA_NBYTES_MLOFFYES_SMLOE(1)		//使能副循环源地址偏移
-	//	| DMA_NBYTES_MLOFFYES_DMLOE(1)		//使能副循环目标地址偏移
-	//	| DMA_NBYTES_MLOFFYES_MLOFF(2)		//地址偏移量设置
-	//	| DMA_NBYTES_MLOFFYES_NBYTES(22)	//副循环总传输字节数
-	//	);
 
 	//TCD控制与状态寄存器TCD
 	DMA0->TCD[CHn].CSR = (0
@@ -466,11 +455,12 @@ void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
 
 /**
  * @name        EDMA_FlexPWM_StartOnce
- * @brief
+ * @brief		启动一次PWM传输
  * @clock       System (CPU) clock
+ * @param CHn	DMA通道号
+ * @param count	数据传输次数
  * @return      无
- * @example
- * @note
+ * @example		EDMA_FlexPWM_StartOnce(DMA_CH7, 10);
  */
 void EDMA_FlexPWM_StartOnce(DMA_CHn CHn, uint32 count)
 {

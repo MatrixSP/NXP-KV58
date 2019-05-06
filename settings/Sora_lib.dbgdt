@@ -975,7 +975,7 @@
                     <item>bus_clock</item>
                     <item>ValueL</item>
                     <item>pwm_buff</item>
-                    <item></item>
+                    <item />
                 </expressions>
                 <col-names>
                     <item>Expression</item>

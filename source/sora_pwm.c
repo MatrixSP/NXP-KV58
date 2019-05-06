@@ -1,5 +1,5 @@
 /*
- * @date   2019年04月16日最后修改
+ * @date   2019年05月06日最后修改
  * @name   Sora_lib
  * @group  Akko
  * @author Afisora
@@ -490,7 +490,7 @@ void FlexPWM_Independent_Channel_Duty_Buff(PWM_CHn ch, float dutyCyclePercent, i
  * @param ch				通道号
  * @param able				使能控制
  * @return					无
- * @example					
+ * @example					FlexPWM_VALDE_Control(PWM0_SM1_CHA, true);
  */
 void FlexPWM_VALDE_Control(PWM_CHn ch, bool able)
 {

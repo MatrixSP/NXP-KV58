@@ -1,5 +1,5 @@
 ﻿/*
- * @date   2019年04月16日最后修改
+ * @date   2019年05月06日最后修改
  * @name   Sora_lib
  * @group  Akko
  * @author Afisora
@@ -30,9 +30,9 @@
  /*
    * @date		2019年04月26日备份
    * @brief		测试主程序#12
-   * @mode		PWM重载DMA请求
+   * @mode		PWM重载DMA请求 WS2812驱动
    * @done
-   * @note		重载寄存器有误，中断或将影响时序
+   * @note		
    */
 
 #ifdef main_12
@@ -188,7 +188,7 @@ void DMA7_DMA23_IRQHandler()
 #endif
 
 /*
-   * @date		2019年04月26日备份
+   * @date		2019年05月06日备份
    * @brief		测试主程序#11
    * @mode		PWM重载DMA请求测试 
    *
@@ -230,7 +230,6 @@ int main(void)
 
 	EDMA_FlexPWM_StartOnce(DMA_CH7, 10);
 	FlexPWM_VALDE_Control(PWM0_SM1_CHA, true);
-	//PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(1);
 
 	while (1U)
 	{
@@ -244,9 +243,6 @@ void DMA7_DMA23_IRQHandler()
 	{
 		DMA0->CINT |= DMA_CINT_CINT(7);
 		EDMA_FlexPWM_StartOnce(DMA_CH7, 10);
-
-		//DMA_DIS(DMA_CH7);
-		//PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(0);
 		return;
 	}
 }
