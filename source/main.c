@@ -11,7 +11,6 @@
  *    3.内核system库编写
  *    4.DMA与UART IDLE结合的LOG信息发送
  *    5.IIC、SPI、FTM、ADC、LCD
- *    6.DWT、PIT时钟或许有误
  * @}
  * @note
  * @{
@@ -24,11 +23,11 @@
  * @}
  */
 
-#define main_11
+#define main_12
 
 #include "include.h"
  /*
-   * @date		2019年04月26日备份
+   * @date		2019年05月07日备份
    * @brief		测试主程序#12
    * @mode		PWM重载DMA请求 WS2812驱动
    * @done
@@ -40,39 +39,31 @@
 #define Led_Num 24
 #define VAL_Size (Led_Num + 1) * 24
 
-struct PWM_Value
-{
-	int16_t VAL0;
-	uint16_t FRACVAL1;
-	int16_t VAL1;
-	uint16_t FRACVAL2;
-	int16_t VAL2;
-	uint16_t FRACVAL3;
-	int16_t VAL3;
-	uint16_t FRACVAL4;
-	int16_t VAL4;
-	uint16_t FRACVAL5;
-	int16_t VAL5;
-};
-
-struct PWM_Value pwm_buff;
-
-
-
 uint32_t RGB[Led_Num] = 
 { 
-	0x000000, 0x000000, 0x000000, 0x000000, 
-	0x000000, 0x000000, 0x000000, 0x000000,
-	0x000000, 0x000000, 0x000000, 0x000000,
-	0x000000, 0x000000, 0x000000, 0x000000,
-	0x000000, 0x000000, 0x000000, 0x000000,
-	0x000000, 0x000000, 0x000000, 0x000000,
+	0xFF0000, 0x00FF00, 0x0000FF, 0xFFFFFF,
+	0xFF0000, 0x00FF00, 0x0000FF, 0xFFFFFF,
+	0xFF0000, 0x00FF00, 0x0000FF, 0xFFFFFF,
+	0xFF0000, 0x00FF00, 0x0000FF, 0xFFFFFF,
+	0xFF0000, 0x00FF00, 0x0000FF, 0xFFFFFF,
+	0xFF00FF, 0xF0FF0F, 0x0F00F0, 0x111111,
 };
-int16_t VALH[Led_Num + 40][24] = { 0 };
-int16_t VALL[Led_Num + 40][24] = { 0 };
 
-#define DutyTrue	72//68
-#define DutyFalse	28//32
+//uint32_t RGB[Led_Num] = 
+//{ 
+//	0x000000, 0x000000, 0x000000, 0x000000, 
+//	0x000000, 0x000000, 0x000000, 0x000000,
+//	0x000000, 0x000000, 0x000000, 0x000000,
+//	0x000000, 0x000000, 0x000000, 0x000000,
+//	0x000000, 0x000000, 0x000000, 0x000000,
+//	0x000000, 0x000000, 0x000000, 0x000000,
+//};
+
+int16_t VALH[Led_Num + 1][24] = { 0 };
+int16_t VALL[Led_Num + 1][24] = { 0 };
+
+#define DutyTrue	68//72
+#define DutyFalse	32//28
 
 //输出顺序由高到低GRB
 void RGB2VAL(PWM_CHn ch, uint32_t RGB, int16_t VALH[], int16_t VALL[])
@@ -108,36 +99,24 @@ int main(void)
 {
 	uint8_t i;
 	LCD_Init();
-	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Signed_CenterAligned, 800000);
+	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Unsigned_EdgeAligned, 800000);
 	FlexPWM_Independent_Channel_Init(PWM0_SM1_CHA);
 	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 0);
-	EDMA_FlexPWM_Init(PWM0_SM1_CHA, DMA_CH7, (uint32_t)& pwm_buff);
+	EDMA_FlexPWM_Init(PWM0_SM1_CHA, DMA_CH7, (uint32_t)VALL);
 	
 	for (i = 0; i < Led_Num; i++)
 	{
 		RGB2VAL(PWM0_SM1_CHA, RGB[i], VALH[i], VALL[i]);
 	}
-//	for (i = 0; i < 24; i++)
-//	{
-//		FlexPWM_Independent_Channel_Duty_Buff(PWM0_SM1_CHA, 0, &VALH[Led_Num][i], &VALL[Led_Num][i]);
-//	}
 
+	for (i = 0; i < 24; i++)
+	{
+		FlexPWM_Independent_Channel_Duty_Buff(PWM0_SM1_CHA, 0, &VALH[Led_Num][i], &VALL[Led_Num][i]);
+	}
 
-	pwm_buff.VAL0 = PWM0->SM[1].VAL0;
-	pwm_buff.VAL1 = PWM0->SM[1].VAL1;
-	pwm_buff.VAL2 = PWM0->SM[1].VAL2;
-	pwm_buff.VAL3 = PWM0->SM[1].VAL3;
-	pwm_buff.VAL4 = PWM0->SM[1].VAL4;
-	pwm_buff.VAL5 = PWM0->SM[1].VAL5;
-	pwm_buff.FRACVAL1 = PWM0->SM[1].FRACVAL1;
-	pwm_buff.FRACVAL2 = PWM0->SM[1].FRACVAL2;
-	pwm_buff.FRACVAL3 = PWM0->SM[1].FRACVAL3;
-	pwm_buff.FRACVAL4 = PWM0->SM[1].FRACVAL4;
-	pwm_buff.FRACVAL5 = PWM0->SM[1].FRACVAL5;
-
-	EDMA_FlexPWM_StartOnce(DMA_CH7, 1);
-	//EDMA_FlexPWM_StartOnce(DMA_CH7, VAL_Size);
-	PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(1);
+	EDMA_FlexPWM_StartOnce(DMA_CH7, (Led_Num + 1) * 24);
+	//EDMA_FlexPWM_StartOnce(DMA_CH7, 510);
+	FlexPWM_VALDE_Control(PWM0_SM1_CHA, true);
 
 	while (1U)
 	{
@@ -147,41 +126,11 @@ int main(void)
 
 void DMA7_DMA23_IRQHandler()
 {
-	static uint8_t led = 0;
-	static uint8_t pack = 0;
 	if (DMA0->INT & (1 << 7))
 	{
 		DMA0->CINT |= DMA_CINT_CINT(7);
-
-		pwm_buff.VAL0 = PWM0->SM[1].VAL0;
-		pwm_buff.VAL1 = PWM0->SM[1].VAL1;
-		pwm_buff.VAL2 = VALH[led][pack];
-		pwm_buff.VAL3 = VALL[led][pack];
-		pwm_buff.VAL4 = PWM0->SM[1].VAL4;
-		pwm_buff.VAL5 = PWM0->SM[1].VAL5;
-		pwm_buff.FRACVAL1 = PWM0->SM[1].FRACVAL1;
-		pwm_buff.FRACVAL2 = PWM0->SM[1].FRACVAL2;
-		pwm_buff.FRACVAL3 = PWM0->SM[1].FRACVAL3;
-		pwm_buff.FRACVAL4 = PWM0->SM[1].FRACVAL4;
-		pwm_buff.FRACVAL5 = PWM0->SM[1].FRACVAL5;
-
-		pack++;
-		if (pack >= 24)
-		{
-			pack = 0;
-			led++;
-			if (led >= Led_Num + 40)
-			{
-				led = 0;
-				DMA_DIS(DMA_CH7);
-				PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(0); 
-			}	
-		}
-		DMA0->TCD[DMA_CH7].SADDR = DMA_SADDR_SADDR((uint32_t)& pwm_buff);
-		DMA0->TCD[DMA_CH7].DADDR = DMA_DADDR_DADDR(0x4003306A);
-		EDMA_FlexPWM_StartOnce(DMA_CH7, 1);
-		//DMA_DIS(DMA_CH7);
-		//PWM0->SM[PWM_SM1].DMAEN |= PWM_DMAEN_VALDE(0);
+		//EDMA_FlexPWM_StartOnce(DMA_CH7, (Led_Num + 1) * 24);
+		FlexPWM_VALDE_Control(PWM0_SM1_CHA, false);
 		return;
 	}
 }

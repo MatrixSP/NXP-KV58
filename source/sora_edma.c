@@ -409,8 +409,6 @@ void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
 	DMA0->TCD[CHn].SOFF = DMA_SOFF_SOFF(BYTEs);
 	//TCD目标地址偏移设置：按传输数据大小偏移
 	DMA0->TCD[CHn].DOFF = DMA_DOFF_DOFF(0);
-	//TCD最终源地址调整：调整至初始位置
-	DMA0->TCD[CHn].SLAST = DMA_SLAST_SLAST(-20);
 	//TCD最终目的地址调整/分散聚集地址：调整至初始位置
 	DMA0->TCD[CHn].DLAST_SGA = DMA_DLAST_SGA_DLASTSGA(0);
 	//TCD传输属性
@@ -464,6 +462,9 @@ void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR)
  */
 void EDMA_FlexPWM_StartOnce(DMA_CHn CHn, uint32 count)
 {
+
+	//TCD最终源地址调整：调整至初始位置
+	DMA0->TCD[CHn].SLAST = DMA_SLAST_SLAST(-count * 2);
 	//TCD当前副循环链接，主循环计数
 	DMA0->TCD[CHn].CITER_ELINKNO = (0
 		| DMA_CITER_ELINKNO_ELINK(0)     //禁用副循环链接
