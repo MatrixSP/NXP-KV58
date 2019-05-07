@@ -234,12 +234,12 @@ int main(void)
 {
 	uint8_t i;
 	LCD_Init();
-	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Unsigned_EdgeAligned, 800000);
+	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM1, PWM_Unsigned_EdgeAligned, 700000);
 	FlexPWM_Independent_Channel_Init(PWM0_SM1_CHA);
 	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 0);
 	EDMA_FlexPWM_Init(PWM0_SM1_CHA, DMA_CH7, (uint32_t)VALL);
 
-	PIT_IRQ_Init(PIT0, 10);
+	PIT_IRQ_Init(PIT0, 1);
 
 	RGB[0]  = RGBmix(255, 255 - 37.5 * 4, 105);
 	RGB[1]  = RGBmix(255, 105, 105 + 37.5 * 1);
@@ -291,7 +291,7 @@ int main(void)
 			}
 			for (i = 0; i < Led_Num; i++)
 			{
-				light[i] = RGBlight(RGB[i], 0.1);
+				light[i] = RGBlight(RGB[i], 0.08);
 			}
 			for (i = 0; i < Led_Num; i++)
 			{
