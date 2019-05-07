@@ -7887,7 +7887,7 @@ typedef struct GPIO_MemMap
         struct                                            
         {
             uint32_t PDOR0 : 1;
-            uint32_t PDOR1:  1;
+            uint32_t PDOR1 : 1;
             uint32_t PDOR2 : 1;
             uint32_t PDOR3 : 1;
             uint32_t PDOR4 : 1;

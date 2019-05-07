@@ -168,8 +168,8 @@ void UART_Com_Init(UARTn_e uartn, uint32 baud)
                        | UART_C1_PT(0)  //0为偶校验，1为奇校验
                       );
   //计算并配置波特率
-  SBR = Fast_Peripheral_Clock * 1000 / (baud * 16);
-  BRFA = (uint16)(((float)Fast_Peripheral_Clock * 1000 / baud - 16 * SBR) * 2);
+  SBR = Fast_Peripheral_Clock / (baud * 16);
+  BRFA = (uint16)(((float)Fast_Peripheral_Clock / baud - 16 * SBR) * 2);
   //写入波特率SBR
   temp = UARTX[uartn]->BDH & (~UART_BDH_SBR_MASK);
   UARTX[uartn]->BDH = temp | UART_BDH_SBR(SBR >> 8);
