@@ -10,8 +10,8 @@
 #define __COMMON_H__
 
 #define ARM_INTERRUPT_LEVEL_BITS     4//中断优先级宏定义
-#define EnableInterrupts  asm(" CPSIE i");//开总中断
-#define DisableInterrupts asm(" CPSID i");//关总中断
+#define EnableInterrupts  asm(" CPSIE i")//开总中断
+#define DisableInterrupts asm(" CPSID i")//关总中断
 
 typedef unsigned char       	uint8;  /*  8 bits */
 typedef unsigned short int   uint16; /* 16 bits */

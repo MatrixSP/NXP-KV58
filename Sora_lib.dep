@@ -5,930 +5,425 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\debug\obj\sora_lcd.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_sysmpu.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_adc16.o</file>
-            <file>$PROJ_DIR$\debug\obj\sora_port.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_uart.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_rcm.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_i2c.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\sora_gpio.o</file>
-            <file>$PROJ_DIR$\debug\obj\clock_config.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_cache.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_uart.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_pit.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_flash.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\sora_lcd.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_hsadc.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
-            <file>$PROJ_DIR$\debug\obj\sora_dwt.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\sora_uart.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_smc.__cstat.et</file>
-            <file>$PROJ_DIR$\source\sora_dma.h</file>
-            <file>$PROJ_DIR$\debug\obj\system_MKV58F24.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\inc\c\assert.h</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_hsadc.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_pmc.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_sysmpu.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_ewm.o</file>
-            <file>$PROJ_DIR$\debug\Sora_lib.out</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dma_manager.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\stddef.h</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_xbarb.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_pwm.o</file>
-            <file>$PROJ_DIR$\debug\obj\sora_edma.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_flexbus.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\system_MKV58F24.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dspi.o</file>
-            <file>$PROJ_DIR$\debug\obj\main.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_trng.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dac.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_uart_edma.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\sora_lptmr.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\string.h</file>
-            <file>$PROJ_DIR$\debug\obj\system_MKV58F24.o</file>
-            <file>$PROJ_DIR$\debug\obj\sora_uart.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_xbarb.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\list\Sora_lib.map</file>
-            <file>$PROJ_DIR$\debug\obj\main.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_controller.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_lptmr.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdarg.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_flexcan.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_adc16.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_float_setup.h</file>
-            <file>$PROJ_DIR$\debug\obj\main.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_gpio.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_controller.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_pdb.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\sora_port.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_xbara.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dac.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\sora_system.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_pit.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\sora_gpio.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_xbarb.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_swo.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_edma.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_shell.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_controller.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
-            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
-            <file>$PROJ_DIR$\debug\obj\sora_pwm.__cstat.et</file>
-            <file>$PROJ_DIR$\MKV58F1M0xxx24_flash.icf</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_pdb.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_cache.o</file>
-            <file>$PROJ_DIR$\debug\obj\pin_mux.o</file>
-            <file>$PROJ_DIR$\debug\obj\pin_mux.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_ftm.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dspi_edma.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_llwu.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dspi_edma.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_str.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_clock.o</file>
-            <file>$PROJ_DIR$\debug\obj\sora_port.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_debug_console.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\sora_edma.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\sora_pwm.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_wdog.pbi</file>
+            <file>$PROJ_DIR$\board\pin_mux.h</file>
+            <file>$PROJ_DIR$\CMSIS\arm_const_structs.h</file>
+            <file>$PROJ_DIR$\CMSIS\mpu_armv7.h</file>
+            <file>$PROJ_DIR$\device\sora_camera_mt9v032.h</file>
+            <file>$PROJ_DIR$\board\pin_mux.c</file>
+            <file>$PROJ_DIR$\CMSIS\fsl_device_registers.h</file>
+            <file>$PROJ_DIR$\CMSIS\core_armv8mbl.h</file>
+            <file>$PROJ_DIR$\CMSIS\cmsis_compiler.h</file>
+            <file>$PROJ_DIR$\CMSIS\system_MKV58F24.c</file>
+            <file>$PROJ_DIR$\CMSIS\cmsis_iccarm.h</file>
+            <file>$PROJ_DIR$\CMSIS\system_MKV58F24.h</file>
+            <file>$PROJ_DIR$\board\src\clock_config.c</file>
+            <file>$PROJ_DIR$\board\src\clock_config.h</file>
+            <file>$PROJ_DIR$\CMSIS\arm_common_tables.h</file>
+            <file>$PROJ_DIR$\CMSIS\cmsis_armcc.h</file>
+            <file>$PROJ_DIR$\CMSIS\cmsis_armclang.h</file>
+            <file>$PROJ_DIR$\CMSIS\core_armv8mml.h</file>
+            <file>$PROJ_DIR$\CMSIS\core_cm7.h</file>
+            <file>$PROJ_DIR$\device\sora_camera.c</file>
+            <file>$PROJ_DIR$\device\sora_camera.h</file>
+            <file>$PROJ_DIR$\CMSIS\cmsis_gcc.h</file>
+            <file>$PROJ_DIR$\CMSIS\cmsis_version.h</file>
+            <file>$PROJ_DIR$\CMSIS\MKV58F24.h</file>
+            <file>$PROJ_DIR$\CMSIS\arm_math.h</file>
+            <file>$PROJ_DIR$\CMSIS\MKV58F24_features.h</file>
+            <file>$PROJ_DIR$\CMSIS\mpu_armv8.h</file>
+            <file>$PROJ_DIR$\device\sora_camera_mt9v032.c</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_common.o</file>
             <file>$PROJ_DIR$\debug\obj\sora_dma.pbi</file>
             <file>$PROJ_DIR$\debug\obj\sora_pwm.o</file>
             <file>$PROJ_DIR$\source\sora_lcd.c</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_llwu.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_flash.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dmamux.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dspi.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_pwm.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_enc.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\sora_gpio.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\sora_dwt.o</file>
             <file>$PROJ_DIR$\debug\obj\fsl_i2c.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dmamux.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_trng.o</file>
             <file>$PROJ_DIR$\debug\obj\sora_pit.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_flexcan_edma.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dmamux.o</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Product_stdlib.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_common.o</file>
             <file>$PROJ_DIR$\debug\obj\fsl_flexcan.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_wdog.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\sora_gpio.pbi</file>
             <file>$PROJ_DIR$\debug\obj\fsl_gpio.__cstat.et</file>
             <file>$PROJ_DIR$\debug\obj\Sora_lib.pbd</file>
             <file>$PROJ_DIR$\debug\obj\fsl_pwm.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_pwm.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_llwu.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dspi.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_flexcan_edma.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
             <file>$PROJ_DIR$\source\sora_lcd.h</file>
             <file>$PROJ_DIR$\debug\obj\fsl_lptmr.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_wdog.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_flash.o</file>
             <file>$PROJ_DIR$\debug\obj\fsl_crc.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dmamux.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_enc.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_wdog.__cstat.et</file>
             <file>$PROJ_DIR$\debug\obj\fsl_smc.pbi</file>
             <file>$PROJ_DIR$\debug\obj\startup_MKV58F24.o</file>
             <file>$PROJ_DIR$\debug\obj\fsl_enc.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\sora_dwt.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_trng.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_edma.o</file>
             <file>$PROJ_DIR$\debug\obj\fsl_ewm.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dac.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_io.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_rcm.o</file>
-            <file>$PROJ_DIR$\debug\obj\sora_uart.pbi</file>
             <file>$PROJ_DIR$\debug\obj\fsl_i2c_edma.o</file>
-            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_aoi.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_shell.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_shell.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_hsadc.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_trng.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_log.o</file>
-            <file>$PROJ_DIR$\debug\obj\clock_config.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_pit.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dac.__cstat.et</file>
             <file>$PROJ_DIR$\debug\obj\fsl_ewm.__cstat.et</file>
-            <file>$PROJ_DIR$\drivers\fsl_dmamux.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_adc16.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_dspi.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_dac.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_edma.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_enet.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_dspi_edma.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_flash.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_edma.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_common.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_enc.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_cmp.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_dspi_edma.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_dspi.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_ewm.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_flexbus.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_flexbus.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_crc.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_dmamux.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_enet.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_flexcan.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_ewm.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_flexcan.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_aoi.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_crc.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_enc.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_clock.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_cmp.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_clock.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_common.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_dac.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_aoi.h</file>
-            <file>$PROJ_DIR$\CMSIS\system_MKV58F24.h</file>
-            <file>$PROJ_DIR$\CMSIS\core_armv8mml.h</file>
-            <file>$PROJ_DIR$\device\sora_camera.c</file>
-            <file>$PROJ_DIR$\board\src\clock_config.c</file>
-            <file>$PROJ_DIR$\board\src\clock_config.h</file>
-            <file>$PROJ_DIR$\board\pin_mux.h</file>
-            <file>$PROJ_DIR$\board\pin_mux.c</file>
-            <file>$PROJ_DIR$\CMSIS\arm_const_structs.h</file>
-            <file>$PROJ_DIR$\CMSIS\arm_math.h</file>
-            <file>$PROJ_DIR$\CMSIS\cmsis_iccarm.h</file>
-            <file>$PROJ_DIR$\CMSIS\cmsis_gcc.h</file>
-            <file>$PROJ_DIR$\CMSIS\cmsis_version.h</file>
-            <file>$PROJ_DIR$\CMSIS\core_armv8mbl.h</file>
-            <file>$PROJ_DIR$\CMSIS\MKV58F24.h</file>
-            <file>$PROJ_DIR$\CMSIS\arm_common_tables.h</file>
-            <file>$PROJ_DIR$\CMSIS\mpu_armv7.h</file>
-            <file>$PROJ_DIR$\CMSIS\mpu_armv8.h</file>
-            <file>$PROJ_DIR$\CMSIS\cmsis_armcc.h</file>
-            <file>$PROJ_DIR$\CMSIS\system_MKV58F24.c</file>
-            <file>$PROJ_DIR$\device\sora_camera.h</file>
-            <file>$PROJ_DIR$\device\sora_camera_mt9v032.c</file>
-            <file>$PROJ_DIR$\device\sora_camera_mt9v032.h</file>
-            <file>$PROJ_DIR$\device\sora_lcd.c</file>
-            <file>$PROJ_DIR$\device\sora_lcd.h</file>
-            <file>$PROJ_DIR$\CMSIS\cmsis_compiler.h</file>
-            <file>$PROJ_DIR$\CMSIS\fsl_device_registers.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_adc16.c</file>
-            <file>$PROJ_DIR$\CMSIS\cmsis_armclang.h</file>
-            <file>$PROJ_DIR$\CMSIS\core_cm7.h</file>
-            <file>$PROJ_DIR$\CMSIS\MKV58F24_features.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_ftfx_controller.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_ftfx_flash.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_gpio.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_hsadc.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_i2c.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_ftfx_cache.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_i2c_edma.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_ftfx_adapter.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_lptmr.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_i2c.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_hsadc.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_ftfx_flexnvm.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_gpio.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_ftfx_cache.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_ftfx_flexnvm.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_i2c_edma.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_ftfx_controller.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_flexcan_edma.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_llwu.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_flexcan_edma.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_ftm.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_ftfx_features.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_ftfx_utilities.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_llwu.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_ftfx_flash.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_pdb.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_pdb.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_pit.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_lptmr.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_pit.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_ftm.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_sim.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_wdog.h</file>
-            <file>$PROJ_DIR$\middleware\dma_manager\fsl_dma_manager.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_uart_edma.h</file>
-            <file>$PROJ_DIR$\source\common.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_rcm.h</file>
-            <file>$PROJ_DIR$\source\include.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_smc.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_trng.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_xbarb.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_sysmpu.c</file>
-            <file>$PROJ_DIR$\source\sora_dwt.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_port.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_xbara.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_pwm.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_uart_edma.c</file>
-            <file>$PROJ_DIR$\source\main.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_smc.h</file>
-            <file>$PROJ_DIR$\source\sora_dwt.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_rcm.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_wdog.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_pmc.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_pwm.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_sim.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_uart.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_xbarb.h</file>
-            <file>$PROJ_DIR$\middleware\dma_manager\fsl_dma_manager.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_sysmpu.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_xbara.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_trng.c</file>
-            <file>$PROJ_DIR$\drivers\fsl_uart.h</file>
-            <file>$PROJ_DIR$\drivers\fsl_pmc.c</file>
-            <file>$PROJ_DIR$\source\sora_lptmr.c</file>
-            <file>$PROJ_DIR$\source\sora_lptmr.h</file>
-            <file>$PROJ_DIR$\source\sora_gpio_cfg.h</file>
-            <file>$PROJ_DIR$\source\sora_pit.c</file>
-            <file>$PROJ_DIR$\source\sora_port.c</file>
-            <file>$PROJ_DIR$\source\sora_edma.c</file>
-            <file>$PROJ_DIR$\source\sora_pwm.h</file>
-            <file>$PROJ_DIR$\source\sora_pit.h</file>
-            <file>$PROJ_DIR$\source\sora_port.h</file>
-            <file>$PROJ_DIR$\source\sora_system.c</file>
-            <file>$PROJ_DIR$\source\sora_system.h</file>
-            <file>$PROJ_DIR$\source\sora_uart.h</file>
-            <file>$PROJ_DIR$\startup\startup_MKV58F24.s</file>
-            <file>$PROJ_DIR$\utilities\fsl_assert.c</file>
-            <file>$PROJ_DIR$\utilities\fsl_debug_console.c</file>
-            <file>$PROJ_DIR$\utilities\fsl_debug_console.h</file>
-            <file>$PROJ_DIR$\utilities\fsl_debug_console_conf.h</file>
-            <file>$PROJ_DIR$\utilities\fsl_io.c</file>
-            <file>$PROJ_DIR$\utilities\fsl_io.h</file>
-            <file>$PROJ_DIR$\utilities\fsl_log.c</file>
-            <file>$PROJ_DIR$\utilities\fsl_log.h</file>
-            <file>$PROJ_DIR$\utilities\fsl_shell.c</file>
-            <file>$PROJ_DIR$\utilities\fsl_shell.h</file>
-            <file>$PROJ_DIR$\utilities\fsl_str.c</file>
-            <file>$PROJ_DIR$\source\sora_edma.h</file>
-            <file>$PROJ_DIR$\utilities\fsl_str.h</file>
-            <file>$PROJ_DIR$\utilities\fsl_swo.c</file>
-            <file>$PROJ_DIR$\source\sora_gpio.c</file>
-            <file>$PROJ_DIR$\source\sora_gpio.h</file>
-            <file>$PROJ_DIR$\source\sora_pwm.c</file>
-            <file>$PROJ_DIR$\source\sora_uart.c</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dspi.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_sim.o</file>
             <file>$PROJ_DIR$\debug\obj\fsl_common.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_io.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_shell.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_trng.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_sim.o</file>
+            <file>$PROJ_DIR$\debug\obj\clock_config.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dspi.pbi</file>
             <file>$PROJ_DIR$\debug\obj\fsl_cmp.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_log.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_rcm.o</file>
             <file>$PROJ_DIR$\debug\obj\fsl_flexbus.pbi</file>
             <file>$PROJ_DIR$\debug\obj\sora_system.__cstat.et</file>
             <file>$PROJ_DIR$\debug\obj\sora_dma.o</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_aoi.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\sora_uart.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_hsadc.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
             <file>$PROJ_DIR$\debug\obj\fsl_ftm.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_pmc.pbi</file>
             <file>$PROJ_DIR$\debug\obj\fsl_aoi.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_pmc.pbi</file>
             <file>$PROJ_DIR$\source\sora_dma.c</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_edma.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_flexcan_edma.__cstat.et</file>
-            <file>$PROJ_DIR$\utilities\fsl_swo.h</file>
-            <file>$PROJ_DIR$\debug\obj\clock_config.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\sora_camera_mt9v032.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_flexcan.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_crc.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_lptmr.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_swo.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_i2c_edma.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_enc.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_aoi.o</file>
-            <file>$TOOLKIT_DIR$\lib\dl7M_tlf.a</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_crc.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_pdb.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_log.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dma_manager.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_flexcan_edma.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_str.o</file>
-            <file>$PROJ_DIR$\debug\obj\sora_pit.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_xbara.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_assert.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\iccarm_builtin.h</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_enet.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_xbara.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_str.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\sora_lptmr.o</file>
-            <file>$PROJ_DIR$\debug\obj\sora_edma.o</file>
-            <file>$PROJ_DIR$\debug\obj\sora_lcd.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_debug_console.o</file>
-            <file>$PROJ_DIR$\debug\obj\sora_camera_mt9v032.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_wdog.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_gpio.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_sysmpu.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_assert.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_shell.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_pit.__cstat.et</file>
             <file>$PROJ_DIR$\debug\obj\sora_system.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dmamux.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_llwu.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\sora_camera.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_sim.__cstat.et</file>
             <file>$PROJ_DIR$\debug\obj\fsl_uart.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_clock.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_io.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_common.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\sora_camera_mt9v032.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dma_manager.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_gpio.o</file>
             <file>$PROJ_DIR$\debug\obj\fsl_sim.pbi</file>
             <file>$PROJ_DIR$\debug\obj\fsl_uart_edma.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_log.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\sora_pit.__cstat.et</file>
             <file>$PROJ_DIR$\debug\obj\fsl_ftm.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_io.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_cmp.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_common.__cstat.et</file>
             <file>$PROJ_DIR$\debug\obj\fsl_rcm.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_dspi_edma.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_io.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\sora_pit.__cstat.et</file>
             <file>$PROJ_DIR$\debug\obj\fsl_i2c_edma.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_assert.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_sim.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_clock.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_cmp.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dspi_edma.o</file>
             <file>$TOOLKIT_DIR$\inc\c\math.h</file>
             <file>$PROJ_DIR$\debug\obj\fsl_edma.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_pmc.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_enet.pbi</file>
             <file>$PROJ_DIR$\debug\obj\fsl_debug_console.pbi</file>
             <file>$PROJ_DIR$\debug\obj\fsl_flexbus.o</file>
             <file>$PROJ_DIR$\debug\obj\fsl_assert.__cstat.et</file>
             <file>$PROJ_DIR$\debug\obj\fsl_ftfx_flash.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_io.o</file>
+            <file>$PROJ_DIR$\debug\obj\sora_camera_mt9v032.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dmamux.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_llwu.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\sora_camera.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dma_manager.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_log.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_pmc.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_enet.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_sysmpu.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_crc.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_swo.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_enc.o</file>
+            <file>$PROJ_DIR$\debug\obj\sora_pit.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_xbara.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_flexcan.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_assert.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_i2c_edma.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tlf.a</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_pdb.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_lptmr.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_flexcan_edma.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_str.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_enet.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_xbara.o</file>
+            <file>$PROJ_DIR$\debug\obj\clock_config.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_crc.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_aoi.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_log.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dma_manager.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_str.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\sora_lptmr.o</file>
+            <file>$PROJ_DIR$\debug\obj\sora_edma.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\iccarm_builtin.h</file>
+            <file>$PROJ_DIR$\debug\obj\sora_lcd.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_debug_console.o</file>
+            <file>$PROJ_DIR$\debug\obj\sora_camera_mt9v032.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_wdog.o</file>
+            <file>$PROJ_DIR$\debug\obj\sora_camera_mt9v032.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_flexcan_edma.__cstat.et</file>
             <file>$PROJ_DIR$\debug\obj\fsl_ftfx_flexnvm.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_cmp.o</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_flexnvm.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_i2c.pbi</file>
             <file>$PROJ_DIR$\debug\obj\sora_camera.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_flexnvm.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_swo.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_flexnvm.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_cmp.o</file>
             <file>$PROJ_DIR$\debug\obj\fsl_enet.o</file>
             <file>$PROJ_DIR$\debug\obj\sora_dwt.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_uart_edma.o</file>
-            <file>$PROJ_DIR$\debug\obj\pin_mux.__cstat.et</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_clock.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\fsl_adc16.pbi</file>
-            <file>$PROJ_DIR$\debug\obj\sora_camera.o</file>
             <file>$PROJ_DIR$\debug\obj\fsl_smc.o</file>
             <file>$PROJ_DIR$\debug\obj\fsl_ftfx_cache.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_flexnvm.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\sora_camera.o</file>
+            <file>$PROJ_DIR$\debug\obj\pin_mux.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_uart_edma.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_swo.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_i2c.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_adc16.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_clock.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_xbara.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_controller.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\pin_mux.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_ftm.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_str.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
+            <file>$PROJ_DIR$\debug\obj\pin_mux.pbi</file>
+            <file>$PROJ_DIR$\MKV58F1M0xxx24_flash.icf</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_llwu.o</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_clock.o</file>
+            <file>$PROJ_DIR$\debug\obj\sora_port.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_cache.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_shell.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dspi_edma.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_pit.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dspi_edma.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_debug_console.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\sora_port.o</file>
+            <file>$PROJ_DIR$\debug\obj\sora_system.o</file>
+            <file>$PROJ_DIR$\debug\obj\sora_edma.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\sora_pwm.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_pdb.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_swo.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_xbarb.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_controller.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_pdb.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_edma.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\sora_pwm.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dac.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\sora_gpio.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\sora_lptmr.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_gpio.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\stddef.h</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_xbarb.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_ewm.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_flexbus.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\system_MKV58F24.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_pwm.o</file>
+            <file>$PROJ_DIR$\debug\obj\main.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_uart_edma.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_trng.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\system_MKV58F24.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dma_manager.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_xbarb.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_controller.o</file>
+            <file>$PROJ_DIR$\debug\obj\sora_edma.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dac.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_flexcan.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_dspi.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_adc16.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\list\Sora_lib.map</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdarg.h</file>
+            <file>$PROJ_DIR$\debug\obj\sora_uart.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\debug\obj\main.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\Sora_lib.out</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_float_setup.h</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_lptmr.o</file>
+            <file>$PROJ_DIR$\debug\obj\main.pbi</file>
+            <file>$PROJ_DIR$\drivers\fsl_adc16.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_crc.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_dac.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_aoi.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_enc.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_enet.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_dmamux.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_dspi_edma.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_ewm.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_clock.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_edma.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_adc16.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_dac.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_dspi.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_enc.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_dspi_edma.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_flash.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_ewm.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_common.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_dspi.c</file>
+            <file>$PROJ_DIR$\device\sora_lcd.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_aoi.c</file>
+            <file>$PROJ_DIR$\device\sora_lcd.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_clock.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_common.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_cmp.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_dmamux.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_edma.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_cmp.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_enet.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_crc.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_flexcan_edma.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_flexcan.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_ftfx_adapter.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_ftfx_features.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_flexbus.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_ftfx_flash.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_ftfx_flash.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_ftfx_flexnvm.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_flexbus.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_ftfx_utilities.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_ftm.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_ftm.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_gpio.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_ftfx_controller.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_flexcan.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_gpio.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_hsadc.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_ftfx_cache.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_flexcan_edma.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_i2c.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_hsadc.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_ftfx_cache.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_ftfx_flexnvm.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_i2c.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_i2c_edma.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_ftfx_controller.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_i2c_edma.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_llwu.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_llwu.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_lptmr.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_lptmr.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_pdb.c</file>
+            <file>$PROJ_DIR$\source\common.h</file>
+            <file>$PROJ_DIR$\middleware\dma_manager\fsl_dma_manager.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_sim.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_sysmpu.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_pmc.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_rcm.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_rcm.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_sim.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_pwm.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_pdb.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_pit.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_pit.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_smc.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_trng.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_port.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_trng.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_uart_edma.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_pwm.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_uart.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_uart.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_sysmpu.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_uart_edma.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_wdog.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_smc.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_wdog.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_xbara.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_xbarb.c</file>
+            <file>$PROJ_DIR$\drivers\fsl_xbarb.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_pmc.h</file>
+            <file>$PROJ_DIR$\drivers\fsl_xbara.c</file>
+            <file>$PROJ_DIR$\middleware\dma_manager\fsl_dma_manager.c</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_hsadc.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+            <file>$PROJ_DIR$\utilities\fsl_swo.c</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_hsadc.o</file>
+            <file>$PROJ_DIR$\utilities\fsl_str.c</file>
+            <file>$PROJ_DIR$\debug\obj\sora_dwt.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\sora_lcd.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_sysmpu.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_adc16.o</file>
+            <file>$PROJ_DIR$\debug\obj\sora_uart.__cstat.et</file>
+            <file>$PROJ_DIR$\source\sora_dma.h</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_i2c.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\system_MKV58F24.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\sora_lcd.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_rcm.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_uart.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_uart.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_pmc.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\sora_port.__cstat.et</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_sysmpu.o</file>
+            <file>$PROJ_DIR$\utilities\fsl_shell.h</file>
+            <file>$PROJ_DIR$\utilities\fsl_str.h</file>
+            <file>$PROJ_DIR$\debug\obj\sora_gpio.o</file>
+            <file>$PROJ_DIR$\utilities\fsl_swo.h</file>
+            <file>$PROJ_DIR$\debug\obj\clock_config.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_cache.pbi</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_smc.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\assert.h</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_pit.o</file>
+            <file>$PROJ_DIR$\debug\obj\fsl_ftfx_flash.pbi</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$PROJ_DIR$\utilities\fsl_io.h</file>
+            <file>$PROJ_DIR$\utilities\fsl_log.c</file>
+            <file>$PROJ_DIR$\source\sora_lptmr.c</file>
+            <file>$PROJ_DIR$\utilities\fsl_assert.c</file>
+            <file>$PROJ_DIR$\source\sora_uart.h</file>
+            <file>$PROJ_DIR$\utilities\fsl_log.h</file>
+            <file>$PROJ_DIR$\utilities\fsl_shell.c</file>
+            <file>$PROJ_DIR$\source\include.h</file>
+            <file>$PROJ_DIR$\source\sora_port.h</file>
+            <file>$PROJ_DIR$\source\sora_uart.c</file>
+            <file>$PROJ_DIR$\source\sora_lptmr.h</file>
+            <file>$PROJ_DIR$\source\sora_pit.h</file>
+            <file>$PROJ_DIR$\source\sora_dwt.c</file>
+            <file>$PROJ_DIR$\source\sora_gpio.c</file>
+            <file>$PROJ_DIR$\source\sora_edma.c</file>
+            <file>$PROJ_DIR$\source\sora_pwm.h</file>
+            <file>$PROJ_DIR$\source\sora_system.h</file>
+            <file>$PROJ_DIR$\source\sora_gpio.h</file>
+            <file>$PROJ_DIR$\source\sora_port.c</file>
+            <file>$PROJ_DIR$\startup\startup_MKV58F24.s</file>
+            <file>$PROJ_DIR$\utilities\fsl_debug_console.h</file>
+            <file>$PROJ_DIR$\utilities\fsl_debug_console_conf.h</file>
+            <file>$PROJ_DIR$\source\sora_dwt.h</file>
+            <file>$PROJ_DIR$\source\sora_gpio_cfg.h</file>
+            <file>$PROJ_DIR$\utilities\fsl_debug_console.c</file>
+            <file>$PROJ_DIR$\source\main.c</file>
+            <file>$PROJ_DIR$\source\sora_pwm.c</file>
+            <file>$PROJ_DIR$\source\sora_edma.h</file>
+            <file>$PROJ_DIR$\source\sora_pit.c</file>
+            <file>$PROJ_DIR$\source\sora_system.c</file>
+            <file>$PROJ_DIR$\utilities\fsl_io.c</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 28 47</file>
+                    <file> 228 223</file>
                 </tool>
             </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\debug\Sora_lib.out</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 47</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 75 8 2 319 330 85 374 110 321 40 338 29 104 37 363 308 318 380 27 370 313 107 77 49 96 373 359 341 24 103 127 360 82 135 50 76 13 367 32 125 132 297 387 327 316 26 105 12 382 340 333 66 38 78 386 339 102 336 7 15 106 60 93 63 45 120 44 17 72 128 320</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\source\sora_lcd.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 0</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 337</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 15</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 275 182 140 227 303 52 161 279 296 148 51 141 223 259 176 109 326 186 167 9 196 158 201 210 246 233 286 272 10 199 55 184 171 34 178 142 147 146 208 225 213 219 253 255 262 257 282 310 274 292 116 131 43 195 185 30 238 250 179 170 166 156 157 151 149 160 154 218 206 222 212 231 204 216 209 230 244 237 249 240 235 260 234 280 284 289 236 175 271 266 288 90 108 365 180 331 200 23 73</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 274 238 9 52 326 109 303 131 10 43 90 34 108 296 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 73 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 250 272 271 292 266 275 116 288</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_dmamux.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 97</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 345</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 104</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 184 34 326 171 23 131 52 182 331 148 296 30 167 109 303 10 180 73 43 196 90 108 200 199 195 157 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 157 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_edma.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 366</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 68</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 308</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 196 148 52 10 108 199 43 326 73 90 200 296 186 23 34 30 167 109 303 131 184 171 147 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 147 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_enet.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 332</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 368</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 380</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 34 131 52 23 326 184 171 296 30 167 109 303 10 186 148 73 43 196 90 108 200 199 158 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 158 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_dspi_edma.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 83</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 81</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 363</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 23 326 141 171 184 148 34 131 52 296 30 167 109 303 10 186 147 73 43 196 90 108 200 199 151 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 151 141 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 147</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_cmp.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 361</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 299</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 374</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 109 52 30 303 326 296 167 10 182 331 23 34 131 184 171 180 148 73 43 196 90 108 200 199 195 166 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 166 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_dspi.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 98</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 295</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 37</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 23 326 171 184 148 34 131 52 296 30 167 109 303 10 186 73 43 196 90 108 200 199 141 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 141 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_ewm.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 138</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 122</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 27</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 303 326 30 109 52 296 167 10 182 331 23 34 131 184 171 180 148 73 43 196 90 108 200 199 195 160 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 160 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_flexbus.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 35</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 300</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 370</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 52 148 326 73 90 200 43 196 10 108 199 296 186 23 34 30 167 109 303 131 184 171 154 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 154 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_flexcan.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 111</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 53</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 313</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 52 73 90 200 148 326 43 196 10 108 199 296 186 23 34 30 167 109 303 131 184 171 161 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 161 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_aoi.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 129</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 306</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 319</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 184 23 326 171 34 131 52 148 296 30 167 109 303 10 186 73 43 196 90 108 200 199 170 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 170 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_crc.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 314</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 118</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 321</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 296 303 326 167 109 52 30 10 148 23 34 131 184 171 186 73 43 196 90 108 200 199 156 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 156 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_enc.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 100</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 121</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 318</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 326 34 171 184 23 131 52 182 331 148 296 30 167 109 303 10 180 73 43 196 90 108 200 199 195 149 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 149 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_clock.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 350</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 384</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 85</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 326 30 10 296 167 109 303 52 148 23 34 131 184 171 186 73 43 196 90 108 200 199 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 167 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_common.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 352</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 298</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 110</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 52 90 200 73 326 182 331 43 196 10 108 199 180 148 23 296 34 30 167 109 303 131 184 171 195 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_dac.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 123</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 62</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 40</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 23 131 52 34 326 184 171 182 331 296 30 167 109 303 10 180 148 73 43 196 90 108 200 199 195 142 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 142 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\device\sora_camera.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 347</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 377</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 386</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 223 73 176 141 259 326 108 182 196 147 148 140 161 227 279 275 52 186 10 43 158 201 210 246 233 286 272 190 90 199 55 184 171 296 208 250 178 167 142 146 225 213 219 253 255 262 257 282 310 274 292 288 195 185 206 238 9 34 51 179 170 166 156 157 151 149 160 154 218 222 212 231 204 216 209 230 244 237 249 240 235 260 234 280 284 289 236 175 271 266 270 194 192 109 303 131 365 180 331 200 23 30</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 274 238 9 52 326 109 303 131 10 43 90 34 108 296 73 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 250 272 271 292 266 275 270 288 194 190 192</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\board\src\clock_config.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 136</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 311</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 8</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 148 326 10 296 167 30 109 303 52 180 23 34 131 184 171 182 331 175 73 43 196 90 108 200 199 195 249 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 249 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 175</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\board\pin_mux.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 383</file>
+                    <name>ICCARM</name>
+                    <file> 172</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 79</file>
+                    <file> 176</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 78</file>
+                    <name>__cstat</name>
+                    <file> 163</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 184 34 326 171 23 131 52 296 30 167 109 303 10 176 73 43 196 90 108 200 199 186 148 182 195 180 331</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 176</file>
+                    <file> 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 0</file>
                 </tool>
             </inputs>
         </file>
@@ -936,26 +431,68 @@
             <name>$PROJ_DIR$\CMSIS\system_MKV58F24.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 22</file>
+                    <name>ICCARM</name>
+                    <file> 212</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 36</file>
+                    <file> 207</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 44</file>
+                    <name>__cstat</name>
+                    <file> 339</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 109 303 199 326 131 200 296 186 196 52 184 171 182 195 180 331</file>
+                    <name>ICCARM</name>
+                    <file> 83 226 142 58 78 81 5 22 17 21 7 9 146 2 10 24</file>
                 </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\board\src\clock_config.c</name>
+            <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 296 52 326 109 303 131 196 184 199 182 195 180 331 186 171 200</file>
+                    <file> 351</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 137</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 70</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 318 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\device\sora_camera.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 162</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 154</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 116</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 374 365 334 226 142 58 78 81 327 221 44 219 34 83 175 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 380 366 369 375 381 362 373 385 252 19 3</file>
                 </tool>
             </inputs>
         </file>
@@ -963,53 +500,83 @@
             <name>$PROJ_DIR$\device\sora_camera_mt9v032.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 353</file>
+                    <name>ICCARM</name>
+                    <file> 149</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 312</file>
+                    <file> 151</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 339</file>
+                    <name>__cstat</name>
+                    <file> 113</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 194 166 244 303 296 9 206 284 167 148 147 179 149 204 235 250 109 326 199 161 51 157 154 212 209 249 234 236 266 52 10 365 30 201 208 238 34 185 184 170 156 151 160 218 222 231 216 230 237 240 260 280 289 175 271 270 192 131 180 331 200 23 43 73 178 196 171 140 142 141 158 146 225 223 213 210 219 227 253 246 255 259 262 233 257 279 282 286 310 176 274 272 292 275 288 190 90 108 182 195 186 55</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 274 238 9 52 326 109 303 131 10 43 90 34 108 296 73 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 250 272 271 292 266 275 270 288 194 190 192</file>
+                    <file> 374 365 334 226 142 58 78 81 327 221 44 219 34 83 175 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 380 366 369 375 381 362 373 385 252 19 3</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\device\sora_lcd.c</name>
+            <name>$PROJ_DIR$\source\sora_lcd.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 0</file>
+                    <name>ICCARM</name>
+                    <file> 340</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 337</file>
+                    <file> 147</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 15</file>
+                    <name>__cstat</name>
+                    <file> 332</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 210 296 196 272 158 233 199 171 30 43 148 201 246 286 190 90 55 184 147 73 140 141 161 223 227 259 279 176 275 326 52 108 182 186 206 250 178 167 142 146 208 225 213 219 253 255 262 257 282 310 274 292 288 10 195 185 238 9 34 51 179 170 166 156 157 151 149 160 154 218 222 212 231 204 216 209 230 244 237 249 240 235 260 234 280 284 289 236 175 271 266 270 194 192 109 303 131 365 180 331 200 23</file>
+                    <name>ICCARM</name>
+                    <file> 374 365 334 226 142 58 78 81 327 221 44 219 34 83 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 175 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 380 366 369 375 381 362 45 385</file>
                 </tool>
                 <tool>
+                    <name>BICOMP</name>
+                    <file> 362 21 243 304 78 226 277 378 83 250 224 245 272 315 0 58 142 2 241 334 5 237 276 286 303 319 347 366 327 17 229 22 10 219 1 234 259 248 265 269 278 291 323 297 314 322 358 350 374 375 45 81 221 7 13 203 365 380 23 235 260 262 258 239 246 249 267 281 284 266 285 274 279 289 293 306 309 301 318 310 311 320 296 379 363 348 295 12 369 381 385 44 34 106 9 146 24 354 175</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\source\sora_dma.c</name>
+            <outputs>
+                <tool>
                     <name>ICCARM</name>
-                    <file> 274 238 9 52 326 109 303 131 10 43 90 34 108 296 73 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 250 272 271 292 266 275 270 288 194 190 192</file>
+                    <file> 77</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 28</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 337 365 334 226 142 58 78 81 327 221 44 219 34 83 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 175 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 374 380 369 375 381 45</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\debug\Sora_lib.out</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 223</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 177 351 335 139 128 180 156 27 138 217 148 213 33 220 105 59 124 157 205 109 127 43 182 215 48 153 95 92 329 31 61 112 178 73 230 192 355 119 208 74 88 69 159 134 123 346 57 342 164 150 136 194 209 172 162 149 56 145 349 340 32 188 29 189 225 54 212 357 179 67 130</file>
                 </tool>
             </inputs>
         </file>
@@ -1017,242 +584,344 @@
             <name>$PROJ_DIR$\drivers\fsl_adc16.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 54</file>
+                    <name>ICCARM</name>
+                    <file> 335</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 385</file>
+                    <file> 167</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 2</file>
+                    <name>__cstat</name>
+                    <file> 222</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 108 52 10 43 199 196 326 182 331 148 73 90 200 180 23 296 34 30 167 109 303 131 184 171 195 140 186</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 140 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
+                    <file> 243 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\drivers\fsl_ftfx_flash.c</name>
+            <name>$PROJ_DIR$\drivers\fsl_crc.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 372</file>
+                    <name>ICCARM</name>
+                    <file> 138</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 14</file>
+                    <file> 49</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 96</file>
+                    <name>__cstat</name>
+                    <file> 122</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 201 296 184 23 326 171 208 34 131 52 186 223 30 167 109 303 10 222 148 73 43 196 90 108 200 199 225 182 195 180 331</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 225 201 222 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 208 223</file>
+                    <file> 262 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\drivers\fsl_gpio.c</name>
+            <name>$PROJ_DIR$\drivers\fsl_enc.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 113</file>
+                    <name>ICCARM</name>
+                    <file> 124</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 57</file>
+                    <file> 55</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 341</file>
+                    <name>__cstat</name>
+                    <file> 51</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 10 326 30 296 167 109 303 52 23 34 131 184 171 186 148 73 43 196 90 108 200 199 213 182 195 180 331</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 213 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
+                    <file> 246 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\drivers\fsl_i2c.c</name>
+            <name>$PROJ_DIR$\drivers\fsl_dmamux.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 6</file>
+                    <name>ICCARM</name>
+                    <file> 33</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 376</file>
+                    <file> 114</file>
                 </tool>
                 <tool>
+                    <name>__cstat</name>
+                    <file> 50</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
                     <name>ICCARM</name>
+                    <file> 258 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_ewm.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 205</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 60</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 63</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 249 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_edma.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 59</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 197</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 107</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 259 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_dac.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 217</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 199</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 62</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 234 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_dspi_edma.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 105</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 184</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 186</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 239 245 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 259</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_dspi.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 220</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 71</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 42</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 245 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_aoi.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 139</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 85</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 79</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 235 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\device\sora_lcd.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 340</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 147</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 332</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 374 365 334 226 142 58 78 81 327 221 44 219 34 83 175 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 380 366 369 375 381 362 373 385 252 19 3</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_clock.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 180</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 168</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
                     <file> 103</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 184 23 326 171 148 34 131 52 296 30 167 109 303 10 186 73 43 196 90 108 200 199 210 182 195 180 331</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 210 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
+                    <file> 241 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\drivers\fsl_i2c_edma.c</name>
+            <name>$PROJ_DIR$\drivers\fsl_common.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 317</file>
+                    <name>ICCARM</name>
+                    <file> 27</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 364</file>
+                    <file> 64</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 127</file>
+                    <name>__cstat</name>
+                    <file> 96</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 326 30 10 296 167 109 303 52 210 148 23 34 131 184 171 186 147 73 43 196 90 108 200 199 216 182 195 180 331</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 216 210 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 147</file>
+                    <file> 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\drivers\fsl_hsadc.c</name>
+            <name>$PROJ_DIR$\drivers\fsl_cmp.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 16</file>
+                    <name>ICCARM</name>
+                    <file> 156</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 133</file>
+                    <file> 72</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 24</file>
+                    <name>__cstat</name>
+                    <file> 104</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 34 131 52 23 326 184 171 148 296 30 167 109 303 10 186 73 43 196 90 108 200 199 204 182 195 180 331</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 204 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
+                    <file> 260 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\drivers\fsl_ftfx_cache.c</name>
+            <name>$PROJ_DIR$\drivers\fsl_enet.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 388</file>
+                    <name>ICCARM</name>
+                    <file> 157</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 11</file>
+                    <file> 120</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 77</file>
+                    <name>__cstat</name>
+                    <file> 135</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 296 52 73 90 201 200 326 186 222 148 43 196 10 108 199 223 208 23 34 30 167 109 303 131 184 171 206 182 195 180 331</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 206 201 222 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 208 223</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_ftfx_flexnvm.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 375</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 378</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 373</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 52 296 73 90 200 326 186 222 148 43 196 10 108 199 201 223 208 23 34 30 167 109 303 131 184 171 212 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 212 201 222 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 208 223</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_ftfx_controller.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 58</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 70</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 49</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 296 303 326 167 223 109 52 30 10 186 208 23 34 131 184 171 222 148 73 43 196 90 108 200 199 201 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 201 222 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 208 223</file>
+                    <file> 237 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
                 </tool>
             </inputs>
         </file>
@@ -1260,26 +929,114 @@
             <name>$PROJ_DIR$\drivers\fsl_flexcan_edma.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 309</file>
+                    <name>ICCARM</name>
+                    <file> 43</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 325</file>
+                    <file> 133</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 107</file>
+                    <name>__cstat</name>
+                    <file> 152</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 326 30 10 186 147 296 167 109 303 52 23 34 131 184 171 161 148 73 43 196 90 108 200 199 218 182 195 180 331</file>
+                    <name>ICCARM</name>
+                    <file> 281 277 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 259</file>
                 </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_flexcan.c</name>
+            <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 218 161 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 147</file>
+                    <file> 127</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 218</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 35</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 277 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_ftfx_flash.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 48</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 356</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 111</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 269 276 266 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 265 272</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_ftfx_flexnvm.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 153</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 161</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 155</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 285 276 266 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 265 272</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_flexbus.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 109</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 75</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 206</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 267 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
                 </tool>
             </inputs>
         </file>
@@ -1287,26 +1044,160 @@
             <name>$PROJ_DIR$\drivers\fsl_ftm.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 304</file>
+                    <name>ICCARM</name>
+                    <file> 95</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 80</file>
+                    <file> 173</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 359</file>
+                    <name>__cstat</name>
+                    <file> 84</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 109 52 296 167 303 326 148 30 10 23 34 131 184 171 186 73 43 196 90 108 200 199 231 182 195 180 331</file>
+                    <name>ICCARM</name>
+                    <file> 274 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
                 </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_gpio.c</name>
+            <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 231 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
+                    <file> 92</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 202</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 37</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 278 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_ftfx_cache.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 182</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 352</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 160</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 284 276 266 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 265 272</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_i2c.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 31</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 166</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 338</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 286 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_hsadc.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 329</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 82</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 326</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 279 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_i2c_edma.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 61</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 100</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 129</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 289 286 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 259</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_ftfx_controller.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 215</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 171</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 195</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 276 266 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 265 272</file>
                 </tool>
             </inputs>
         </file>
@@ -1314,80 +1205,22 @@
             <name>$PROJ_DIR$\drivers\fsl_llwu.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 346</file>
+                    <name>ICCARM</name>
+                    <file> 178</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 95</file>
+                    <file> 41</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 82</file>
+                    <name>__cstat</name>
+                    <file> 115</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 43 199 52 10 108 196 326 182 331 73 90 200 180 148 23 296 34 30 167 109 303 131 184 171 195 219 186</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 219 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_pdb.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 59</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 322</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 76</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 52 326 73 90 200 43 196 10 108 199 296 186 148 23 34 30 167 109 303 131 184 171 227 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 227 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_pit.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 137</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 64</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 13</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 10 52 108 43 199 196 326 182 331 73 90 200 180 148 23 296 34 30 167 109 303 131 184 171 195 230 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 230 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
+                    <file> 291 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
                 </tool>
             </inputs>
         </file>
@@ -1395,107 +1228,45 @@
             <name>$PROJ_DIR$\drivers\fsl_lptmr.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 117</file>
+                    <name>ICCARM</name>
+                    <file> 230</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 315</file>
+                    <file> 132</file>
                 </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 50</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 34 131 52 23 326 184 171 296 30 167 109 303 10 186 148 73 43 196 90 108 200 199 209 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 209 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_sim.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 348</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 355</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 297</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 200 148 90 52 73 326 182 331 43 196 10 108 199 180 23 296 34 30 167 109 303 131 184 171 195 255 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 255 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_smc.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 20</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 119</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 387</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 296 184 23 326 171 195 34 131 52 148 30 167 109 303 10 223 146 73 43 196 90 108 200 199 182 180 331 206 201 208 249 186 225 222</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 249 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 146 206 201 222 208 223 225</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_xbarb.c</name>
-            <outputs>
                 <tool>
                     <name>__cstat</name>
                     <file> 46</file>
                 </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 31</file>
-                </tool>
+            </outputs>
+            <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 66</file>
+                    <file> 293 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_pdb.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 192</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 131</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 196</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 43 52 10 108 199 196 326 182 331 73 90 200 180 148 23 296 34 30 167 109 303 131 184 171 195 257 186</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 257 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
+                    <file> 304 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
                 </tool>
             </inputs>
         </file>
@@ -1503,296 +1274,22 @@
             <name>$PROJ_DIR$\drivers\fsl_sysmpu.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 342</file>
+                    <name>ICCARM</name>
+                    <file> 346</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 1</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 26</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 52 326 73 90 200 43 196 10 108 199 296 186 148 23 34 30 167 109 303 131 184 171 259 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 259 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\source\sora_dwt.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 18</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 381</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 102</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 158 199 171 233 196 210 272 296 147 148 43 201 246 286 190 90 55 184 161 73 140 141 223 227 259 279 176 275 326 52 108 182 186 10 208 250 178 167 142 146 225 213 219 253 255 262 257 282 310 274 292 288 195 185 206 238 9 34 51 179 170 166 156 157 151 149 160 154 218 222 212 231 204 216 209 230 244 237 249 240 235 260 234 280 284 289 236 175 271 266 270 194 192 109 303 131 365 180 331 200 23 30</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 274 238 9 52 326 109 303 131 10 43 90 34 108 296 73 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 250 272 271 292 266 275 270 288 194 190 192</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_xbara.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 329</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 61</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
                     <file> 333</file>
                 </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 43 199 52 10 108 196 326 182 331 73 90 200 180 148 23 296 34 30 167 109 303 131 184 171 195 260 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 260 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_uart_edma.c</name>
-            <outputs>
                 <tool>
                     <name>__cstat</name>
-                    <file> 41</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 356</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 382</file>
+                    <file> 121</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 326 23 148 171 147 184 34 131 52 296 30 167 109 303 10 186 262 73 43 196 90 108 200 199 235 182 195 180 331</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 235 262 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 147</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\source\main.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 48</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 56</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 38</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 260 160 147 184 216 271 52 180 34 156 222 237 289 192 131 200 185 170 151 218 231 230 240 280 175 270 10 326 331 179 23 148 238 9 51 166 157 149 154 206 212 204 209 244 249 235 234 284 236 250 266 194 109 303 365 296 199 30 167 223 201 262 43 73 178 196 171 140 142 141 158 146 161 208 225 213 210 219 227 253 246 255 259 233 257 279 282 286 310 176 274 272 292 275 288 190 90 108 182 195 186 55</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 238 9 52 326 109 303 131 10 43 90 34 108 296 73 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 274 250 272 271 292 266 275 270 288 194 190 192</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_rcm.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 362</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 5</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 125</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 23 131 52 34 326 184 171 182 331 296 30 167 109 303 10 180 148 73 43 196 90 108 200 199 195 237 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 237 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_wdog.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 112</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 91</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 340</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 23 131 52 34 326 184 171 182 331 296 30 167 109 303 10 180 148 73 43 196 90 108 200 199 195 233 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 233 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_pwm.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 115</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 99</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 32</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 34 131 52 23 326 184 171 296 30 167 109 303 10 186 148 73 43 196 90 108 200 199 246 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 246 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_uart.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 4</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 349</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 12</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 200 73 90 52 326 43 196 10 108 199 296 186 148 23 34 30 167 109 303 131 184 171 262 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 262 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\middleware\dma_manager\fsl_dma_manager.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 324</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 354</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 29</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 200 148 73 90 52 147 326 43 196 10 108 199 195 296 157 23 34 30 167 109 303 131 184 171 182 180 331 234 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 234 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 157 147</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\drivers\fsl_trng.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 134</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 39</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 105</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 108 52 10 199 196 148 43 326 73 90 200 296 186 23 34 30 167 109 303 131 184 171 240 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 240 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
+                    <file> 315 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
                 </tool>
             </inputs>
         </file>
@@ -1800,26 +1297,367 @@
             <name>$PROJ_DIR$\drivers\fsl_pmc.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 25</file>
+                    <name>ICCARM</name>
+                    <file> 119</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 305</file>
+                    <file> 86</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 367</file>
+                    <name>__cstat</name>
+                    <file> 344</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 109 52 30 303 326 148 296 167 10 182 331 23 34 131 184 171 180 73 43 196 90 108 200 199 195 253 186</file>
+                    <name>ICCARM</name>
+                    <file> 323 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
                 </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_rcm.c</name>
+            <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 253 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
+                    <file> 74</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 341</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 97</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 301 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_sim.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 69</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 93</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 102</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 297 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_pit.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 355</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 185</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 89</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 306 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_smc.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 159</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 53</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 353</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 318 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 248 284 276 266 265 272 269</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_trng.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 57</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 211</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 68</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 310 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_pwm.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 208</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 40</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 39</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 303 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_uart.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 342</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 91</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 343</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 314 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_uart_edma.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 164</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 94</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 210</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 311 314 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 259</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_wdog.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 150</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 47</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 52</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 319 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_xbarb.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 194</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 204</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 214</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 322 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\drivers\fsl_xbara.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 136</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 170</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 126</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 320 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\middleware\dma_manager\fsl_dma_manager.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 213</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 117</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 141</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 296 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 258 259</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\utilities\fsl_swo.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 123</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 193</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 165</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 350 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\utilities\fsl_str.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 134</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 143</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 174</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 106 226 142 58 78 81 229 219 327 34 348 250 354 175 83 221 44 203 5 22 17 21 7 9 146 2 10 24 241 379</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\utilities\fsl_log.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 73</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 140</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 118</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 363 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 379 358</file>
                 </tool>
             </inputs>
         </file>
@@ -1827,72 +1665,133 @@
             <name>$PROJ_DIR$\source\sora_lptmr.c</name>
             <outputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 42</file>
+                    <name>ICCARM</name>
+                    <file> 144</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 335</file>
+                    <name>BICOMP</name>
+                    <file> 201</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 131 262 52 147 365 148 178 213 292 167 208 253 282 10 179 296 196 34 171 142 146 225 219 255 257 310 116 326 199 43 238 9 51 140 141 158 161 201 223 210 227 246 259 233 279 286 176 250 71 90 108 180 331 200 73 185 184 170 166 156 157 151 149 160 154 218 206 222 212 231 204 216 209 230 244 237 249 240 235 260 234 280 284 289 236 175 266 274 109 182 195 186 55 23 30 265</file>
+                    <file> 81 314 226 259 106 250 1 278 375 241 265 323 358 327 23 83 5 219 10 234 248 269 291 297 322 350 45 142 17 221 365 334 224 243 245 237 277 276 272 286 304 303 315 319 378 347 0 380 169 44 34 9 146 24 175 13 22 235 260 262 258 239 246 249 267 281 284 266 285 274 279 289 293 306 309 301 318 310 311 320 296 379 363 348 295 12 381 374 58 21 7 2 229 354 203 368</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\source\sora_pit.c</name>
+            <name>$PROJ_DIR$\utilities\fsl_assert.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 358</file>
+                    <name>ICCARM</name>
+                    <file> 128</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 328</file>
+                    <file> 101</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 106</file>
+                    <name>__cstat</name>
+                    <file> 110</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 158 199 171 233 196 210 272 296 147 148 43 201 246 286 190 90 55 184 161 73 140 141 223 227 259 279 176 275 326 52 108 182 186 10 208 250 178 167 142 146 225 213 219 253 255 262 257 282 310 274 292 288 195 185 206 238 9 34 51 179 170 166 156 157 151 149 160 154 218 222 212 231 204 216 209 230 244 237 249 240 235 260 234 280 284 289 236 175 271 266 270 194 192 109 303 131 365 180 331 200 23 30</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 274 238 9 52 326 109 303 131 10 43 90 34 108 296 73 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 250 272 271 292 266 275 270 288 194 190 192</file>
+                    <file> 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 378</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\source\sora_port.c</name>
+            <name>$PROJ_DIR$\utilities\fsl_shell.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 3</file>
+                    <name>ICCARM</name>
+                    <file> 88</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 86</file>
+                    <file> 183</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 60</file>
+                    <name>__cstat</name>
+                    <file> 66</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 246 43 148 190 201 286 90 55 184 147 196 158 210 233 272 199 171 296 161 73 140 141 223 227 259 279 176 275 326 52 108 182 186 10 208 250 178 167 142 146 225 213 219 253 255 262 257 282 310 274 292 288 195 185 206 238 9 34 51 179 170 166 156 157 151 149 160 154 218 222 212 231 204 216 209 230 244 237 249 240 235 260 234 280 284 289 236 175 271 266 270 194 192 109 303 131 365 180 331 200 23 30</file>
+                    <name>ICCARM</name>
+                    <file> 354 226 142 58 78 81 347 250 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241</file>
                 </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\source\sora_uart.c</name>
+            <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 274 238 9 52 326 109 303 131 10 43 90 34 108 296 73 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 250 272 271 292 266 275 270 288 194 190 192</file>
+                    <file> 225</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 80</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 336</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 374 365 334 226 142 58 78 81 327 221 44 219 34 83 175 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 380 366 369 375 381 362 373 385 252 19 3</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\source\sora_dwt.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 56</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 158</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 331</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 374 365 334 226 142 58 78 81 327 221 44 219 34 83 175 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 380 366 369 375 381 362 373 385 252 19 3</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\source\sora_gpio.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 349</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 36</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 200</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 374 365 334 226 142 58 78 81 327 221 44 219 34 83 175 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 380 366 369 375 381 362 373 385 252 19 3</file>
                 </tool>
             </inputs>
         </file>
@@ -1900,53 +1799,45 @@
             <name>$PROJ_DIR$\source\sora_edma.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 33</file>
+                    <name>ICCARM</name>
+                    <file> 145</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 88</file>
+                    <file> 190</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 336</file>
+                    <name>__cstat</name>
+                    <file> 216</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 271 52 184 216 180 160 260 147 148 34 156 222 237 289 192 131 200 161 238 185 170 151 218 231 230 240 280 175 270 10 326 331 179 23 201 208 9 51 166 157 149 154 206 212 204 209 244 249 235 234 284 236 250 266 194 109 303 365 296 199 30 167 43 73 178 196 171 140 142 141 158 146 225 223 213 210 219 227 253 246 255 259 262 233 257 279 282 286 310 176 274 272 292 275 288 190 90 108 182 195 186 55</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 274 238 9 52 326 109 303 131 10 43 90 34 108 296 73 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 250 272 271 292 266 275 270 288 194 190 192</file>
+                    <file> 374 365 334 226 142 58 78 81 327 221 44 219 34 83 175 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 380 366 369 375 381 362 373 385 252 19 3</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\source\sora_system.c</name>
+            <name>$PROJ_DIR$\source\sora_port.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 301</file>
+                    <name>ICCARM</name>
+                    <file> 188</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 344</file>
+                    <file> 181</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 63</file>
+                    <name>__cstat</name>
+                    <file> 345</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 219 171 292 326 52 250 146 257 43 148 147 296 142 225 255 310 161 178 167 208 213 253 262 282 274 288 10 195 185 73 201 196 140 141 158 223 210 227 246 259 233 279 286 176 272 275 190 90 108 199 182 186 55 184 206 238 9 34 51 179 170 166 156 157 151 149 160 154 218 222 212 231 204 216 209 230 244 237 249 240 235 260 234 280 284 289 236 175 271 266 270 194 192 109 303 131 365 180 331 200 23 30</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 274 238 9 52 326 109 303 131 10 43 90 34 108 296 73 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 250 272 271 292 266 275 270 288 194 190 192</file>
+                    <file> 374 365 334 226 142 58 78 81 327 221 44 219 34 83 175 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 380 366 369 375 381 362 373 385 252 19 3</file>
                 </tool>
             </inputs>
         </file>
@@ -1955,223 +1846,53 @@
             <outputs>
                 <tool>
                     <name>AARM</name>
-                    <file> 120</file>
+                    <file> 54</file>
                 </tool>
             </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\utilities\fsl_assert.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 371</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 343</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 330</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 180 52 326 73 90 200 148 43 196 10 108 199 182 331 279 23 296 34 30 167 109 303 131 184 171 195 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 279</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\utilities\fsl_debug_console.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 87</file>
+                    <name>ICCARM</name>
+                    <file> 148</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 369</file>
+                    <file> 108</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 338</file>
+                    <name>__cstat</name>
+                    <file> 187</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 326 296 167 284 10 30 52 200 279 23 34 199 280 289 109 303 131 108 148 73 43 196 90 184 171 186 51 182 195 180 331</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 34 52 326 109 303 131 10 108 279 148 23 73 296 43 90 30 196 184 199 182 195 180 331 186 171 200 167 280 284 289</file>
+                    <file> 219 226 142 58 78 81 327 34 378 250 354 175 83 221 44 203 5 22 17 21 7 9 146 2 10 24 241 379 363 348</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\utilities\fsl_io.c</name>
+            <name>$PROJ_DIR$\source\main.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 124</file>
+                    <name>ICCARM</name>
+                    <file> 209</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 351</file>
+                    <file> 231</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 360</file>
+                    <name>__cstat</name>
+                    <file> 227</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 148 34 131 52 23 326 184 171 296 30 167 109 303 10 195 280 262 73 43 196 90 108 200 199 182 180 331 282 186</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 282 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 280 262</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\utilities\fsl_log.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 357</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 323</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 135</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 52 73 296 326 195 148 90 200 282 43 196 10 108 199 280 23 34 30 167 109 303 131 184 171 182 180 331 284 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 284 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167 280 282</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\utilities\fsl_shell.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 130</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 69</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 132</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 52 148 326 73 10 43 196 184 171 296 186 286 109 303 131 23 34 30 167 90 108 200 199 182 195 180 331</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 23 52 326 109 303 131 286 148 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\utilities\fsl_str.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 84</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 334</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 327</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 326 52 182 331 280 73 90 184 171 34 108 148 43 196 10 180 51 289 55 109 303 131 23 296 30 167 200 199 195 365 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 365 52 326 109 303 131 55 34 10 108 289 148 23 73 296 43 90 30 196 184 199 182 195 180 331 186 171 200 167 280</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\utilities\fsl_swo.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 379</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 67</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 316</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 131 52 23 34 326 184 171 182 331 296 30 167 109 303 10 180 148 73 43 196 90 108 200 199 195 310 186</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 310 148 23 52 326 109 303 131 73 296 43 10 90 34 108 30 196 184 199 182 195 180 331 186 171 200 167</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\source\sora_gpio.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 65</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 101</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 7</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 288 167 253 73 208 282 10 195 326 147 148 178 213 262 274 52 185 161 250 296 171 142 146 225 219 255 257 310 292 43 201 196 140 141 158 223 210 227 246 259 233 279 286 176 272 275 190 90 108 199 182 186 55 184 206 238 9 34 51 179 170 166 156 157 151 149 160 154 218 222 212 231 204 216 209 230 244 237 249 240 235 260 234 280 284 289 236 175 271 266 270 194 192 109 303 131 365 180 331 200 23 30</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 274 238 9 52 326 109 303 131 10 43 90 34 108 296 73 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 250 272 271 292 266 275 270 288 194 190 192</file>
+                    <file> 365 334 226 142 58 78 81 327 221 44 219 34 83 175 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 374 380 366 369 375 381 362 373 385 252 19 3</file>
                 </tool>
             </inputs>
         </file>
@@ -2179,77 +1900,108 @@
             <name>$PROJ_DIR$\source\sora_pwm.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 74</file>
+                    <name>ICCARM</name>
+                    <file> 29</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 89</file>
+                    <file> 191</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 93</file>
+                    <name>__cstat</name>
+                    <file> 198</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 255 142 52 296 225 310 30 250 171 146 219 257 292 326 43 148 147 178 167 208 213 253 262 282 274 288 10 195 185 206 73 196 140 141 158 161 201 223 210 227 246 259 233 279 286 176 272 275 190 90 108 199 182 186 55 184 238 9 34 51 179 170 166 156 157 151 149 160 154 218 222 212 231 204 216 209 230 244 237 249 240 235 260 234 280 284 289 236 175 271 266 270 194 192 109 303 131 365 180 331 200 23</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 274 238 9 52 326 109 303 131 10 43 90 34 108 296 73 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 250 272 271 292 266 275 270 288 194 190 192</file>
+                    <file> 374 365 334 226 142 58 78 81 327 221 44 219 34 83 175 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 380 366 369 375 381 362 373 385 252 19 3</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\source\sora_uart.c</name>
+            <name>$PROJ_DIR$\source\sora_pit.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 19</file>
+                    <name>ICCARM</name>
+                    <file> 32</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 126</file>
+                    <file> 125</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 45</file>
+                    <name>__cstat</name>
+                    <file> 99</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 279 161 52 186 140 227 275 326 10 147 148 73 141 223 259 176 108 182 196 43 158 201 210 246 233 286 272 190 90 199 55 184 171 296 208 250 178 167 142 146 225 213 219 253 255 262 257 282 310 274 292 288 195 185 206 238 9 34 51 179 170 166 156 157 151 149 160 154 218 222 212 231 204 216 209 230 244 237 249 240 235 260 234 280 284 289 236 175 271 266 270 194 192 109 303 131 365 180 331 200 23 30</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 274 238 9 52 326 109 303 131 10 43 90 34 108 296 73 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 250 272 271 292 266 275 270 288 194 190 192</file>
+                    <file> 374 365 334 226 142 58 78 81 327 221 44 219 34 83 175 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 380 366 369 375 381 362 373 385 252 19 3</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\source\sora_dma.c</name>
+            <name>$PROJ_DIR$\source\sora_system.c</name>
             <outputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 92</file>
+                    <name>ICCARM</name>
+                    <file> 189</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 302</file>
+                    <name>BICOMP</name>
+                    <file> 90</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 76</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 21 238 9 52 326 109 303 131 10 43 90 34 108 296 185 179 199 182 195 180 331 365 55 178 196 184 186 171 200 140 148 23 73 30 167 170 166 156 142 157 141 151 147 149 158 160 146 206 201 222 208 223 225 154 161 218 212 231 213 204 210 216 219 209 227 230 253 244 246 237 255 249 259 240 262 235 233 260 257 234 279 280 282 284 286 289 310 236 176 175 274 250 271 292 266 116</file>
+                    <file> 374 365 334 226 142 58 78 81 327 221 44 219 34 83 175 13 23 17 21 7 9 146 106 229 1 5 22 2 10 24 243 250 354 203 241 235 260 262 234 258 245 239 259 246 237 249 248 284 276 266 265 272 269 267 277 281 285 274 278 279 286 289 291 293 304 306 323 309 303 301 297 318 315 310 314 311 319 320 322 296 378 379 358 363 347 348 350 295 0 12 380 366 369 375 381 362 373 385 252 19 3</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\utilities\fsl_io.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 112</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 98</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 65</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 358 250 354 226 142 58 78 81 175 83 221 327 44 219 34 203 5 22 17 21 7 9 146 2 10 24 241 379 314</file>
                 </tool>
             </inputs>
         </file>
         <forcedrebuild>
             <name>$PROJ_DIR$\source\sora_lcd.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\source\sora_lptmr.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\source\sora_lcd.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\source\sora_lptmr.c</name>
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
@@ -2257,20 +2009,8 @@
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
-            <name>$PROJ_DIR$\source\sora_lptmr.c</name>
-            <tool>C-STAT</tool>
-        </forcedrebuild>
-        <forcedrebuild>
             <name>$PROJ_DIR$\source\sora_gpio.c</name>
             <tool>C-STAT</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\source\sora_lcd.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\source\sora_lptmr.c</name>
-            <tool>ICCARM</tool>
         </forcedrebuild>
     </configuration>
     <configuration>

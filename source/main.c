@@ -23,7 +23,7 @@
  * @}
  */
 
-#define main_14
+#define main_13
 
 #include "include.h"
  /*
@@ -60,13 +60,145 @@ int main(void)
 #define Led_Num 24
 #define VAL_Size (Led_Num + 1) * 24
 
-uint32_t RGB[Led_Num] = { 0 };
+__IO uint32_t RGB[Led_Num] = { 0 };
+__IO uint32_t light[Led_Num] = { 0 };
 
 int16_t VALH[Led_Num + 1][24] = { 0 };
 int16_t VALL[Led_Num + 1][24] = { 0 };
 
-#define DutyTrue	68//72
-#define DutyFalse	32//28
+#define DutyTrue	68
+#define DutyFalse	32
+
+__IO bool RGB_flag = false;
+__IO bool DMA_flag = false;
+
+uint32_t RGBL(uint32_t rgb)
+{
+	if ((rgb >> 23) == 1)
+	{
+		rgb = (rgb << 1) + 1;
+	}
+	else
+	{
+		rgb = rgb << 1;
+	}
+	return rgb;
+}
+
+uint32_t RGBR(uint32_t rgb)
+{
+	if ((rgb % 2) == 1)
+	{
+		rgb = (rgb >> 1) + (1 << 23);
+	}
+	else
+	{
+		rgb = rgb >> 1;
+	}
+	return rgb;
+}
+
+uint32_t RGBPlus(uint32_t rgb, uint32_t add)
+{
+	if ((rgb + add) > 0xFFFFFF)
+	{
+		rgb = add - (0xFFFFFF - rgb);
+	}
+	else
+	{
+		rgb = rgb + add;
+	}
+	return rgb;
+}
+
+uint32_t RGBRR(uint32_t rgb, uint32_t count)
+{
+	for (uint32_t i = 0; i < count; i++)
+	{
+		rgb = RGBR(rgb);
+	}
+	return rgb;
+}
+
+uint32_t RGBLL(uint32_t rgb, uint32_t count)
+{
+	for (uint32_t i = 0; i < count; i++)
+	{
+		rgb = RGBL(rgb);
+	}
+	return rgb;
+}
+
+uint32_t RGBlight(uint32_t rgb, float bright)
+{
+	uint8_t r = (rgb >> 16) & 0xFF;
+	uint8_t g = (rgb >>  8) & 0xFF;
+	uint8_t b = (rgb >>  0) & 0xFF;
+
+	r *= bright;
+	g *= bright;
+	b *= bright;
+
+	return (r << 16) + (g << 8) + (b << 0);
+}
+
+uint32_t RGBmix(uint8_t r, uint8_t g, uint8_t b)
+{
+	uint32_t R = (r << 16) & 0xFF0000;
+	uint32_t G = (g <<  8) & 0x00FF00;
+	uint32_t B = (b <<  0) & 0x0000FF;
+	return R + G + B;
+}
+
+uint32_t RGBFlow(uint32_t rgb)
+{
+	uint8_t r = (rgb & 0xFF0000) >> 16;
+	uint8_t g = (rgb & 0x00FF00) >>  8;
+	uint8_t b = (rgb & 0x0000FF) >>  0;
+	if ((r == 255) && (g == 105))
+	{
+		if (b == 255)
+			rgb = RGBmix(r - 1, g, b);
+		else
+			rgb = RGBmix(r, g, b + 1);
+	}
+	else if ((g == 105) && (b == 255))
+	{
+		if (r == 105)
+			rgb = RGBmix(r, g + 1, b);
+		else
+			rgb = RGBmix(r - 1, g, b);
+	}
+	else if ((r == 105) && (b == 255))
+	{
+		if (g == 255)
+			rgb = RGBmix(r, g, b - 1);
+		else
+			rgb = RGBmix(r, g + 1, b);
+	}
+	else if ((r == 105) && (g == 255))
+	{
+		if (b == 105)
+			rgb = RGBmix(r + 1, g, b);
+		else
+			rgb = RGBmix(r, g, b - 1);
+	}
+	else if ((g == 255) && (b == 105))
+	{
+		if (r == 255)
+			rgb = RGBmix(r, g - 1, b);
+		else
+			rgb = RGBmix(r + 1, g, b);
+	}
+	else if ((r == 255) && (b == 105))
+	{
+		if (g == 105)
+			rgb = RGBmix(r, g, b + 1);
+		else
+			rgb = RGBmix(r, g - 1, b);
+	}
+	return rgb;
+}
 
 //输出顺序由高到低GRB
 void RGB2VAL(PWM_CHn ch, uint32_t RGB, int16_t VALH[], int16_t VALL[])
@@ -107,23 +239,75 @@ int main(void)
 	FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 0);
 	EDMA_FlexPWM_Init(PWM0_SM1_CHA, DMA_CH7, (uint32_t)VALL);
 
+	PIT_IRQ_Init(PIT0, 10);
+
+	RGB[0]  = RGBmix(255, 255 - 37.5 * 4, 105);
+	RGB[1]  = RGBmix(255, 105, 105 + 37.5 * 1);
+	RGB[2]  = RGBmix(255, 105, 105 + 37.5 * 2);
+	RGB[3]  = RGBmix(255, 105, 105 + 37.5 * 3);
+	RGB[4]  = RGBmix(255, 105, 105 + 37.5 * 4);
+	RGB[5]  = RGBmix(255 - 37.5 * 1, 105, 255);
+	RGB[6]  = RGBmix(255 - 37.5 * 2, 105, 255);
+	RGB[7]  = RGBmix(255 - 37.5 * 3, 105, 255);
+	RGB[8]  = RGBmix(255 - 37.5 * 4, 105, 255);
+	RGB[9]  = RGBmix(105, 105 + 37.5 * 1, 255);
+	RGB[10] = RGBmix(105, 105 + 37.5 * 2, 255);
+	RGB[11] = RGBmix(105, 105 + 37.5 * 3, 255);
+	RGB[12] = RGBmix(105, 105 + 37.5 * 4, 255);
+	RGB[13] = RGBmix(105, 255, 255 - 37.5 * 1);
+	RGB[14] = RGBmix(105, 255, 255 - 37.5 * 2);
+	RGB[15] = RGBmix(105, 255, 255 - 37.5 * 3);
+	RGB[16] = RGBmix(105, 255, 255 - 37.5 * 4);
+	RGB[17] = RGBmix(105 + 37.5 * 1, 255, 105);
+	RGB[18] = RGBmix(105 + 37.5 * 2, 255, 105);
+	RGB[19] = RGBmix(105 + 37.5 * 3, 255, 105);
+	RGB[20] = RGBmix(105 + 37.5 * 4, 255, 105);
+	RGB[21] = RGBmix(255, 255 - 37.5 * 1, 105);
+	RGB[22] = RGBmix(255, 255 - 37.5 * 2, 105);
+	RGB[23] = RGBmix(255, 255 - 37.5 * 3, 105);
+
 	for (i = 0; i < Led_Num; i++)
 	{
-		RGB2VAL(PWM0_SM1_CHA, RGB[i], VALH[i], VALL[i]);
+		light[i] = RGBlight(RGB[i], 0.1);
 	}
 
-	for (i = 0; i < 24; i++)
+	for (i = 0; i < Led_Num; i++)
 	{
-		FlexPWM_Independent_Channel_Duty_Buff(PWM0_SM1_CHA, 0, &VALH[Led_Num][i], &VALL[Led_Num][i]);
+		RGB2VAL(PWM0_SM1_CHA, light[i], VALH[i], VALL[i]);
 	}
 
 	EDMA_FlexPWM_StartOnce(DMA_CH7, (Led_Num + 1) * 24);
 	FlexPWM_VALDE_Control(PWM0_SM1_CHA, true);
 
+	LCD_P6x8Str(0, 1, "PWM");
 	while (1U)
 	{
-		LCD_P6x8Str(0, 1, "PWM");
+		if (RGB_flag & DMA_flag)
+		{
+			RGB_flag = false;
+			for (i = 0; i < Led_Num; i++)
+			{
+				RGB[i] = RGBFlow(RGB[i]);
+			}
+			for (i = 0; i < Led_Num; i++)
+			{
+				light[i] = RGBlight(RGB[i], 0.1);
+			}
+			for (i = 0; i < Led_Num; i++)
+			{
+				RGB2VAL(PWM0_SM1_CHA, light[i], VALH[i], VALL[i]);
+			}
+			DMA_flag = false;
+			EDMA_FlexPWM_StartOnce(DMA_CH7, (Led_Num + 1) * 24);
+			FlexPWM_VALDE_Control(PWM0_SM1_CHA, true);
+		}
 	}
+}
+
+void PIT0_IRQHandler()
+{
+	PIT_Flag_Clear(PIT0);
+	RGB_flag = true;
 }
 
 void DMA7_DMA23_IRQHandler()
@@ -132,6 +316,9 @@ void DMA7_DMA23_IRQHandler()
 	{
 		DMA0->CINT |= DMA_CINT_CINT(7);
 		FlexPWM_VALDE_Control(PWM0_SM1_CHA, false);
+		FlexPWM_Independent_Channel_Duty(PWM0_SM1_CHA, 0);
+		DMA_DIS(DMA_CH7);
+		DMA_flag = true;
 		return;
 	}
 }
@@ -172,8 +359,8 @@ uint32_t RGB[Led_Num] =
 int16_t VALH[Led_Num + 1][24] = { 0 };
 int16_t VALL[Led_Num + 1][24] = { 0 };
 
-#define DutyTrue	68//72
-#define DutyFalse	32//28
+#define DutyTrue	68
+#define DutyFalse	32
 
 //输出顺序由高到低GRB
 void RGB2VAL(PWM_CHn ch, uint32_t RGB, int16_t VALH[], int16_t VALL[])
