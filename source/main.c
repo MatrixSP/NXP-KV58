@@ -39,25 +39,20 @@ int main(void)
 {
 	unsigned char text[10];
 	LCD_Init();
-	PIT_IRQ_Init(PIT0, 200);
-	ENC_Init_Test();
+	ENC_Init_Period(PIT0, 200);
 
 	while (1U)
 	{
 		LCD_P6x8Str(0, 1, "ENC");
-		//sprintf(text, "%5d", ENC->LPOS);
-		//LCD_P6x8Str(0, 2, text);
-		//sprintf(text, "%5d", ENC->UPOS);
-		//LCD_P6x8Str(0, 3, text);
 		sprintf(text, "%5d", speed);
-		LCD_P6x8Str(0, 4, text);
+		LCD_P6x8Str(0, 2, text);
 	}
 }
 
 void PIT0_IRQHandler()
 {
 	PIT_Flag_Clear(PIT0);
-	speed = (int16_t)ENC->POSDH;
+	speed = ENC_Get_Speed();
 }
 
 #endif

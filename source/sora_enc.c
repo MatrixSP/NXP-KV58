@@ -9,22 +9,34 @@
 
 #include "sora_system.h"
 
-void ENC_Init_Test()
+void ENC_Init_Period(PITn pitn, uint32_t time)
 {
+	xbar_input_signal_t xpit;
+
 	CLOCK_EnableClock(kCLOCK_Enc0);
 
 	XBARA_Init(XBARA);
+	//Phase A 
+	PORT_Init(ENC_PhA_PTXn, ENC_PhA_ALT, pull_up);
+	XBARA_SetSignalsConnection(XBARA, ENC_PhA_Xbar, kXBARA_OutputEncPhA);
+	//Phase B 
+	PORT_Init(ENC_PhB_PTXn, ENC_PhB_ALT, pull_up);
+	XBARA_SetSignalsConnection(XBARA, ENC_PhB_Xbar, kXBARA_OutputEncPhB);
 
-	//Phase A PTA25
-	PORT_Init(PTA25, 2, pull_up);
-	XBARA_SetSignalsConnection(XBARA, kXBARA_InputXbarIn5, kXBARA_OutputEncPhA);
+	//配置周期触发源
+	switch (pitn)
+	{
+	case PIT0: xpit = kXBARA_InputPitTrigger0; break;
+	case PIT1: xpit = kXBARA_InputPitTrigger1; break;
+	case PIT2: xpit = kXBARA_InputPitTrigger2; break;
+	case PIT3: xpit = kXBARA_InputPitTrigger3; break;
+	default:
+		return;
+	}
+	XBARA_SetSignalsConnection(XBARA, xpit, kXBARA_OutputEncCapTrigger);
 
-	//Phase B PTA24
-	PORT_Init(PTA24, 2, pull_up);
-	XBARA_SetSignalsConnection(XBARA, kXBARA_InputXbarIn4, kXBARA_OutputEncPhB);
-
-	//Trigger
-	XBARA_SetSignalsConnection(XBARA, kXBARA_InputPitTrigger0, kXBARA_OutputEncCapTrigger);
+	//配置PIT时钟
+	PIT_IRQ_Init(pitn, time);
 
 	//顺时针旋转计数增加，逆时针旋转计数减少
 	ENC->CTRL = (0
