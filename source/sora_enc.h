@@ -10,7 +10,7 @@
 #ifndef __SORA_ENC_H__
 #define __SORA_ENC_H__
 
-
+void ENC_Init_Test();
 
 
 #endif

@@ -23,9 +23,46 @@
  * @}
  */
 
-#define main_13
+#define main_15
 
 #include "include.h"
+ /*
+   * @date		2019年05月10日备份
+   * @brief		测试主程序#15
+   * @mode		ENC编码器测试
+   */
+
+#ifdef main_15
+
+int16_t speed = 0;
+int main(void)
+{
+	unsigned char text[10];
+	LCD_Init();
+	PIT_IRQ_Init(PIT0, 200);
+	ENC_Init_Test();
+
+	while (1U)
+	{
+		LCD_P6x8Str(0, 1, "ENC");
+		//sprintf(text, "%5d", ENC->LPOS);
+		//LCD_P6x8Str(0, 2, text);
+		//sprintf(text, "%5d", ENC->UPOS);
+		//LCD_P6x8Str(0, 3, text);
+		sprintf(text, "%5d", speed);
+		LCD_P6x8Str(0, 4, text);
+	}
+}
+
+void PIT0_IRQHandler()
+{
+	PIT_Flag_Clear(PIT0);
+	speed = (int16_t)ENC->POSDH;
+}
+
+#endif
+
+
  /*
    * @date		2019年05月07日备份
    * @brief		测试主程序#14

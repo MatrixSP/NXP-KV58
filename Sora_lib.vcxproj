@@ -170,6 +170,7 @@
     <ClInclude Include="source\sora_pwm.h" />
     <ClInclude Include="source\sora_system.h" />
     <ClInclude Include="source\sora_uart.h" />
+    <ClInclude Include="source\sora_xbara_cfg.h" />
     <ClInclude Include="utilities\fsl_debug_console.h" />
     <ClInclude Include="utilities\fsl_debug_console_conf.h" />
     <ClInclude Include="utilities\fsl_io.h" />
