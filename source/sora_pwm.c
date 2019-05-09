@@ -1,7 +1,7 @@
 /*
  * @date   2019年05月06日最后修改
  * @name   Sora_lib
- * @group  Akko
+ * @group  Profiterole
  * @author Afisora
  * @brief  eFlexPWM Driver
  */

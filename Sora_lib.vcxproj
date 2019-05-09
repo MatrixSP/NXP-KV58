@@ -161,6 +161,7 @@
     <ClInclude Include="source\include.h" />
     <ClInclude Include="source\sora_dwt.h" />
     <ClInclude Include="source\sora_edma.h" />
+    <ClInclude Include="source\sora_enc.h" />
     <ClInclude Include="source\sora_gpio.h" />
     <ClInclude Include="source\sora_gpio_cfg.h" />
     <ClInclude Include="source\sora_lptmr.h" />
@@ -230,6 +231,7 @@
     <ClCompile Include="source\main.c" />
     <ClCompile Include="source\sora_dwt.c" />
     <ClCompile Include="source\sora_edma.c" />
+    <ClCompile Include="source\sora_enc.c" />
     <ClCompile Include="source\sora_gpio.c" />
     <ClCompile Include="source\sora_lptmr.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>

@@ -300,6 +300,9 @@
     <ClInclude Include="utilities\fsl_swo.h">
       <Filter>utilities</Filter>
     </ClInclude>
+    <ClInclude Include="source\sora_enc.h">
+      <Filter>source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMSIS\system_MKV58F24.c">
@@ -502,6 +505,9 @@
     </ClCompile>
     <ClCompile Include="utilities\fsl_swo.c">
       <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sora_enc.c">
+      <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

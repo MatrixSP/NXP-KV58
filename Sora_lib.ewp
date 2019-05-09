@@ -2460,6 +2460,12 @@
             <name>$PROJ_DIR$\source\sora_edma.h</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\source\sora_enc.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\source\sora_enc.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\source\sora_gpio.c</name>
         </file>
         <file>

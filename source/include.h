@@ -1,7 +1,7 @@
 /* 
  * @date   2019年01月30日最后修改
  * @name   Sora_lib
- * @group  Akko
+ * @group  Profiterole
  * @author Afisora
  * @brief  Include
  */
@@ -98,6 +98,7 @@
 #include "sora_pit.h"
 #include "sora_gpio.h"
 #include "sora_gpio_cfg.h"
+#include "sora_enc.h"
 #include "sora_uart.h"
 #include "sora_pwm.h"
 #include "sora_edma.h"
