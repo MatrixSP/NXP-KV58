@@ -26,12 +26,13 @@ void ENC_Init_Test()
 	//Trigger
 	XBARA_SetSignalsConnection(XBARA, kXBARA_InputPitTrigger0, kXBARA_OutputEncCapTrigger);
 
+	//顺时针旋转计数增加，逆时针旋转计数减少
 	ENC->CTRL = (0
-		| ENC_CTRL_REV(0)	//顺时针旋转计数增加，逆时针旋转计数减少
+		| ENC_CTRL_REV(0)	//是否对计数反向
 		| ENC_CTRL_PH1(1)	//Phase B 电平表示正反转
 		);
 	ENC->CTRL2 = (0
-		| ENC_CTRL2_UPDPOS(1)	//是否通过触发信号清除POSD、REV、UPOS、LPOS
-		| ENC_CTRL2_UPDHLD(1)	//是否通过触发信号更新POSDH。REVH、UPOSH、LPOSH
+		| ENC_CTRL2_UPDPOS(1)	//通过触发信号清除POSD、REV、UPOS、LPOS
+		| ENC_CTRL2_UPDHLD(1)	//通过触发信号更新POSDH。REVH、UPOSH、LPOSH
 		);
 }

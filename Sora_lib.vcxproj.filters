@@ -303,9 +303,6 @@
     <ClInclude Include="source\sora_enc.h">
       <Filter>source</Filter>
     </ClInclude>
-    <ClInclude Include="source\sora_xbara_cfg.h">
-      <Filter>source</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMSIS\system_MKV58F24.c">

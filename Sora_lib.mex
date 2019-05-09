@@ -35,13 +35,42 @@
                   <enableClock>true</enableClock>
                </options>
                <dependencies>
+                  <dependency resourceType="Peripheral" resourceId="ENC" description="外设 ENC 未被初始化" problem_level="1" source="Pins: BOARD_InitPins">
+                     <feature name="initialized" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
                   <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Pins initialization requires the COMMON Driver in the project." problem_level="2" source="Pins.BOARD_InitPins">
                      <feature name="enabled" evaluation="equal" configuration="core0">
                         <data>true</data>
                      </feature>
                   </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.port" description="Pins initialization requires the PORT Driver in the project." problem_level="2" source="Pins.BOARD_InitPins">
+                     <feature name="enabled" evaluation="equal" configuration="core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.xbara" description="Pins initialization requires the XBARA Driver in the project." problem_level="2" source="Pins.BOARD_InitPins">
+                     <feature name="enabled" evaluation="equal" configuration="core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
                </dependencies>
-               <pins/>
+               <pins>
+                  <pin peripheral="ENC" signal="PHASE, A" pin_num="76" pin_signal="PTA25/XB_IN5/MII0_TXCLK/FB_A28">
+                     <pin_features>
+                        <pin_feature name="pull_select" value="up"/>
+                        <pin_feature name="pull_enable" value="disable"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="ENC" signal="PHASE, B" pin_num="75" pin_signal="PTA24/XB_IN4/MII0_TXD2/FB_A29">
+                     <pin_features>
+                        <pin_feature name="open_drain" value="disable"/>
+                        <pin_feature name="pull_select" value="up"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="ENC" signal="TRG" pin_num="" pin_signal="PIT_trigger_0"/>
+               </pins>
             </function>
          </functions_list>
       </pins>
@@ -74,18 +103,18 @@
                   <clock_source id="OSC.OSC.outFreq" value="48 MHz" locked="false" enabled="true"/>
                </clock_sources>
                <clock_outputs>
-                  <clock_output id="Bus_clock.outFreq" value="114 MHz" locked="false" accuracy=""/>
-                  <clock_output id="Core_clock.outFreq" value="228 MHz" locked="false" accuracy=""/>
+                  <clock_output id="Bus_clock.outFreq" value="120 MHz" locked="false" accuracy=""/>
+                  <clock_output id="Core_clock.outFreq" value="240 MHz" locked="false" accuracy=""/>
                   <clock_output id="ERCLK32K.outFreq" value="1 kHz" locked="false" accuracy=""/>
-                  <clock_output id="Flash_clock.outFreq" value="22.8 MHz" locked="false" accuracy=""/>
-                  <clock_output id="FlexBus_clock.outFreq" value="57 MHz" locked="false" accuracy=""/>
+                  <clock_output id="Flash_clock.outFreq" value="24 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FlexBus_clock.outFreq" value="60 MHz" locked="false" accuracy=""/>
                   <clock_output id="LPO_clock.outFreq" value="1 kHz" locked="false" accuracy=""/>
                   <clock_output id="MCGFFCLK.outFreq" value="1.5 MHz" locked="false" accuracy=""/>
                   <clock_output id="MCGIRCLK.outFreq" value="32.768 kHz" locked="false" accuracy=""/>
                   <clock_output id="OSCERCLK.outFreq" value="48 MHz" locked="false" accuracy=""/>
                   <clock_output id="OSCERCLK_UNDIV.outFreq" value="48 MHz" locked="false" accuracy=""/>
-                  <clock_output id="PLLFLLCLK.outFreq" value="228 MHz" locked="false" accuracy=""/>
-                  <clock_output id="System_clock.outFreq" value="228 MHz" locked="false" accuracy=""/>
+                  <clock_output id="PLLFLLCLK.outFreq" value="240 MHz" locked="false" accuracy=""/>
+                  <clock_output id="System_clock.outFreq" value="240 MHz" locked="false" accuracy=""/>
                </clock_outputs>
                <clock_settings>
                   <setting id="MCGMode" value="PEE" locked="false"/>
@@ -95,8 +124,8 @@
                   <setting id="MCG.FRDIV.scale" value="32" locked="false"/>
                   <setting id="MCG.IREFS.sel" value="MCG.FRDIV" locked="false"/>
                   <setting id="MCG.PLLS.sel" value="MCG.PLL_DIV2" locked="false"/>
-                  <setting id="MCG.PRDIV.scale" value="4" locked="true"/>
-                  <setting id="MCG.VDIV.scale" value="38" locked="true"/>
+                  <setting id="MCG.PRDIV.scale" value="3" locked="true"/>
+                  <setting id="MCG.VDIV.scale" value="30" locked="true"/>
                   <setting id="MCG_C1_IRCLKEN_CFG" value="Enabled" locked="false"/>
                   <setting id="MCG_C2_RANGE0_CFG" value="Very_high" locked="false"/>
                   <setting id="MCG_C2_RANGE0_FRDIV_CFG" value="Very_high" locked="false"/>
