@@ -92,6 +92,7 @@
 #include "pin_mux.h"    
 #include "clock_config.h"
 #include "sora_system.h"
+#include "sora_xbara_cfg.h"
 #include "sora_dwt.h"
 #include "sora_port.h"
 //#include "sora_lptmr.h"
