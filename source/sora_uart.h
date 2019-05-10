@@ -42,14 +42,14 @@ typedef enum uart_irq
 #define UART0_RX    PTA15       //PTA1、PTA15、PTB16、PTD6、PTE21、PTB0、PTC6   PTA1与J-LINK冲突
 #define UART0_TX    PTA14       //PTA2、PTA14、PTB17、PTD7、PTE20、PTB1、PTC7   PTA2与J-LINK冲突
 
-#define UART1_RX    PTC3        //PTC3、PTE1
-#define UART1_TX    PTC4        //PTC4、PTE0
+#define UART1_RX    PTE1        //PTC3、PTE1
+#define UART1_TX    PTE0        //PTC4、PTE0
 
-#define UART2_RX    PTD2        //PTD2、PTE17
-#define UART2_TX    PTD3        //PTD3、PTE16
+#define UART2_RX    PTE17       //PTD2、PTE17
+#define UART2_TX    PTE16       //PTD3、PTE16
 
-#define UART3_RX    PTC16       //PTB10、PTC16、PTE5
-#define UART3_TX    PTC17       //PTB11、PTC17、PTE4
+#define UART3_RX    PTE5		//PTB10、PTC16、PTE5
+#define UART3_TX    PTE4		//PTB11、PTC17、PTE4
 
 #define UART4_RX    PTE25       //PTC14、PTE25
 #define UART4_TX    PTE24       //PTC15、PTE24

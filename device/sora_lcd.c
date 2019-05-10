@@ -8,11 +8,6 @@
 
 #include "sora_system.h"
 
-//#define LCD_CS  PTC19_OUT
-#define LCD_DC	PTC19_OUT //DC
-#define LCD_RST	PTC18_OUT //RST
-#define LCD_SDA	PTC17_OUT //D1
-#define LCD_SCL	PTC16_OUT //D0
 #define time_delay_ms(ms) DELAY_MS(ms)
 
 #define X_WIDTH 132

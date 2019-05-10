@@ -8,28 +8,7 @@
 
 #include "sora_system.h"
 
- //PWM管脚定义
- //ALT:A6 B5 C5 D6 E5
-const PTXn_e PWM_Pin[16] =
-{
-	//Pin	Channel    		MUX  
-	PTD0,	//pwm0sm0chA	//PTA3  PTD14	PTA3与J-Link冲突
-	PTD1,	//pwm0sm0chB	//PTA4  PTD15
-	PTD2,	//pwm0sm1chA	//PTD12	
-	PTD3,	//pwm0sm1chB	//PTD13
-	PTD4,	//pwm0sm2chA	//PTD10
-	PTD5,	//pwm0sm2chB	//PTD11
-	PTC1,	//pwm0sm3chA	//PTD8
-	PTC2,	//pwm0sm3chB	//PTD9
-	PTE5,	//pwm1sm0chA	//PTC14 PTD0
-	PTE6,	//pwm1sm0chB	//PTC15 PTD1
-	PTE7,	//pwm1sm1chA	//PTB18 PTC12 PTD2
-	PTE8,	//pwm1sm1chB	//PTB19 PTC13 PTD3
-	PTE9,	//pwm1sm2chA	//PTC8  PTC16
-	PTE10,	//pwm1sm2chB	//PTC9  PTC17
-	PTE11,	//pwm1sm3chA	//PTC10 PTC18
-	PTE12,	//pwm1sm3chB	//PTC11 PTC19
-};
+extern const PTXn_e PWM_Pin[16];
 
 //PWM对齐模式保存区
 PWM_Align PWM_Alignedmode_status[8] = 

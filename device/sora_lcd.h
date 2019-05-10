@@ -9,6 +9,12 @@
 #ifndef __SORA_LCD_H__
 #define __SORA_LCD_H__
 
+ //#define LCD_CS  PTC19_OUT
+#define LCD_DC	PTC19_OUT //DC
+#define LCD_RST	PTC18_OUT //RST
+#define LCD_SDA	PTC17_OUT //D1
+#define LCD_SCL	PTC16_OUT //D0
+
 extern void LCD_WrDat(unsigned char data);
 extern void LCD_WrCmd(unsigned char cmd);
 extern void LCD_Set_Pos(unsigned char x, unsigned char y);

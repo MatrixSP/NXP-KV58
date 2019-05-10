@@ -10,6 +10,29 @@
 #ifndef __SORA_PWM_H__
 #define __SORA_PWM_H__
 
+ //PWM管脚定义
+ //ALT:A6 B5 C5 D6 E5
+const static PTXn_e PWM_Pin[16] =
+{
+	//Pin	Channel    		MUX  
+	PTD0,	//pwm0sm0chA	//PTD0  PTA3  PTD14	PTA3与J-Link冲突
+	PTD1,	//pwm0sm0chB	//PTD1  PTA4  PTD15
+	PTD2,	//pwm0sm1chA	//PTD2  PTD12	
+	PTD3,	//pwm0sm1chB	//PTD3  PTD13
+	PTD4,	//pwm0sm2chA	//PTD4  PTD10
+	PTD5,	//pwm0sm2chB	//PTD5  PTD11
+	PTD8,	//pwm0sm3chA	//PTC1  PTD8
+	PTD9,	//pwm0sm3chB	//PTC2  PTD9
+	PTE5,	//pwm1sm0chA	//PTE5  PTC14 PTD0
+	PTE6,	//pwm1sm0chB	//PTE6  PTC15 PTD1
+	PTE7,	//pwm1sm1chA	//PTE7  PTB18 PTC12 PTD2
+	PTE8,	//pwm1sm1chB	//PTE8  PTB19 PTC13 PTD3
+	PTE9,	//pwm1sm2chA	//PTE9  PTC8  PTC16
+	PTE10,	//pwm1sm2chB	//PTE10 PTC9  PTC17
+	PTE11,	//pwm1sm3chA	//PTE11 PTC10 PTC18
+	PTE12,	//pwm1sm3chB	//PTE12 PTC11 PTC19
+};
+
 //定义PWM子模块号
 typedef enum PWM_SMn
 {
