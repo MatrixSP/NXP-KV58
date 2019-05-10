@@ -27,7 +27,7 @@
         <MultiCoreRunAll>1</MultiCoreRunAll>
     </Simulator>
     <DebugChecksum>
-        <Checksum>602301512</Checksum>
+        <Checksum>55057735</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>

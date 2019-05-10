@@ -26,7 +26,7 @@
 
 #include "include.h"
  /*
-	* @date		2019年05月10日备份
+	* @date		2019年05月11日备份
 	* @brief	测试主程序#16
 	* @mode		
 	*/
@@ -64,8 +64,8 @@ int main(void)
 	/* ENC采集初始化完成 */
 
 	/* UART初始化 */
-	UART_Com_Init(UART_0, 921600);	//连接车载PC
-	UART_Com_Init(UART_1, 921600);	//板载调试口
+	UART_Com_Init(UART_0, 256000);	//连接车载PC
+	UART_Com_Init(UART_1, 265000);	//板载调试口
 	UART_Com_Init(UART_2, 115200);	//传感器接口
 	//UART_Com_Init(UART_3, 115200);	//传感器接口
 	//UART_Com_Init(UART_4, 115200);	//传感器接口
@@ -88,8 +88,6 @@ int main(void)
 	PIT_IRQ_Init(PIT0, 1); //1ms一次中断
 	/* PIT中断初始化完成 */
 
-
-
 	while (1U)
 	{
 		LCD_P6x8Str(0, 1, "Final Pintesty");
@@ -107,6 +105,11 @@ void PIT3_IRQHandler()
 {
 	PIT_Flag_Clear(PIT3);
 	ENC_Speed = ENC_Get_Speed();
+}
+
+void UART2_RX_TX_IRQHandler(void)
+{
+
 }
 
 #endif
