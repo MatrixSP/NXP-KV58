@@ -41,6 +41,7 @@ void FlexPWM_Independent_Submodule_Init(PWM_Type* base, PWM_SMn subModule, PWM_A
 	int16_t		modulo = 0;
 	static bool	config = false;
 	uint32_t	pwmClock;
+	uint8_t		div = 0;
 
 	//XBARA初始化，桥接错误通道
 	//Fault通道直接控制了PWM子模块的运行
@@ -103,9 +104,16 @@ void FlexPWM_Independent_Submodule_Init(PWM_Type* base, PWM_SMn subModule, PWM_A
 		| PWM_CTRL2_DBGEN(1U)		//当CPU处于Debug模式时仍启用PWM
 		);
 
+	//计算分频因子
+	for (div = 0; div < 8; div++)
+	{
+		if (((Fast_Peripheral_Clock / (1U << div)) / freq) <= 0xFFFF)
+			break;
+	}
+
 	//配置控制寄存器
 	base->SM[subModule].CTRL = (0U
-		| PWM_CTRL_PRSC(0U)		//预分频使用1分频
+		| PWM_CTRL_PRSC(div)	//分频
 		| PWM_CTRL_LDFQ(0U)		//PWM重载频率使用每个周期重载
 		| PWM_CTRL_LDMOD(0U)	//禁用缓存立即重载至寄存器
 		| PWM_CTRL_FULL(1U)		//每个PWM周期重载一次寄存器
@@ -125,7 +133,7 @@ void FlexPWM_Independent_Submodule_Init(PWM_Type* base, PWM_SMn subModule, PWM_A
 	base->SM[subModule].CTRL2 |= PWM_CTRL2_FORCE(1U);
 
 	//配置频率并初始化占空比为0
-	pwmClock = CLOCK_GetFreq(kCLOCK_FastPeriphClk) / (1U << ((base->SM[subModule].CTRL & PWM_CTRL_PRSC_MASK) >> PWM_CTRL_PRSC_SHIFT));
+	pwmClock = Fast_Peripheral_Clock / (1U << ((base->SM[subModule].CTRL & PWM_CTRL_PRSC_MASK) >> PWM_CTRL_PRSC_SHIFT));
 	pulseCnt = (pwmClock / freq);
 	switch (mode)
 	{
