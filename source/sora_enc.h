@@ -18,6 +18,13 @@
 #define ENC_PhB_ALT  2
 #define ENC_PhB_Xbar kXBARA_InputXbarIn4
 
+ /**
+  * @name			ENC_Get_Speed
+  * @brief			获取ENC测速
+  * @clock			Fast Peripheral clock
+  * @return			POSDH寄存器值
+  * @example		ENC_Speed = ENC_Get_Speed();
+  */
 static inline int16_t ENC_Get_Speed()
 {
 	return (int16_t)ENC->POSDH;

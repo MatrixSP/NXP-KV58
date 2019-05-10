@@ -9,6 +9,15 @@
 
 #include "sora_system.h"
 
+ /**
+  * @name			ENC_Init_Period
+  * @brief			初始化ENC，配置PIT刷新缓冲
+  * @clock			Fast Peripheral clock
+  * @param pitn		PIT模块号(PWM0/PWM1)
+  * @param time		PIT触发周期(ms)
+  * @return			无
+  * @example		ENC_Init_Period(PIT3, 200);
+  */
 void ENC_Init_Period(PITn pitn, uint32_t time)
 {
 	xbar_input_signal_t xpit;
