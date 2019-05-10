@@ -26,14 +26,16 @@
 
 #include "include.h"
  /*
-	* @date		2019年05月11日备份
-	* @brief	测试主程序#16
-	* @mode		
-	*/
+  * @date		2019年05月11日备份
+  * @brief	测试主程序#16
+  * @mode		
+  */
 
 #ifdef main_16
 
-int16_t ENC_Speed = 0; //
+int16_t		ENC_Speed = 0;
+bool		flag_1s = false;
+uint32_t	count_1s = 0;
 
 int main(void)
 {
@@ -64,12 +66,12 @@ int main(void)
 	/* ENC采集初始化完成 */
 
 	/* UART初始化 */
-	UART_Com_Init(UART_0, 256000);	//连接车载PC
-	UART_Com_Init(UART_1, 265000);	//板载调试口
+	UART_Com_Init(UART_0, 115200);	//连接车载PC
+	UART_Com_Init(UART_1, 115200);	//板载调试口
 	UART_Com_Init(UART_2, 115200);	//传感器接口
-	//UART_Com_Init(UART_3, 115200);	//传感器接口
-	//UART_Com_Init(UART_4, 115200);	//传感器接口
-	//UART_Com_Init(UART_5, 115200);	//传感器接口
+	UART_Com_Init(UART_3, 115200);	//传感器接口
+	UART_Com_Init(UART_4, 115200);	//传感器接口
+	UART_Com_Init(UART_5, 115200);	//传感器接口
 	/* UART初始化完成 */
 
 	/* IIC初始化 */
@@ -93,12 +95,29 @@ int main(void)
 		LCD_P6x8Str(0, 1, "Final Pintesty");
 		sprintf(text, "ENC: %05d", ENC_Speed);
 		LCD_P6x8Str(0, 2, text);
+
+		if (flag_1s)
+		{
+			UART_Put_Char(UART_0, '0');
+			UART_Put_Char(UART_1, '1');
+			UART_Put_Char(UART_2, '2');
+			UART_Put_Char(UART_3, '3');
+			UART_Put_Char(UART_4, '4');
+			UART_Put_Char(UART_5, '5');
+			flag_1s = false;
+		}
 	}
 }
 
 void PIT0_IRQHandler()
 {
 	PIT_Flag_Clear(PIT0);
+	count_1s++;
+	if (count_1s >= 500)
+	{
+		flag_1s = true;
+		count_1s = 0;
+	}
 }
 
 void PIT3_IRQHandler()
@@ -115,10 +134,10 @@ void UART2_RX_TX_IRQHandler(void)
 #endif
 
  /*
-   * @date		2019年05月10日备份
-   * @brief		测试主程序#15
-   * @mode		ENC编码器测试
-   */
+  * @date		2019年05月10日备份
+  * @brief		测试主程序#15
+  * @mode		ENC编码器测试
+  */
 
 #ifdef main_15
 
@@ -147,10 +166,10 @@ void PIT0_IRQHandler()
 
 
  /*
-   * @date		2019年05月07日备份
-   * @brief		测试主程序#14
-   * @mode		高速UART测试
-   */
+  * @date		2019年05月07日备份
+  * @brief		测试主程序#14
+  * @mode		高速UART测试
+  */
 
 #ifdef main_14
 
@@ -170,10 +189,10 @@ int main(void)
 #endif
 
  /*
-   * @date		2019年05月07日备份
-   * @brief		测试主程序#13
-   * @mode		WS2812灯光驱动
-   */
+  * @date		2019年05月07日备份
+  * @brief		测试主程序#13
+  * @mode		WS2812灯光驱动
+  */
 
 #ifdef main_13
 
@@ -445,10 +464,10 @@ void DMA7_DMA23_IRQHandler()
 #endif
 
  /*
-   * @date		2019年05月07日备份
-   * @brief		测试主程序#12
-   * @mode		PWM重载DMA请求 WS2812驱动	
-   */
+  * @date		2019年05月07日备份
+  * @brief		测试主程序#12
+  * @mode		PWM重载DMA请求 WS2812驱动	
+  */
 
 #ifdef main_12
 
@@ -554,18 +573,18 @@ void DMA7_DMA23_IRQHandler()
 #endif
 
 /*
-   * @date		2019年05月06日备份
-   * @brief		测试主程序#11
-   * @mode		PWM重载DMA请求测试 
-   *
-   * 主循环十次连续传递所有参数 十次完成触发DMA完成中断
-   *
-   * @done		生成5% 15% 25% ... 95%十个PWM波，观察波形数量
-   * @note		1khz\10khz，观测正常
-   *			100khz，观测正常
-   *			1mhz，观测到16个左右波形，后几个波形均为95%，因此为中断处理过程中产生
-   *			800khz，观测到13个左右波形，后三个波形均为95%，因此为中断处理过程中产生
-   */
+ * @date	2019年05月06日备份
+ * @brief	测试主程序#11
+ * @mode	PWM重载DMA请求测试 
+ *
+ * 主循环十次连续传递所有参数 十次完成触发DMA完成中断
+ *
+ * @done	生成5% 15% 25% ... 95%十个PWM波，观察波形数量
+ * @note	1khz\10khz，观测正常
+ *			100khz，观测正常
+ *			1mhz，观测到16个左右波形，后几个波形均为95%，因此为中断处理过程中产生
+ *			800khz，观测到13个左右波形，后三个波形均为95%，因此为中断处理过程中产生
+ */
 
 #ifdef main_11
 
@@ -616,15 +635,15 @@ void DMA7_DMA23_IRQHandler()
 #endif
 
 /*
-   * @date		2019年04月26日备份
-   * @brief		测试主程序#10
-   * @mode		PWM重载DMA请求测试
-   * @done		生成5% 15% 25% ... 95%十个PWM波，观察波形数量
-   * @note		1khz\10khz测试正常，正好10个
-   *			100khz，观测到14个波形，或由中断处理时间引起，当注释掉大量赋值语句后，观测正常
-   *			1mhz，测试失败，观察到过多波形
-   *			800khz，测试失败，观察到过多波形，应当避免使用中断处理，集中一个区域储存所有数据
-   */
+ * @date	2019年04月26日备份
+ * @brief	测试主程序#10
+ * @mode	PWM重载DMA请求测试
+ * @done	生成5% 15% 25% ... 95%十个PWM波，观察波形数量
+ * @note	1khz\10khz测试正常，正好10个  
+ *			100khz，观测到14个波形，或由中断处理时间引起，当注释掉大量赋值语句后，观测正常
+ *			1mhz，测试失败，观察到过多波形
+ *			800khz，测试失败，观察到过多波形，应当避免使用中断处理，集中一个区域储存所有数据
+ */
 
 #ifdef main_10
 

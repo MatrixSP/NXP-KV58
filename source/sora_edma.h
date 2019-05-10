@@ -156,7 +156,7 @@ typedef enum DMA_CHn
     DMA_CH1,
     DMA_CH2,
     DMA_CH3,
-    DMA_CH4, //Camera_DMA_CHn
+    DMA_CH4, 
     DMA_CH5, 
     DMA_CH6, 
     DMA_CH7,
@@ -172,7 +172,7 @@ typedef enum DMA_CHn
     DMA_CH17,
     DMA_CH18,
     DMA_CH19,
-    DMA_CH20,//MT9V032_UART_DMACHn
+    DMA_CH20,
     DMA_CH21,
     DMA_CH22,
     DMA_CH23,

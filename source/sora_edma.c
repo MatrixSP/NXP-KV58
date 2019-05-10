@@ -319,12 +319,13 @@ void EDMA_UART_RX_Init(DMA_CHn CHn, UARTn_e uartn)
 }
 
 /**
- * @name        EDMA_UART_RX_Stop
- * @brief       停止EDMA对UART接收缓存区传输
- * @clock       System (CPU) clock
- * @param CHn   DMA通道号
- * @return      当前地址与起始地址偏差（可用于数据量判断）
- * @example     buffrx = EDMA_UART_RX_Stop(DMA_CH20, (uint32)str);
+ * @name			EDMA_UART_RX_Stop
+ * @brief			停止EDMA对UART接收缓存区传输
+ * @clock			System (CPU) clock
+ * @param CHn		DMA通道号
+ * @param address	目标内存地址
+ * @return			当前地址与起始地址偏差（可用于数据量判断）
+ * @example			buffrx = EDMA_UART_RX_Stop(DMA_CH20, (uint32)str);
  */
 uint32 EDMA_UART_RX_Stop(DMA_CHn CHn, uint32 address) 
 {
