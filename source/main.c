@@ -1,5 +1,4 @@
 ﻿/*
- * @date   2019年05月06日最后修改
  * @name   Sora_lib
  * @group  Profiterole
  * @author Afisora
@@ -45,19 +44,19 @@ int main(void)
 	/* LCD 初始化完成 */
 
 	/* PWM初始化 */
-	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM0, PWM_Unsigned_EdgeAligned, 200);	//舵机和电调均采用200Hz信号
+	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM0, PWM_Signed_EdgeAligned, 200);	//舵机和电调均采用200Hz信号
 	FlexPWM_Independent_Channel_Init(PWM0_SM0_CHA);	//电调初始化
-	FlexPWM_Independent_Channel_Duty(PWM0_SM0_CHA, 0); //电调初始占空比
+	FlexPWM_Independent_Channel_Duty(PWM0_SM0_CHA, 30); //电调初始占空比
 	FlexPWM_Independent_Channel_Init(PWM0_SM0_CHB);	//舵机初始化
-	FlexPWM_Independent_Channel_Duty(PWM0_SM0_CHB, 0);	//舵机初始占空比
+	FlexPWM_Independent_Channel_Duty(PWM0_SM0_CHB, 50);	//舵机初始占空比
 	/*
 		此处应为遥控器输入信号检测初始化
 	*/
-	FlexPWM_Independent_Submodule_Init(PWM1, PWM_SM0, PWM_Unsigned_EdgeAligned, 700000);	 //WS2812所需800kHz通讯信号、降频减少误码
+	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM3, PWM_Unsigned_EdgeAligned, 800000);	 //WS2812所需800kHz通讯信号
 	FlexPWM_Independent_Channel_Init(PWM0_SM3_CHA);	//LED1初始化
-	FlexPWM_Independent_Channel_Duty(PWM0_SM3_CHA, 0);	//LED1初始占空比
+	FlexPWM_Independent_Channel_Duty(PWM0_SM3_CHA, 10);	//LED1初始占空比
 	FlexPWM_Independent_Channel_Init(PWM0_SM3_CHB);	//LED1初始化
-	FlexPWM_Independent_Channel_Duty(PWM0_SM3_CHB, 0);	//LED1初始占空比
+	FlexPWM_Independent_Channel_Duty(PWM0_SM3_CHB, 90);	//LED1初始占空比
 	/* PWM初始化完成 */
 
 	/* ENC采集初始化 */
@@ -93,8 +92,8 @@ int main(void)
 
 	while (1U)
 	{
-		LCD_P6x8Str(0, 1, "ENC");
-		sprintf(text, "%5d", ENC_Speed);
+		LCD_P6x8Str(0, 1, "Final Pintesty");
+		sprintf(text, "ENC: %05d", ENC_Speed);
 		LCD_P6x8Str(0, 2, text);
 	}
 }

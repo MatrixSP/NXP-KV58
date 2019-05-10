@@ -1,5 +1,4 @@
 /* 
- * @date   2019年02月25日最后修改
  * @name   Sora_lib
  * @group  Profiterole
  * @author Afisora
