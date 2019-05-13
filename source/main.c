@@ -26,20 +26,138 @@
 
 #include "include.h"
  /*
-  * @date		2019年05月11日备份
+  * @date	2019年05月11日备份
   * @brief	测试主程序#16
   * @mode		
+  * 
+  * WS2812所需高频通信信号会受同PWM模块其他通道和子模块的影响，因此独立使用一个PWM模块
+  * 而PWM1的DMA请求在DMAMUX中属于Group1，因此应当使用16-31号DMA通道
   */
 
 #ifdef main_16
 
-int16_t		ENC_Speed = 0;
-bool		flag_1s = false;
-uint32_t	count_1s = 0;
+int16_t	ENC_Speed = 0;
+
+bool flag_1s = false;
+uint32_t count_1s = 0;
+
+#define Led_Num 24
+__IO uint32_t RGB[Led_Num] = { 0 };
+__IO uint32_t light[Led_Num] = { 0 };
+
+int16_t VALH[Led_Num + 1][24] = { 0 };
+int16_t VALL[Led_Num + 1][24] = { 0 };
+
+#define DutyTrue	68
+#define DutyFalse	32
+
+__IO bool RGB_flag = false;
+__IO bool DMA_flag = false;
+
+uint32_t RGBmix(uint8_t r, uint8_t g, uint8_t b)
+{
+	uint32_t R = (r << 16) & 0xFF0000;
+	uint32_t G = (g << 8) & 0x00FF00;
+	uint32_t B = (b << 0) & 0x0000FF;
+	return R + G + B;
+}
+
+uint32_t RGBlight(uint32_t rgb, float bright)
+{
+	uint8_t r = (rgb >> 16) & 0xFF;
+	uint8_t g = (rgb >> 8) & 0xFF;
+	uint8_t b = (rgb >> 0) & 0xFF;
+
+	r *= bright;
+	g *= bright;
+	b *= bright;
+
+	return (r << 16) + (g << 8) + (b << 0);
+}
+
+uint32_t RGBFlow(uint32_t rgb)
+{
+	uint8_t r = (rgb & 0xFF0000) >> 16;
+	uint8_t g = (rgb & 0x00FF00) >> 8;
+	uint8_t b = (rgb & 0x0000FF) >> 0;
+	if ((r == 255) && (g == 105))
+	{
+		if (b == 255)
+			rgb = RGBmix(r - 1, g, b);
+		else
+			rgb = RGBmix(r, g, b + 1);
+	}
+	else if ((g == 105) && (b == 255))
+	{
+		if (r == 105)
+			rgb = RGBmix(r, g + 1, b);
+		else
+			rgb = RGBmix(r - 1, g, b);
+	}
+	else if ((r == 105) && (b == 255))
+	{
+		if (g == 255)
+			rgb = RGBmix(r, g, b - 1);
+		else
+			rgb = RGBmix(r, g + 1, b);
+	}
+	else if ((r == 105) && (g == 255))
+	{
+		if (b == 105)
+			rgb = RGBmix(r + 1, g, b);
+		else
+			rgb = RGBmix(r, g, b - 1);
+	}
+	else if ((g == 255) && (b == 105))
+	{
+		if (r == 255)
+			rgb = RGBmix(r, g - 1, b);
+		else
+			rgb = RGBmix(r + 1, g, b);
+	}
+	else if ((r == 255) && (b == 105))
+	{
+		if (g == 105)
+			rgb = RGBmix(r, g, b + 1);
+		else
+			rgb = RGBmix(r, g - 1, b);
+	}
+	return rgb;
+}
+
+void RGB2VAL(PWM_CHn ch, uint32_t RGB, int16_t VALH[], int16_t VALL[])
+{
+	uint8_t i = 0;
+	uint8_t R = RGB >> 16;
+	uint8_t G = (RGB >> 8) & 0xFF;
+	uint8_t B = RGB & 0xFF;
+	uint8_t GRB[24] =
+	{
+		(G >> 7) & 0x01,(G >> 6) & 0x01,(G >> 5) & 0x01,(G >> 4) & 0x01,
+		(G >> 3) & 0x01,(G >> 2) & 0x01,(G >> 1) & 0x01,(G >> 0) & 0x01,
+		(R >> 7) & 0x01,(R >> 6) & 0x01,(R >> 5) & 0x01,(R >> 4) & 0x01,
+		(R >> 3) & 0x01,(R >> 2) & 0x01,(R >> 1) & 0x01,(R >> 0) & 0x01,
+		(B >> 7) & 0x01,(B >> 6) & 0x01,(B >> 5) & 0x01,(B >> 4) & 0x01,
+		(B >> 3) & 0x01,(B >> 2) & 0x01,(B >> 1) & 0x01,(B >> 0) & 0x01,
+	};
+
+	for (i = 0; i < 24; i++)
+	{
+		if (GRB[i] == 1)
+		{
+			FlexPWM_Independent_Channel_Duty_Buff(ch, DutyTrue, &VALH[i], &VALL[i]);
+		}
+		else
+		{
+			FlexPWM_Independent_Channel_Duty_Buff(ch, DutyFalse, &VALH[i], &VALL[i]);
+		}
+	}
+}
 
 int main(void)
 {
 	unsigned char text[10];	//LCD字符串缓存
+	uint32_t i = 0;
 
 	/* LCD 初始化 */
 	LCD_Init();
@@ -47,18 +165,16 @@ int main(void)
 
 	/* PWM初始化 */
 	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM0, PWM_Signed_EdgeAligned, 200);	//舵机和电调均采用200Hz信号
-	FlexPWM_Independent_Channel_Init(PWM0_SM0_CHA);	//电调初始化
-	FlexPWM_Independent_Channel_Duty(PWM0_SM0_CHA, 30); //电调初始占空比
-	FlexPWM_Independent_Channel_Init(PWM0_SM0_CHB);	//舵机初始化
-	FlexPWM_Independent_Channel_Duty(PWM0_SM0_CHB, 50);	//舵机初始占空比
+	FlexPWM_Independent_Channel_Init(PWM0_SM0_CHA);		//电调初始化
+	FlexPWM_Independent_Channel_Duty(PWM0_SM0_CHA, 0);	//电调初始占空比
+	FlexPWM_Independent_Channel_Init(PWM0_SM0_CHB);		//舵机初始化
+	FlexPWM_Independent_Channel_Duty(PWM0_SM0_CHB, 0);	//舵机初始占空比
 	/*
 		此处应为遥控器输入信号检测初始化
 	*/
-	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM3, PWM_Unsigned_EdgeAligned, 800000);	 //WS2812所需800kHz通讯信号
-	FlexPWM_Independent_Channel_Init(PWM0_SM3_CHA);	//LED1初始化
-	FlexPWM_Independent_Channel_Duty(PWM0_SM3_CHA, 10);	//LED1初始占空比
-	FlexPWM_Independent_Channel_Init(PWM0_SM3_CHB);	//LED1初始化
-	FlexPWM_Independent_Channel_Duty(PWM0_SM3_CHB, 90);	//LED1初始占空比
+	FlexPWM_Independent_Submodule_Init(PWM1, PWM_SM0, PWM_Unsigned_EdgeAligned, 700000);	 //WS2812所需800kHz通讯信号，降频以保证通讯稳定
+	FlexPWM_Independent_Channel_Init(PWM1_SM0_CHA);		//WS2812初始化
+	FlexPWM_Independent_Channel_Duty(PWM1_SM0_CHA, 0);	//WS2812初始占空比
 	/* PWM初始化完成 */
 
 	/* ENC采集初始化 */
@@ -90,6 +206,48 @@ int main(void)
 	PIT_IRQ_Init(PIT0, 1); //1ms一次中断
 	/* PIT中断初始化完成 */
 
+	/* DMA初始化 */
+	EDMA_FlexPWM_Init(PWM1_SM0_CHA, DMA_CH23, (uint32_t)VALL);
+	/* DMA初始化完成 */
+
+	RGB[0] = RGBmix(255, 255 - 37.5 * 4, 105);
+	RGB[1] = RGBmix(255, 105, 105 + 37.5 * 1);
+	RGB[2] = RGBmix(255, 105, 105 + 37.5 * 2);
+	RGB[3] = RGBmix(255, 105, 105 + 37.5 * 3);
+	RGB[4] = RGBmix(255, 105, 105 + 37.5 * 4);
+	RGB[5] = RGBmix(255 - 37.5 * 1, 105, 255);
+	RGB[6] = RGBmix(255 - 37.5 * 2, 105, 255);
+	RGB[7] = RGBmix(255 - 37.5 * 3, 105, 255);
+	RGB[8] = RGBmix(255 - 37.5 * 4, 105, 255);
+	RGB[9] = RGBmix(105, 105 + 37.5 * 1, 255);
+	RGB[10] = RGBmix(105, 105 + 37.5 * 2, 255);
+	RGB[11] = RGBmix(105, 105 + 37.5 * 3, 255);
+	RGB[12] = RGBmix(105, 105 + 37.5 * 4, 255);
+	RGB[13] = RGBmix(105, 255, 255 - 37.5 * 1);
+	RGB[14] = RGBmix(105, 255, 255 - 37.5 * 2);
+	RGB[15] = RGBmix(105, 255, 255 - 37.5 * 3);
+	RGB[16] = RGBmix(105, 255, 255 - 37.5 * 4);
+	RGB[17] = RGBmix(105 + 37.5 * 1, 255, 105);
+	RGB[18] = RGBmix(105 + 37.5 * 2, 255, 105);
+	RGB[19] = RGBmix(105 + 37.5 * 3, 255, 105);
+	RGB[20] = RGBmix(105 + 37.5 * 4, 255, 105);
+	RGB[21] = RGBmix(255, 255 - 37.5 * 1, 105);
+	RGB[22] = RGBmix(255, 255 - 37.5 * 2, 105);
+	RGB[23] = RGBmix(255, 255 - 37.5 * 3, 105);
+
+	for (i = 0; i < Led_Num; i++)
+	{
+		light[i] = RGBlight(RGB[i], 0.1);
+	}
+
+	for (i = 0; i < Led_Num; i++)
+	{
+		RGB2VAL(PWM1_SM0_CHA, light[i], VALH[i], VALL[i]);
+	}
+
+	EDMA_FlexPWM_StartOnce(DMA_CH23, (Led_Num + 1) * 24);
+	FlexPWM_VALDE_Control(PWM1_SM0_CHA, true);
+
 	while (1U)
 	{
 		LCD_P6x8Str(0, 1, "Final Pintesty");
@@ -106,12 +264,33 @@ int main(void)
 			UART_Put_Char(UART_5, '5');
 			flag_1s = false;
 		}
+
+		if (RGB_flag & DMA_flag)
+		{
+			RGB_flag = false;
+			for (i = 0; i < Led_Num; i++)
+			{
+				RGB[i] = RGBFlow(RGB[i]);
+			}
+			for (i = 0; i < Led_Num; i++)
+			{
+				light[i] = RGBlight(RGB[i], 0.08);
+			}
+			for (i = 0; i < Led_Num; i++)
+			{
+				RGB2VAL(PWM1_SM0_CHA, light[i], VALH[i], VALL[i]);
+			}
+			DMA_flag = false;
+			EDMA_FlexPWM_StartOnce(DMA_CH23, (Led_Num + 1) * 24);
+			FlexPWM_VALDE_Control(PWM1_SM0_CHA, true);
+		}
 	}
 }
 
 void PIT0_IRQHandler()
 {
 	PIT_Flag_Clear(PIT0);
+	RGB_flag = true;
 	count_1s++;
 	if (count_1s >= 500)
 	{
@@ -129,6 +308,19 @@ void PIT3_IRQHandler()
 void UART2_RX_TX_IRQHandler(void)
 {
 
+}
+
+void DMA7_DMA23_IRQHandler()
+{
+	if (DMA0->INT & (1 << 23))
+	{
+		DMA0->CINT |= DMA_CINT_CINT(23);
+		FlexPWM_VALDE_Control(PWM1_SM0_CHA, false);
+		FlexPWM_Independent_Channel_Duty(PWM1_SM0_CHA, 0);
+		DMA_DIS(DMA_CH23);
+		DMA_flag = true;
+		return;
+	}
 }
 
 #endif

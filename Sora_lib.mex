@@ -30,7 +30,7 @@
             <function name="BOARD_InitPins">
                <description>Configures pin routing and optionally pin electrical features.&amp;lt;br/&amp;gt;</description>
                <options>
-                  <callFromInitBoot>true</callFromInitBoot>
+                  <callFromInitBoot>false</callFromInitBoot>
                   <coreID>core0</coreID>
                   <enableClock>true</enableClock>
                </options>

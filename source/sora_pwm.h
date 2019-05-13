@@ -22,8 +22,8 @@ const static PTXn_e PWM_Pin[16] =
 	PTD5,	//pwm0sm2chB	//PTD5  PTD11
 	PTD8,	//pwm0sm3chA	//PTC1  PTD8
 	PTD9,	//pwm0sm3chB	//PTC2  PTD9
-	PTE5,	//pwm1sm0chA	//PTE5  PTC14 PTD0
-	PTE6,	//pwm1sm0chB	//PTE6  PTC15 PTD1
+	PTC14,	//pwm1sm0chA	//PTE5  PTC14 PTD0
+	PTC15,	//pwm1sm0chB	//PTE6  PTC15 PTD1
 	PTE7,	//pwm1sm1chA	//PTE7  PTB18 PTC12 PTD2
 	PTE8,	//pwm1sm1chB	//PTE8  PTB19 PTC13 PTD3
 	PTE9,	//pwm1sm2chA	//PTE9  PTC8  PTC16

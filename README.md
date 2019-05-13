@@ -28,8 +28,7 @@
 | PWM0 SM1 CHB  | PTD3      | Steering gear signal of controller |
 | PWM0 SM2 CHA  | PTD4      | Controller signal to take over MCU |
 | PWM0 SM2 CHB  | PTD5      | Reserved controller signal |
-| PWM0 SM3 CHA  | PTD8      | Output for LED1 WS2812 |
-| PWM0 SM3 CHB  | PTD9      | Output for LED2 WS2812 |
+| PWM1 SM0 CHA  | PTC14     | Output for WS2812 |
 
 | ENC       | Pin   | Description   |
 | :---:     | :---: | :---          |
@@ -63,12 +62,12 @@
 | SPI0 SDI  | PTC7  | Reserved      |
 | SPI0 SDO  | PTC6  | Reserved      |
 
-| GPIO      | Pin   | Description   |
-| :---:     | :---: | :---          |
-| GPIOB0    | PTB0  | HSADC0/IIC0   |
-| GPIOB1    | PTB1  | HSADC0/IIC0   |
-| GPIOB2    | PTB2  | HSADC0/IIC0   |
-| GPIOB3    | PTB3  | HSADC0/IIC0   |
+| GPIO      | Pin   | Mux           | Description   |
+| :---:     | :---: | :---          | :---          |
+| GPIOB0    | PTB0  | HSADC0/IIC0   | Switch0 |
+| GPIOB1    | PTB1  | HSADC0/IIC0   | Switch1 |
+| GPIOB2    | PTB2  | HSADC0/IIC0   | Switch2 |
+| GPIOB3    | PTB3  | HSADC0/IIC0   | Switch3 |
 | GPIOB4    | PTB4  | ADC0          |
 | GPIOB5    | PTB5  | ADC0          |
 | GPIOB6    | PTB6  | HSADC1        |
