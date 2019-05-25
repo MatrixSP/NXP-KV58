@@ -22,12 +22,12 @@
 
 | PWM           | Pin       | Description       |
 | :---:         | :----:    | :---              |
-| PWM0 SM0 CHA  | PTD0      | Output for ESC |
-| PWM0 SM0 CHB  | PTD1      | Output for steering gear |
-| PWM0 SM1 CHA  | PTD2      | ESC signal of controller |
-| PWM0 SM1 CHB  | PTD3      | Steering gear signal of controller |
-| PWM0 SM2 CHA  | PTD4      | Controller signal to take over MCU |
-| PWM0 SM2 CHB  | PTD5      | Reserved controller signal |
+| PWM0 SM0 CHA  | PTD2      | ESC signal of controller |
+| PWM0 SM0 CHB  | PTD3      | Steering gear signal of controller |
+| PWM0 SM1 CHA  | PTD4      | Controller signal to take over MCU |
+| PWM0 SM1 CHB  | PTD5      | Reserved controller signal |
+| PWM0 SM2 CHA  | PTD0      | Output for ESC |
+| PWM0 SM2 CHB  | PTD1      | Output for steering gear |
 | PWM1 SM0 CHA  | PTC14     | Output for WS2812 |
 
 | ENC       | Pin   | Description   |

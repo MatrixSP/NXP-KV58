@@ -146,31 +146,44 @@ sources:
 /*******************************************************************************
  * Variables for HSCLOCK configuration
  ******************************************************************************/
+//------50Mhz æß’Ò------
 //237.5Mhz
 //Œ»∂®£¨Bus/FlashŒ¥≥¨∆µ
 //.prdiv = 0x3U,  
 //.vdiv = 0x16U,
 //.clkdiv1 = 0x1390000U,
+
 //250Mhz
 //ΩœŒ»∂®£¨Bus/Flash≥¨∆µ
 //.prdiv = 0x3U,
 //.vdiv = 0x18U,
 //.clkdiv1 = 0x1370000U,
+
 //256.25Mhz
 //ΩœŒ»∂®£¨Bus/Flash≥¨∆µ
 //.prdiv = 0x3U,
 //.vdiv = 0x19U,
 //.clkdiv1 = 0x1370000U,
-//262.5Mhz
+
+//262.5Mhz <---------------------
 //Ωœ≤ªŒ»∂®£¨Bus/Flash≥¨∆µ
 //.prdiv = 0x3U,
 //.vdiv = 0x1AU,
 //.clkdiv1 = 0x1370000U,
+
 //268.75Mhz
 //≤ªŒ»∂®£¨Bus/FlashŒ¥≥¨∆µ
 //.prdiv = 0x3U,
 //.vdiv = 0x1BU,
 //.clkdiv1 = 0x1390000U,
+
+//------48Mhz æß’Ò------
+//252Mhz <---------------------
+//Œ»∂®£¨Bus/Flash≥¨∆µ
+//.prdiv = 0x3U,
+//.vdiv = 0x1AU,
+//.clkdiv1 = 0x1370000U,
+
 const mcg_config_t mcgConfig_HSCLOCK =
     {
         .mcgMode = kMCG_ModePEE,                  /* PEE - PLL Engaged External */
@@ -195,7 +208,7 @@ const sim_clock_config_t simConfig_HSCLOCK =
     };
 const osc_config_t oscConfig_HSCLOCK =
     {
-        .freq = 50000000U,                        /* Oscillator frequency: 50000000Hz */
+        .freq = 48000000U,                        /* Oscillator frequency: 48000000Hz */
         .capLoad = (OSC_CAP0P),                   /* Oscillator capacity load: 0pF */
         .workMode = kOSC_ModeExt,                 /* Use external clock */
         .oscerConfig =

@@ -452,9 +452,6 @@
     <ClCompile Include="middleware\dma_manager\fsl_dma_manager.c">
       <Filter>middleware</Filter>
     </ClCompile>
-    <ClCompile Include="source\main.c">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="source\sora_dwt.c">
       <Filter>source</Filter>
     </ClCompile>
@@ -507,6 +504,12 @@
       <Filter>utilities</Filter>
     </ClCompile>
     <ClCompile Include="source\sora_enc.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\test.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sora_main.c">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

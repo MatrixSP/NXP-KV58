@@ -228,7 +228,8 @@
     <ClCompile Include="drivers\fsl_xbara.c" />
     <ClCompile Include="drivers\fsl_xbarb.c" />
     <ClCompile Include="middleware\dma_manager\fsl_dma_manager.c" />
-    <ClCompile Include="source\main.c" />
+    <ClCompile Include="source\sora_main.c" />
+    <ClCompile Include="source\test.c" />
     <ClCompile Include="source\sora_dwt.c" />
     <ClCompile Include="source\sora_edma.c" />
     <ClCompile Include="source\sora_enc.c" />

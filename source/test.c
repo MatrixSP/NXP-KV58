@@ -2,7 +2,7 @@
  * @name   Sora_lib
  * @group  Profiterole
  * @author Afisora
- * @brief  基于官方库的工作环境搭建
+ * @brief  Sora库测试程序
  * @todo
  * @{
  *    1.FPU功能测试
@@ -22,7 +22,7 @@
  * @}
  */
 
-#define main_16
+//#define main_16
 
 #include "include.h"
  /*
@@ -166,9 +166,15 @@ int main(void)
 	/* PWM初始化 */
 	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM0, PWM_Signed_EdgeAligned, 200);	//舵机和电调均采用200Hz信号
 	FlexPWM_Independent_Channel_Init(PWM0_SM0_CHA);		//电调初始化
-	FlexPWM_Independent_Channel_Duty(PWM0_SM0_CHA, 0);	//电调初始占空比
+	FlexPWM_Independent_Channel_Duty(PWM0_SM0_CHA, 10);	//电调初始占空比
 	FlexPWM_Independent_Channel_Init(PWM0_SM0_CHB);		//舵机初始化
-	FlexPWM_Independent_Channel_Duty(PWM0_SM0_CHB, 0);	//舵机初始占空比
+	FlexPWM_Independent_Channel_Duty(PWM0_SM0_CHB, 10);	//舵机初始占空比
+
+	FlexPWM_Independent_Submodule_Init(PWM0, PWM_SM2, PWM_Signed_EdgeAligned, 400);
+	FlexPWM_Independent_Channel_Init(PWM0_SM2_CHA);	
+	FlexPWM_Independent_Channel_Duty(PWM0_SM2_CHA, 20);	
+	FlexPWM_Independent_Channel_Init(PWM0_SM2_CHB);		
+	FlexPWM_Independent_Channel_Duty(PWM0_SM2_CHB, 20);	
 	/*
 		此处应为遥控器输入信号检测初始化
 	*/

@@ -2759,9 +2759,6 @@
             <name>$PROJ_DIR$\source\include.h</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\source\main.c</name>
-        </file>
-        <file>
             <name>$PROJ_DIR$\source\sora_dwt.c</name>
         </file>
         <file>
@@ -2795,6 +2792,9 @@
             <name>$PROJ_DIR$\source\sora_lptmr.h</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\source\sora_main.c</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\source\sora_pit.c</name>
         </file>
         <file>
@@ -2823,6 +2823,9 @@
         </file>
         <file>
             <name>$PROJ_DIR$\source\sora_uart.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\source\test.c</name>
         </file>
     </group>
     <group>
