@@ -218,9 +218,20 @@ void FlexPWM_Independent_Channel_Init(PWM_CHn ch)
 	case 0:PORT_Init(pin, 6, pull_up); break;	//PTA
 	case 1:PORT_Init(pin, 5, pull_up); break;	//PTB
 	case 2:PORT_Init(pin, 5, pull_up); break;	//PTC
-	case 3:PORT_Init(pin, 6, pull_up); break;	//PTD
+	case 3:
+	{
+		if ((pin == PTD4) || (pin == PTD5))
+		{
+			PORT_Init(pin, 5, pull_up);
+		}
+		else
+		{
+			PORT_Init(pin, 6, pull_up);
+		}
+		break;	//PTD
+	}
 	case 4:PORT_Init(pin, 5, pull_up); break;	//PTE
-	default: 
+	default:
 		return;
 	}
 
