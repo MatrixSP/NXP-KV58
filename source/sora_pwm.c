@@ -508,3 +508,17 @@ void FlexPWM_VALDE_Control(PWM_CHn ch, bool able)
 		base->SM[subModule].DMAEN &= ~PWM_DMAEN_VALDE(1);
 	}
 }
+
+/**
+ * @name					FlexPWM_PPMCal_us
+ * @brief					PPM脉宽转换占空比
+ * @clock					Fast Peripheral clock
+ * @param feq				PWM频率
+ * @param width				PPM脉宽(us)
+ * @return					PWM占空比
+ * @example					FlexPWM_PPMCal_us(200, 1500);
+ */
+float FlexPWM_PPMCal_us(uint32_t feq, uint32_t width)
+{
+	return width * feq * 0.0001;
+}
