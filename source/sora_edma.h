@@ -209,6 +209,8 @@ void EDMA_PORT_StartOnce(DMA_CHn CHn, uint32 DADDR, uint32 count);
 void EDMA_UART_RX_Init(DMA_CHn CHn, UARTn_e uartn);
 uint32 EDMA_UART_RX_Stop(DMA_CHn CHn, uint32 DADDR);
 void EDMA_UART_RX_Start(DMA_CHn CHn, uint32 DADDR, uint32 count);
+void EDMA_UART_TX_Init(DMA_CHn CHn, UARTn_e uartn);
+void EDMA_UART_TX_Start(DMA_CHn CHn, uint32 SADDR, uint32 count);
 void EDMA_FlexPWM_Init(PWM_CHn ch, DMA_CHn CHn, uint32_t SADDR);
 void EDMA_FlexPWM_StartOnce(DMA_CHn CHn, uint32 count);
 

@@ -269,7 +269,7 @@ void EDMA_UART_RX_Init(DMA_CHn CHn, UARTn_e uartn)
 						| DMA_CSR_DREQ(1)     //对应通道DMA硬件请求使能EQR在主循环传输后自动清0（屏蔽硬件DMA请求）
 						| DMA_CSR_INTMAJOR(0) //主循环传输结束，即CITER为0时使能中断
 					   );
-  //DMAMUX配置：设置触发源为PORTX
+  //DMAMUX配置：设置触发源为UART_RX
   switch(uartn)
   {
    case UART_0:
@@ -364,6 +364,122 @@ void EDMA_UART_RX_Start(DMA_CHn CHn, uint32 DADDR, uint32 count)
   //使能DMA硬件请求
   DMA_EN(CHn);
 } 
+
+/**
+ * @name        EDMA_UART_TX_Init
+ * @brief       EDMA对UART发送初始化
+ * @clock       System (CPU) clock
+ * @param CHn   DMA通道号 UART0-UART1必须用DMA Group0，UART2-UART5必须用DMA Group1
+ * @param uartn UART源
+ * @return      无
+ * @example     EDMA_UART_TX_Init(DMA_CH6, PC_UART);
+ */
+void EDMA_UART_TX_Init(DMA_CHn CHn, UARTn_e uartn)
+{
+	DMA_BYTEn byten = DMA_BYTE1;
+	uint8 BYTEs = 1;
+
+	//开启时钟
+	CLOCK_EnableClock(kCLOCK_Dmamux0);
+	CLOCK_EnableClock(kCLOCK_Dma0);
+
+	//TCD源地址设置
+	DMA0->TCD[CHn].DADDR = DMA_SADDR_SADDR((uint32) & (UARTX[uartn]->D));
+	//TCD源地址偏移设置：按传输数据大小偏移
+	DMA0->TCD[CHn].SOFF = DMA_SOFF_SOFF(BYTEs);
+	//TCD目标地址偏移设置：按传输数据大小偏移
+	DMA0->TCD[CHn].DOFF = DMA_DOFF_DOFF(0);
+	//TCD最终源地址调整：无调整
+	DMA0->TCD[CHn].SLAST = DMA_SLAST_SLAST(0);
+	//TCD传输属性
+	DMA0->TCD[CHn].ATTR = (0
+		| DMA_ATTR_DSIZE(byten) //目标数据传输大小
+		| DMA_ATTR_DMOD(0)     //禁用目标地址取模
+		| DMA_ATTR_SSIZE(byten) //源数据传输大小
+		| DMA_ATTR_SMOD(0)     //禁用源地址取模
+		);
+	//TCD有符号副循环偏移TCD：设置每次传输字节数，不启用副循环源地址偏移和目的地址偏移
+	DMA0->TCD[CHn].NBYTES_MLNO = DMA_NBYTES_MLOFFYES_NBYTES(BYTEs);
+	//TCD控制与状态寄存器TCD
+	DMA0->TCD[CHn].CSR = (0
+		| DMA_CSR_DREQ(1)     //对应通道DMA硬件请求使能EQR在主循环传输后自动清0（屏蔽硬件DMA请求）
+		| DMA_CSR_INTMAJOR(1) //主循环传输结束，即CITER为0时使能中断
+		);
+	//DMAMUX配置：设置触发源为UART_TX
+	switch (uartn)
+	{
+	case UART_0:
+		DMAMUX->CHCFG[CHn] = (0
+			| DMAMUX_CHCFG_ENBL(1)
+			| DMAMUX_CHCFG_SOURCE(DMA_UART0_Tx)
+			);
+		break;
+	case UART_1:
+		DMAMUX->CHCFG[CHn] = (0
+			| DMAMUX_CHCFG_ENBL(1)
+			| DMAMUX_CHCFG_SOURCE(DMA_UART1_Tx)
+			);
+		break;
+	case UART_2:
+		DMAMUX->CHCFG[CHn] = (0
+			| DMAMUX_CHCFG_ENBL(1)
+			| DMAMUX_CHCFG_SOURCE(DMA_UART2_Tx)
+			);
+		break;
+	case UART_3:
+		DMAMUX->CHCFG[CHn] = (0
+			| DMAMUX_CHCFG_ENBL(1)
+			| DMAMUX_CHCFG_SOURCE(DMA_UART3_Tx)
+			);
+		break;
+	case UART_4:
+		DMAMUX->CHCFG[CHn] = (0
+			| DMAMUX_CHCFG_ENBL(1)
+			| DMAMUX_CHCFG_SOURCE(DMA_UART4_Tx)
+			);
+		break;
+	case UART_5:
+		DMAMUX->CHCFG[CHn] = (0
+			| DMAMUX_CHCFG_ENBL(1)
+			| DMAMUX_CHCFG_SOURCE(DMA_UART5_Tx)
+			);
+		break;
+	default:
+		break;
+	}
+	//DMA中断开启
+	DMA_IRQ_EN(CHn);   
+}
+
+/**
+ * @name        EDMA_UART_TX_Start
+ * @brief       EDMA对UART发送缓存区启动一次传输
+ * @clock       System (CPU) clock
+ * @param CHn   DMA通道号
+ * @param SADDR 源地址
+ * @param count 主循环次数
+ * @return      无
+ * @example     EDMA_UART_TX_Start(DMA_CH6, (uint32)PC_TX, 10);
+ */
+void EDMA_UART_TX_Start(DMA_CHn CHn, uint32 SADDR, uint32 count)
+{
+	//TCD源地址设置
+	DMA0->TCD[CHn].SADDR = DMA_SADDR_SADDR(SADDR);
+	//TCD最终目的地址调整/分散聚集地址：
+	DMA0->TCD[CHn].DLAST_SGA = DMA_DLAST_SGA_DLASTSGA(0);
+	//TCD当前副循环链接，主循环计数
+	DMA0->TCD[CHn].CITER_ELINKNO = (0
+		| DMA_CITER_ELINKNO_ELINK(0)     //禁用副循环链接
+		| DMA_CITER_ELINKNO_CITER(count) //当前主循环计数值
+		);
+	//TCD起始副循环链接，主循环计数
+	DMA0->TCD[CHn].BITER_ELINKNO = (0
+		| DMA_BITER_ELINKNO_ELINK(0)     //禁用副循环链接
+		| DMA_BITER_ELINKNO_BITER(count) //初始主循环计数值
+		);
+	//使能DMA硬件请求
+	DMA_EN(CHn);
+}
 
 /**
  * @name        EDMA_FlexPWM_Init
