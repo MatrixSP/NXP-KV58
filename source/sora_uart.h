@@ -63,7 +63,8 @@ void UART_Put_Str(UARTn_e uartn, const uint8 *str);
 char UART_Get_Char(UARTn_e uartn);
 char UART_Query_Char(UARTn_e uartn, uint8 *ch);
 uint32 UART_Query_Str(UARTn_e uartn, uint8 *str, uint32 max_len);
-void UART_RX_IRQ_EN(UARTn_e uartn, uart_irq cfg);
-void UART_RX_IRQ_DIS(UARTn_e uartn);
+void UART_IRQ_EN(UARTn_e uartn, uart_irq cfg);
+void UART_IRQ_DIS_ALL(UARTn_e uartn);
+void UART_IRQ_DIS(UARTn_e uartn, uart_irq cfg);
 
 #endif
