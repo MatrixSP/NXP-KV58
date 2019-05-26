@@ -25,15 +25,15 @@ int32_t ENC_Distance = 0;
 #define Movement_SM		PWM_SM2
 #define Movement_Freq	200
 #define ESC_CH			PWM0_SM2_CHA
-#define ESC_PPM_MIN		1580
-#define ESC_PPM_MAX		1420
+#define ESC_PPM_MIN		1420
+#define ESC_PPM_MAX		1580
 #define STEER_CH		PWM0_SM2_CHB
 #define STEER_PPM_MIN	1000
 #define STEER_PPM_MAX	2000
 
 /* UART配置 */
 #define PC_UART			UART_0
-#define PC_Baud			256000//921600
+#define PC_Baud			115200//921600
 #define PC_RX_Size		64
 uint8_t PC_RX[PC_RX_Size] = { 0 };
 bool	PC_RX_Flag = false;
@@ -134,8 +134,8 @@ int main(void)
 	/* DMA初始化完成 */
 	while (1U)
 	{
-		ENC_Speed = ENC_Get_Speed();
-		ENC_Distance = ENC_Get_Position();
+		ENC_Speed = -ENC_Get_Speed(); 
+		ENC_Distance = -ENC_Get_Position();
 
 		/* LCD Display*/
 		LCD_P6x8Str(0, 1, "Main");
@@ -229,8 +229,8 @@ void Movement_Action()
 	uint16_t esc_ppm = MSG.TWISTs.ESC_PPM;
 	if (steer_ppm > STEER_PPM_MAX)steer_ppm = STEER_PPM_MAX;
 	if (steer_ppm < STEER_PPM_MIN)steer_ppm = STEER_PPM_MIN;
-	if (esc_ppm > 2000)esc_ppm = 2000;
-	if (esc_ppm < 1000)esc_ppm = 1000;
+	if (esc_ppm > ESC_PPM_MAX)esc_ppm = ESC_PPM_MAX;
+	if (esc_ppm < ESC_PPM_MIN)esc_ppm = ESC_PPM_MIN;
 	FlexPWM_Independent_Channel_Duty(STEER_CH, FlexPWM_PPMCal_us(Movement_Freq, steer_ppm));
 	FlexPWM_Independent_Channel_Duty(ESC_CH, FlexPWM_PPMCal_us(Movement_Freq, esc_ppm));
 	FlexPWM_Independent_Channel_LDOK(PWM0, PWM_SM2);
