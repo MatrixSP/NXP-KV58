@@ -261,9 +261,6 @@
     <ClInclude Include="source\sora_gpio_cfg.h">
       <Filter>source</Filter>
     </ClInclude>
-    <ClInclude Include="source\sora_lptmr.h">
-      <Filter>middleware</Filter>
-    </ClInclude>
     <ClInclude Include="source\sora_pit.h">
       <Filter>source</Filter>
     </ClInclude>
@@ -301,6 +298,9 @@
       <Filter>utilities</Filter>
     </ClInclude>
     <ClInclude Include="source\sora_enc.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sora_lptmr.h">
       <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>
@@ -461,9 +461,6 @@
     <ClCompile Include="source\sora_gpio.c">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="source\sora_lptmr.c">
-      <Filter>middleware</Filter>
-    </ClCompile>
     <ClCompile Include="source\sora_pit.c">
       <Filter>source</Filter>
     </ClCompile>
@@ -510,6 +507,9 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="source\sora_main.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sora_lptmr.c">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

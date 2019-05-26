@@ -27,7 +27,7 @@
         <MultiCoreRunAll>1</MultiCoreRunAll>
     </Simulator>
     <DebugChecksum>
-        <Checksum>751925725</Checksum>
+        <Checksum>2070944583</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -134,14 +134,15 @@
         <Fmt0>{W}1:(uint16)0x40055000	4	0</Fmt0>
         <Fmt1>{W}42:0x40049000u	4	0</Fmt1>
         <Fmt2>{W}42:Line_Count	3	0</Fmt2>
-        <Fmt3>{W}42:a	3	0</Fmt3>
-        <Fmt4>{W}42:address	4	0</Fmt4>
-        <Fmt5>{W}42:b	1	0</Fmt5>
-        <Fmt6>{W}42:buff	4	0</Fmt6>
-        <Fmt7>{W}42:buff_console	1	0</Fmt7>
-        <Fmt8>{W}42:buffsize	1	0</Fmt8>
-        <Fmt9>{W}42:fps	3	0</Fmt9>
-        <Fmt10>{W}42:fps_cnt	2	0</Fmt10>
+        <Fmt3>{W}42:PC_RX_Counter	3	0</Fmt3>
+        <Fmt4>{W}42:a	3	0</Fmt4>
+        <Fmt5>{W}42:address	4	0</Fmt5>
+        <Fmt6>{W}42:b	1	0</Fmt6>
+        <Fmt7>{W}42:buff	4	0</Fmt7>
+        <Fmt8>{W}42:buff_console	1	0</Fmt8>
+        <Fmt9>{W}42:buffsize	1	0</Fmt9>
+        <Fmt10>{W}42:fps	3	0</Fmt10>
+        <Fmt11>{W}42:fps_cnt	2	0</Fmt11>
     </watch_formats>
     <Trace1>
         <Enabled>0</Enabled>
