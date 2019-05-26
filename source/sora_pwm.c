@@ -360,11 +360,22 @@ void FlexPWM_Independent_Channel_Duty(PWM_CHn ch, float dutyCyclePercent)
 	default:
 		break;
 	}
-
-	//加载寄存器缓冲
-	base->MCTRL |= PWM_MCTRL_LDOK(1U << subModule);
 }
 
+/**
+ * @name					FlexPWM_Independent_Channel_LDOK
+ * @brief					加载缓冲区
+ * @clock					Fast Peripheral clock
+ * @param base				PWM模块号
+ * @param sm				PWM子模块号
+ * @return					无
+ * @example					FlexPWM_Independent_Channel_LDOK(PWM0, PWM_SM2);
+ */
+void FlexPWM_Independent_Channel_LDOK(PWM_Type* base, PWM_SMn sm)
+{
+	//加载寄存器缓冲
+	base->MCTRL |= PWM_MCTRL_LDOK(1U << sm);
+}
 
 /**
  * @name					FlexPWM_Independent_Channel_Duty_Buff
@@ -522,3 +533,4 @@ float FlexPWM_PPMCal_us(uint32_t feq, uint32_t width)
 {
 	return width * feq * 0.0001;
 }
+

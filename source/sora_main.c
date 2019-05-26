@@ -25,7 +25,11 @@ int32_t ENC_Distance = 0;
 #define Movement_SM		PWM_SM2
 #define Movement_Freq	200
 #define ESC_CH			PWM0_SM2_CHA
+#define ESC_PPM_MIN		1580
+#define ESC_PPM_MAX		1420
 #define STEER_CH		PWM0_SM2_CHB
+#define STEER_PPM_MIN	1000
+#define STEER_PPM_MAX	2000
 
 /* UART配置 */
 #define PC_UART			UART_0
@@ -43,16 +47,31 @@ bool	PC_TX_Flag = false;
 /* 通信配置 */
 typedef enum MSG_TAG
 {
-	HEARTBEAT,
-	UPDATE_WHEEL_ENCODER,
-	MCU_PANIC,
-	UPDATE_TWIST,
-	STOP_IMMEDIATELY
+	MSG_HEARTBEAT,
+	MSG_WHEEL_ENCODER,
+	MSG_PANIC,
+	MSG_TWIST,
+	MSG_STOP_IMMEDIATELY
 }MSG_TAG;
 #define MSG_Cycle		50
+typedef struct MSG_MAP
+{
+	union
+	{
+		uint32_t TWIST;
+		struct
+		{
+			uint16_t ESC_PPM;
+			uint16_t STEER_PPM;
+		}TWISTs;
+	};
+}MSG_Type;
+MSG_Type MSG;
 
 /* 函数声明 */
 uint8_t UART_Create_MSG(uint8_t buff[], MSG_TAG tag, void* value, uint8_t size);
+void UART_Deal_MSG(uint8_t buff[]);
+void Movement_Action();
 
 int main(void)
 {
@@ -69,6 +88,7 @@ int main(void)
 	FlexPWM_Independent_Channel_Duty(ESC_CH, 0);	//电调初始占空比
 	FlexPWM_Independent_Channel_Init(STEER_CH);		//舵机初始化
 	FlexPWM_Independent_Channel_Duty(STEER_CH, 0);	//舵机初始占空比
+	FlexPWM_Independent_Channel_LDOK(PWM0, PWM_SM2);
 	/*
 		此处应为遥控器输入信号检测初始化
 	*/
@@ -112,7 +132,6 @@ int main(void)
 		此处应为DMA初始化
 	*/
 	/* DMA初始化完成 */
-	FlexPWM_Independent_Channel_Duty(STEER_CH, FlexPWM_PPMCal_us(Movement_Freq, 1500));
 	while (1U)
 	{
 		ENC_Speed = ENC_Get_Speed();
@@ -128,6 +147,8 @@ int main(void)
 		/* MSG 处理 */
 		if (PC_RX_Flag)
 		{
+			UART_Deal_MSG(PC_RX);
+			Movement_Action();
 			PC_RX_Flag = false;
 			EDMA_UART_RX_Start(PC_RX_DMA, (uint32)PC_RX, PC_RX_Size);
 		}
@@ -138,7 +159,7 @@ void PIT0_IRQHandler()
 {
 	uint8_t length = 0;
 	PIT_Flag_Clear(PIT0);
-	length = UART_Create_MSG(PC_TX, UPDATE_WHEEL_ENCODER, &ENC_Distance, sizeof(ENC_Distance));
+	length = UART_Create_MSG(PC_TX, MSG_WHEEL_ENCODER, &ENC_Distance, sizeof(ENC_Distance));
 	UART_IRQ_EN(PC_UART, UART_TX_DMA);
 	EDMA_UART_TX_Start(PC_TX_DMA, (uint32)PC_TX, length);
 }
@@ -179,4 +200,38 @@ uint8_t UART_Create_MSG(uint8_t buff[], MSG_TAG tag, void* value, uint8_t size)
 	}
 	buff[4 + size] = check;
 	return 5 + size;
+}
+
+void UART_Deal_MSG(uint8_t buff[])
+{
+	uint8_t i = 0;
+	uint8_t check = 0;
+	if (buff[0] != 0x55)
+		return;
+	if (buff[1] != 0xAA)
+		return;
+	for (i = 0; i < buff[3]; i++)
+	{
+		check += buff[4 + i];
+	}
+	if (buff[4 + buff[3]] != check)
+		return;
+	switch (buff[2])
+	{
+	case MSG_TWIST: memcpy(&MSG.TWIST, buff + 4, buff[3]); break;
+	default: break;
+	}
+}
+
+void Movement_Action()
+{
+	uint16_t steer_ppm = MSG.TWISTs.STEER_PPM;
+	uint16_t esc_ppm = MSG.TWISTs.ESC_PPM;
+	if (steer_ppm > STEER_PPM_MAX)steer_ppm = STEER_PPM_MAX;
+	if (steer_ppm < STEER_PPM_MIN)steer_ppm = STEER_PPM_MIN;
+	if (esc_ppm > 2000)esc_ppm = 2000;
+	if (esc_ppm < 1000)esc_ppm = 1000;
+	FlexPWM_Independent_Channel_Duty(STEER_CH, FlexPWM_PPMCal_us(Movement_Freq, steer_ppm));
+	FlexPWM_Independent_Channel_Duty(ESC_CH, FlexPWM_PPMCal_us(Movement_Freq, esc_ppm));
+	FlexPWM_Independent_Channel_LDOK(PWM0, PWM_SM2);
 }
