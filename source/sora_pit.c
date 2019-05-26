@@ -42,6 +42,38 @@ void PIT_IRQ_Init(PITn pitn, uint32 cnt)
 }
 
 /**
+ * @name        PIT_Trigger_Init
+ * @brief       PIT触发初始化
+ * @clock       Bus/Flash clock
+ * @param pitn  PIT模块号
+ * @param cnt   触发周期（毫秒）
+ * @return      无
+ * @example     PIT_Trigger_Init(PIT0, 500);
+ */
+void PIT_Trigger_Init(PITn pitn, uint32 cnt)
+{
+	/* 开启时钟*/
+	CLOCK_EnableClock(kCLOCK_Pit0);
+
+	/* PIT模块控制 PIT Module Control Register (PIT_MCR) */
+	//使能PIT定时器时钟 ，调试模式下继续运行
+	PIT->MCR &= ~(PIT_MCR_MDIS_MASK | PIT_MCR_FRZ_MASK);
+
+	/* 定时器加载值设置 Timer Load Value Register (PIT_LDVALn) */
+	//设置溢出中断时间
+	//LDVAL trigger = (period / clock period) - 1
+	PIT->CHANNEL[pitn].LDVAL = (uint32_t)(cnt * (Bus_Clock / 1000)) - 1;  //ms * kHz - 1
+
+	//定时时间到了后，TIF置1。写1的时候就会清0
+	//清中断标志位
+	PIT_Flag_Clear(pitn);
+
+	/* 定时器控制寄存器 Timer Control Register (PIT_TCTRL0) */
+	//使能 PITn定时器
+	PIT->CHANNEL[pitn].TCTRL |= PIT_TCTRL_TEN_MASK;
+}
+
+/**
  * @name        PIT_Timer_Init
  * @brief       PIT计时初始化
  * @clock       Bus/Flash clock

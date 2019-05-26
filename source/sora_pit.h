@@ -22,6 +22,7 @@ typedef enum PITn
 #define PIT_Timer_Stop(pitn)   PIT->CHANNEL[pitn].TCTRL &= ~PIT_TCTRL_TEN_MASK
 
 void PIT_IRQ_Init(PITn pitn, uint32 cnt);
+void PIT_Trigger_Init(PITn pitn, uint32 cnt);
 void PIT_Timer_Init(PITn pitn);
 float PIT_Timer_Get(PITn pitn);
 void PIT_Timer_Restart(PITn pitn);
