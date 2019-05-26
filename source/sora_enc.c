@@ -44,7 +44,7 @@ void ENC_Init_Period(PITn pitn, uint32_t time)
 	XBARA_SetSignalsConnection(XBARA, xpit, kXBARA_OutputEncCapTrigger);
 
 	//配置PIT时钟
-	PIT_IRQ_Init(pitn, time);
+	PIT_Trigger_Init(pitn, time);
 
 	//顺时针旋转计数增加，逆时针旋转计数减少
 	ENC->CTRL = (0
@@ -52,7 +52,7 @@ void ENC_Init_Period(PITn pitn, uint32_t time)
 		| ENC_CTRL_PH1(1)	//Phase B 电平表示正反转
 		);
 	ENC->CTRL2 = (0
-		| ENC_CTRL2_UPDPOS(1)	//通过触发信号清除POSD、REV、UPOS、LPOS
+		| ENC_CTRL2_UPDPOS(0)	//通过触发信号清除POSD、REV、UPOS、LPOS
 		| ENC_CTRL2_UPDHLD(1)	//通过触发信号更新POSDH。REVH、UPOSH、LPOSH
 		);
 }
