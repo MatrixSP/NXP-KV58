@@ -105,8 +105,32 @@ void PIT_Timer_Init(PITn pitn)
  */
 inline float PIT_Timer_Get(PITn pitn)
 {
-  uint32 cnt = 0xFFFFFFFF - PIT->CHANNEL[pitn].CVAL;
-  return (float)cnt / (Bus_Clock / 1000);
+  uint32_t cnt = 0xFFFFFFFF - PIT->CHANNEL[pitn].CVAL;
+  return cnt / (Bus_Clock / 1000.0);
+}
+
+static float PIT_Timer_Max()
+{
+  uint32_t cnt = 0xFFFFFFFF;
+  return cnt / (Bus_Clock / 1000.0);
+}
+
+/**
+ * @name        PIT_Timer_Continuous
+ * @brief       获取单调递增的PIT计时，防溢出
+ * @clock       Bus/Flash clock
+ * @param pitn  PIT模块号
+ * @param prev  上一次结果，初次使用传入负数
+ * @return      时间（ms）
+ * @example     now_ms = PIT_Timer_Continuous(PIT3, now_ms);
+ */
+
+float PIT_Timer_Continuous(PITn pitn, float prev)
+{
+  float now = PIT_Timer_Get(pitn);
+  if (prev < 0) return now;
+  if (now < prev) return PIT_Timer_Max() - prev + now;
+  return now;
 }
 
 /**

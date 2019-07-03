@@ -25,6 +25,7 @@ void PIT_IRQ_Init(PITn pitn, uint32 cnt);
 void PIT_Trigger_Init(PITn pitn, uint32 cnt);
 void PIT_Timer_Init(PITn pitn);
 float PIT_Timer_Get(PITn pitn);
+float PIT_Timer_Continuous(PITn pitn, float prev);
 void PIT_Timer_Restart(PITn pitn);
 
 #endif
