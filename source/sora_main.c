@@ -15,9 +15,22 @@
 
 #include "include.h"
 
+
+/* 速度控制 */
+#define CTRL_Cycle		20
+#define BASE_POINT		1530
+#define Kp				30.0
+#define Ki				5.0
+float u = 0;  // 便于显示屏显示
+
+/* 执行机构 */
+uint16_t steer_ppm;
+uint16_t esc_ppm;
+
+/* 编码器比例 */
+#define ENCODER_SCALE	14089.8
+
 /* ENC配置 */
-int16_t	ENC_Speed = 0;
-int32_t ENC_Distance = 0;
 #define ENC_PIT			PIT3
 #define ENC_Cycle		50
 
@@ -26,7 +39,7 @@ int32_t ENC_Distance = 0;
 #define Movement_Freq	200
 #define ESC_CH			PWM0_SM2_CHA
 #define ESC_PPM_MIN		1420
-#define ESC_PPM_MAX		1580
+#define ESC_PPM_MAX		1680
 #define STEER_CH		PWM0_SM2_CHB
 #define STEER_PPM_MIN	1000
 #define STEER_PPM_MAX	2000
@@ -45,27 +58,25 @@ bool	PC_TX_Flag = false;
 #define PC_TX_DMA		DMA_CH6
 
 /* 通信配置 */
-typedef enum MSG_TAG
+typedef enum
 {
 	MSG_HEARTBEAT,
 	MSG_WHEEL_ENCODER,
 	MSG_PANIC,
 	MSG_TWIST,
 	MSG_STOP_IMMEDIATELY
-}MSG_TAG;
+} MSG_TAG;
+
 #define MSG_Cycle		50
-typedef struct MSG_MAP
+typedef struct
 {
-	union
+	struct
 	{
-		uint32_t TWIST;
-		struct
-		{
-			uint16_t ESC_PPM;
-			uint16_t STEER_PPM;
-		}TWISTs;
-	};
-}MSG_Type;
+		float SPEED;
+		uint16_t STEER_PPM;
+	} TWIST;
+} MSG_Type;
+
 MSG_Type MSG;
 
 /* 函数声明 */
@@ -73,9 +84,16 @@ uint8_t UART_Create_MSG(uint8_t buff[], MSG_TAG tag, void* value, uint8_t size);
 void UART_Deal_MSG(uint8_t buff[]);
 void Movement_Action();
 
+
+float HAL_Get_Speed();
+float HAL_Get_Meter();
+float HAL_Get_Time();
+void HAL_Start_Control();
+void HAL_Action();
+
 int main(void)
 {
-	unsigned char text[10];	//LCD字符串缓存
+	char text[10];	//LCD字符串缓存
 	uint32_t i = 0;
 
 	/* LCD 初始化 */
@@ -105,6 +123,7 @@ int main(void)
 	UART_Com_Init(PC_UART, PC_Baud);	//连接车载PC
 	UART_IRQ_EN(PC_UART, UART_RX_DMA);	
 	UART_IRQ_EN(PC_UART, UART_IDLE);
+	UART_IRQ_EN(PC_UART, UART_OVERRUN_ERROR);
 	EDMA_UART_RX_Init(PC_RX_DMA, PC_UART);
 	EDMA_UART_TX_Init(PC_TX_DMA, PC_UART);
 	EDMA_UART_RX_Start(PC_RX_DMA, (uint32)PC_RX, PC_RX_Size);
@@ -123,9 +142,11 @@ int main(void)
 	*/
 	/* SPI初始化完成 */
 
-	/* PIT中断初始化 */
-	PIT_IRQ_Init(PIT0, MSG_Cycle);
-	/* PIT中断初始化完成 */
+	/* PIT初始化 */
+	PIT_IRQ_Init(PIT0, MSG_Cycle);  // 中断
+	PIT_Timer_Init(PIT1);           // 用作秒表
+	PIT_Timer_Restart(PIT1);
+	/* PIT初始化完成 */
 
 	/* DMA初始化 */
 	/*
@@ -134,21 +155,21 @@ int main(void)
 	/* DMA初始化完成 */
 	while (1U)
 	{
-		ENC_Speed = -ENC_Get_Speed(); 
-		ENC_Distance = -ENC_Get_Position();
-
 		/* LCD Display*/
 		LCD_P6x8Str(0, 1, "Main");
-		sprintf(text, "ENC: %05d", ENC_Speed);
+		sprintf(text, "  TIME  %.2f s", HAL_Get_Time());
 		LCD_P6x8Str(0, 2, text);
-		sprintf(text, "ENC: %010d", ENC_Distance);
+		sprintf(text, "   ENC  %.2f m", HAL_Get_Meter());
 		LCD_P6x8Str(0, 3, text);
+		sprintf(text, "  SPED  %.1f", HAL_Get_Speed());
+		LCD_P6x8Str(0, 4, text);
+		sprintf(text, "  CTRL  %.1f", u);
+		LCD_P6x8Str(0, 6, text);
 
 		/* MSG 处理 */
 		if (PC_RX_Flag)
 		{
 			UART_Deal_MSG(PC_RX);
-			Movement_Action();
 			PC_RX_Flag = false;
 			EDMA_UART_RX_Start(PC_RX_DMA, (uint32)PC_RX, PC_RX_Size);
 		}
@@ -157,11 +178,35 @@ int main(void)
 
 void PIT0_IRQHandler()
 {
-	uint8_t length = 0;
 	PIT_Flag_Clear(PIT0);
-	length = UART_Create_MSG(PC_TX, MSG_WHEEL_ENCODER, &ENC_Distance, sizeof(ENC_Distance));
+	float encoder_meter = HAL_Get_Meter();
+	uint8_t length = 0;
+	length = UART_Create_MSG(PC_TX, MSG_WHEEL_ENCODER, &encoder_meter, sizeof(encoder_meter));
 	UART_IRQ_EN(PC_UART, UART_TX_DMA);
 	EDMA_UART_TX_Start(PC_TX_DMA, (uint32)PC_TX, length);
+}
+
+
+/* 速度和方向控制中断 */
+void PIT2_IRQHandler()
+{
+	PIT_Flag_Clear(PIT2);
+	static float e_prev = 0;
+	float e = MSG.TWIST.SPEED - HAL_Get_Speed();
+
+	if (fabs(e) <= 0.1)e = 0;
+
+	u += Kp * (e - e_prev) + Ki * e;
+
+	if (u > ESC_PPM_MAX - BASE_POINT) u = ESC_PPM_MAX - BASE_POINT;
+	if (u < ESC_PPM_MIN - BASE_POINT) u = ESC_PPM_MIN - BASE_POINT;
+
+	e_prev = e;
+
+	esc_ppm = BASE_POINT + (int16_t)u;
+	steer_ppm = MSG.TWIST.STEER_PPM;
+
+	HAL_Action();
 }
 
 void UART0_RX_TX_IRQHandler(void)
@@ -173,6 +218,13 @@ void UART0_RX_TX_IRQHandler(void)
 		PC_RX_Counter = EDMA_UART_RX_Stop(PC_RX_DMA, (uint32)PC_RX);
 		UART0->CFIFO |= UART_CFIFO_RXFLUSH(1);
 		PC_RX_Flag = true;
+	}
+
+	if (UART0->S1 & UART_S1_OR_MASK)
+	{
+		buff = UART0->S1;
+		buff = UART0->D;
+		UART0->CFIFO |= UART_CFIFO_RXFLUSH(1);
 	}
 }
 
@@ -218,19 +270,46 @@ void UART_Deal_MSG(uint8_t buff[])
 		return;
 	switch (buff[2])
 	{
-	case MSG_TWIST: memcpy(&MSG.TWIST, buff + 4, buff[3]); break;
+	case MSG_TWIST:
+		memcpy(&MSG.TWIST, buff + 4, buff[3]);
+		HAL_Start_Control();
+		break;
 	default: break;
 	}
 }
-
-void Movement_Action()
+float HAL_Get_Speed()
 {
-	uint16_t steer_ppm = MSG.TWISTs.STEER_PPM;
-	uint16_t esc_ppm = MSG.TWISTs.ESC_PPM;
-	if (steer_ppm > STEER_PPM_MAX)steer_ppm = STEER_PPM_MAX;
-	if (steer_ppm < STEER_PPM_MIN)steer_ppm = STEER_PPM_MIN;
-	if (esc_ppm > ESC_PPM_MAX)esc_ppm = ESC_PPM_MAX;
-	if (esc_ppm < ESC_PPM_MIN)esc_ppm = ESC_PPM_MIN;
+	return -ENC_Get_Speed() / ENCODER_SCALE / (ENC_Cycle / 1000.0);
+}
+
+float HAL_Get_Meter()
+{
+	return -ENC_Get_Position() / ENCODER_SCALE;
+}
+
+float HAL_Get_Time()
+{
+	static float PIT_Time = -1;
+	PIT_Time = PIT_Timer_Continuous(PIT1, PIT_Time);
+	return PIT_Time / 1000.0;
+}
+
+void HAL_Start_Control()
+{
+	static bool init = false;
+	if (!init)
+	{
+		PIT_IRQ_Init(PIT2, CTRL_Cycle);  // 启动速度和方向控制中断
+		init = true;
+	}
+}
+
+void HAL_Action()
+{
+	if (steer_ppm > STEER_PPM_MAX) steer_ppm = STEER_PPM_MAX;
+	if (steer_ppm < STEER_PPM_MIN) steer_ppm = STEER_PPM_MIN;
+	if (esc_ppm > ESC_PPM_MAX) esc_ppm = ESC_PPM_MAX;
+	if (esc_ppm < ESC_PPM_MIN) esc_ppm = ESC_PPM_MIN;
 	FlexPWM_Independent_Channel_Duty(STEER_CH, FlexPWM_PPMCal_us(Movement_Freq, steer_ppm));
 	FlexPWM_Independent_Channel_Duty(ESC_CH, FlexPWM_PPMCal_us(Movement_Freq, esc_ppm));
 	FlexPWM_Independent_Channel_LDOK(PWM0, PWM_SM2);
