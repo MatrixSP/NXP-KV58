@@ -17,15 +17,19 @@
 
 
 /* 速度控制 */
-#define CTRL_Cycle		20
-#define BASE_POINT		1530
-#define Kp				30.0
-#define Ki				5.0
+#define CTRL_Timer				1
+#define BASE_POINT				1500
+#define Kp						30.0
+#define Ki						5.0
+#define SPEED_CONTROL_COUNT		4
+#define DIRECTION_CONTROL_COUNT 4
 float u = 0;  // 便于显示屏显示
 
 /* 执行机构 */
 uint16_t steer_ppm;
+uint16_t steer_ppm_old;
 uint16_t esc_ppm;
+uint16_t esc_ppm_old;
 
 /* 编码器比例 */
 #define ENCODER_SCALE	14089.8
@@ -41,8 +45,8 @@ uint16_t esc_ppm;
 #define ESC_PPM_MIN		1420
 #define ESC_PPM_MAX		1680
 #define STEER_CH		PWM0_SM2_CHB
-#define STEER_PPM_MIN	1000
-#define STEER_PPM_MAX	2000
+#define STEER_PPM_MIN	500
+#define STEER_PPM_MAX	2500
 
 /* UART配置 */
 #define PC_UART			UART_0
@@ -82,14 +86,11 @@ MSG_Type MSG;
 /* 函数声明 */
 uint8_t UART_Create_MSG(uint8_t buff[], MSG_TAG tag, void* value, uint8_t size);
 void UART_Deal_MSG(uint8_t buff[]);
-void Movement_Action();
-
-
 float HAL_Get_Speed();
 float HAL_Get_Meter();
 float HAL_Get_Time();
 void HAL_Start_Control();
-void HAL_Action();
+void HAL_Action(uint16_t steer, uint16_t esc);
 
 int main(void)
 {
@@ -186,27 +187,72 @@ void PIT0_IRQHandler()
 	EDMA_UART_TX_Start(PC_TX_DMA, (uint32)PC_TX, length);
 }
 
-
 /* 速度和方向控制中断 */
 void PIT2_IRQHandler()
 {
 	PIT_Flag_Clear(PIT2);
+	static uint8_t count_1ms = 0;
+	static uint8_t nSpeedControlCount = 0;
+	static uint8_t nSpeedControlPeriod = 0;
+	static uint8_t nDirectionControlCount = 0;
+	static uint8_t nDirectionControlPeriod = 0;
 	static float e_prev = 0;
-	float e = MSG.TWIST.SPEED - HAL_Get_Speed();
 
-	if (fabs(e) <= 0.1)e = 0;
+	count_1ms++;
+	if (count_1ms >= 5)
+	{
+		count_1ms = 0;
+	}
+	else if (count_1ms == 2)
+	{
+		uint16_t steer = 0;
+		uint16_t esc = 0;
 
-	u += Kp * (e - e_prev) + Ki * e;
+		nSpeedControlPeriod++;
+		nDirectionControlPeriod++;
 
-	if (u > ESC_PPM_MAX - BASE_POINT) u = ESC_PPM_MAX - BASE_POINT;
-	if (u < ESC_PPM_MIN - BASE_POINT) u = ESC_PPM_MIN - BASE_POINT;
+		esc = (esc_ppm - esc_ppm_old) * (nSpeedControlPeriod + 1) / SPEED_CONTROL_COUNT + esc_ppm_old;
+		steer = (steer_ppm - steer_ppm_old) * (nDirectionControlPeriod + 1) / DIRECTION_CONTROL_COUNT + steer_ppm_old;
 
-	e_prev = e;
+		HAL_Action(steer, esc);
+	}
+	else if (count_1ms == 3)
+	{
+		nSpeedControlCount++;
+		if (nSpeedControlCount >= SPEED_CONTROL_COUNT) 
+		{
+			esc_ppm_old = esc_ppm;
 
-	esc_ppm = BASE_POINT + (int16_t)u;
-	steer_ppm = MSG.TWIST.STEER_PPM;
+			float e = MSG.TWIST.SPEED - HAL_Get_Speed();
 
-	HAL_Action();
+			if (fabs(e) <= 0.1)e = 0;
+
+			u += Kp * (e - e_prev) + Ki * e;
+
+			if (u > ESC_PPM_MAX - BASE_POINT) u = ESC_PPM_MAX - BASE_POINT;
+			if (u < ESC_PPM_MIN - BASE_POINT) u = ESC_PPM_MIN - BASE_POINT;
+
+			e_prev = e;
+
+			esc_ppm = BASE_POINT + (int16_t)u;
+
+			nSpeedControlCount = 0;
+			nSpeedControlPeriod = 0;
+		}
+	}
+	else if (count_1ms == 4)
+	{
+		nDirectionControlCount++;
+		if (nDirectionControlCount >= DIRECTION_CONTROL_COUNT)
+		{
+			steer_ppm_old = steer_ppm;
+
+			steer_ppm = MSG.TWIST.STEER_PPM;
+
+			nDirectionControlCount = 0;
+			nDirectionControlPeriod = 0;
+		}
+	}
 }
 
 void UART0_RX_TX_IRQHandler(void)
@@ -299,18 +345,18 @@ void HAL_Start_Control()
 	static bool init = false;
 	if (!init)
 	{
-		PIT_IRQ_Init(PIT2, CTRL_Cycle);  // 启动速度和方向控制中断
+		PIT_IRQ_Init(PIT2, CTRL_Timer);  // 启动速度和方向控制中断
 		init = true;
 	}
 }
 
-void HAL_Action()
+void HAL_Action(uint16_t steer, uint16_t esc)
 {
-	if (steer_ppm > STEER_PPM_MAX) steer_ppm = STEER_PPM_MAX;
-	if (steer_ppm < STEER_PPM_MIN) steer_ppm = STEER_PPM_MIN;
-	if (esc_ppm > ESC_PPM_MAX) esc_ppm = ESC_PPM_MAX;
-	if (esc_ppm < ESC_PPM_MIN) esc_ppm = ESC_PPM_MIN;
-	FlexPWM_Independent_Channel_Duty(STEER_CH, FlexPWM_PPMCal_us(Movement_Freq, steer_ppm));
-	FlexPWM_Independent_Channel_Duty(ESC_CH, FlexPWM_PPMCal_us(Movement_Freq, esc_ppm));
+	if (steer > STEER_PPM_MAX) steer = STEER_PPM_MAX;
+	if (steer < STEER_PPM_MIN) steer = STEER_PPM_MIN;
+	if (esc > ESC_PPM_MAX) esc = ESC_PPM_MAX;
+	if (esc < ESC_PPM_MIN) esc = ESC_PPM_MIN;
+	FlexPWM_Independent_Channel_Duty(STEER_CH, FlexPWM_PPMCal_us(Movement_Freq, steer));
+	FlexPWM_Independent_Channel_Duty(ESC_CH, FlexPWM_PPMCal_us(Movement_Freq, esc));
 	FlexPWM_Independent_Channel_LDOK(PWM0, PWM_SM2);
 }
