@@ -13,6 +13,13 @@
 | :---:    | :----:    |  
 | EXTAL0   | PTA18     | 
 
+| PIT       | Description   |
+| :---:     | :----         | 
+| PIT0      | ROS Message   |
+| PIT1      | Timer         |
+| PIT2      | Controller    |
+| PIT3      | ENC Timer     |
+
 | LCD       | Pin       |
 | :---:     | :----:    |  
 | LCD_DC    | PTC19     | 
