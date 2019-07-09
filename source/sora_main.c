@@ -16,17 +16,28 @@
 #include "include.h"
 
 /* DEBUG */
-extern float OutData[];
-
+float Debug[4] = 0;
+/* 
+ * Debug 0 ESC PWM Width 
+ * Debug 1 Speed Car  //Error
+ * Debug 2 Speed CMD  //Controller P
+ * Debug 3 Controller U  //Controller I
+ */
 
 /* 速度控制 */
+#ifndef Controller_Buffer
+#define CTRL_Timer				20
+#else
 #define CTRL_Timer				1
+#endif
 #define BASE_POINT				1500
 #define Kp						30.0
-#define Ki						5.0
+#define Ki						2.5
 #define SPEED_CONTROL_COUNT		2
 #define DIRECTION_CONTROL_COUNT 2
 float u = 0;  // 便于显示屏显示
+float u_p = 0;
+float u_i = 0;
 
 /* 执行机构 */
 uint16_t steer_ppm;
@@ -45,8 +56,8 @@ uint16_t esc_ppm_old;
 #define Movement_SM		PWM_SM2
 #define Movement_Freq	200
 #define ESC_CH			PWM0_SM2_CHA
-#define ESC_PPM_MIN		1420
-#define ESC_PPM_MAX		1680
+#define ESC_PPM_MIN		1400  //1420
+#define ESC_PPM_MAX		1680  //1680
 #define STEER_CH		PWM0_SM2_CHB
 #define STEER_PPM_MIN	500
 #define STEER_PPM_MAX	2500
@@ -200,6 +211,65 @@ void PIT0_IRQHandler()
 }
 
 /* 速度和方向控制中断 */
+#ifndef Controller_Buffer
+void PIT2_IRQHandler()
+{
+#define BUFFER_LENGTH 64
+	PIT_Flag_Clear(PIT2);
+	static float e_prev = 0;
+	static float u_buff[BUFFER_LENGTH] = 0;
+	static int u_buffer_cursor = 0;
+	float pi_buff = 0;
+	float e = MSG.TWIST.SPEED - HAL_Get_Speed();
+
+	//if (fabs(e) <= 0.1)e = 0;
+
+	u_p = Kp * (e - e_prev);
+	u_i = Ki * e;
+	u += u_p + u_i;
+
+	//pi_buff = u_p + u_i;
+
+	//u -= u_buff[u_buffer_cursor];
+	//u_buff[u_buffer_cursor] = pi_buff;
+	//u += u_buff[u_buffer_cursor];
+
+	//u_buffer_cursor++;
+	//u_buffer_cursor %= BUFFER_LENGTH;
+
+	Debug[1] = HAL_Get_Speed();
+	Debug[2] = MSG.TWIST.SPEED;
+	Debug[3] = u;
+	//Debug[1] = e;
+	//Debug[2] = u_p;
+	//Debug[3] = u_i;
+
+	//if (u > ESC_PPM_MAX - BASE_POINT) u = ESC_PPM_MAX - BASE_POINT;
+	//if (u < ESC_PPM_MIN - BASE_POINT) u = ESC_PPM_MIN - BASE_POINT;
+
+	e_prev = e;
+
+	if (u > 0.5)
+	{
+		esc_ppm = BASE_POINT + 33 + (int16_t)u;
+	}
+	else if (u < -0.5)
+	{
+		esc_ppm = BASE_POINT - 25 + (int16_t)u;
+	}
+	else
+	{
+		esc_ppm = BASE_POINT;
+	}
+	
+	steer_ppm = MSG.TWIST.STEER_PPM;
+
+	HAL_Action(steer_ppm, esc_ppm);
+
+	//Scope_Send((Debug[0] - 1500) * 100, 10000 * Debug[1], 1000 * Debug[2], 1000 * Debug[3]);
+	Scope_Send((Debug[0] - 1500) * 100, 10000 * Debug[1], 10000 * Debug[2], 1000 * Debug[3]);
+}
+#else
 void PIT2_IRQHandler()
 {
 	PIT_Flag_Clear(PIT2);
@@ -217,16 +287,16 @@ void PIT2_IRQHandler()
 	}
 	else if (count_1ms == 2)
 	{
-		uint16_t steer = 0;
-		uint16_t esc = 0;
+		uint16_t steerx = 0;
+		uint16_t escx = 0;
 
 		nSpeedControlPeriod++;
 		nDirectionControlPeriod++;
 
-		esc = (esc_ppm - esc_ppm_old) * (nSpeedControlPeriod + 1) / SPEED_CONTROL_COUNT + esc_ppm_old;
-		steer = (steer_ppm - steer_ppm_old) * (nDirectionControlPeriod + 1) / DIRECTION_CONTROL_COUNT + steer_ppm_old;
+		escx = (esc_ppm - esc_ppm_old) * (nSpeedControlPeriod + 1) / SPEED_CONTROL_COUNT + esc_ppm_old;
+		steerx = (steer_ppm - steer_ppm_old) * (nDirectionControlPeriod + 1) / DIRECTION_CONTROL_COUNT + steer_ppm_old;
 
-		HAL_Action(steer, esc);
+		HAL_Action(steerx, escx);
 	}
 	else if (count_1ms == 3)
 	{
@@ -245,8 +315,7 @@ void PIT2_IRQHandler()
 			if (u < ESC_PPM_MIN - BASE_POINT) u = ESC_PPM_MIN - BASE_POINT;
 
 			e_prev = e;
-
-			esc_ppm = BASE_POINT + (int16_t)u;
+			esc_ppm = BASE_POINT + (uint16_t)u;
 
 			nSpeedControlCount = 0;
 			nSpeedControlPeriod = 0;
@@ -266,6 +335,7 @@ void PIT2_IRQHandler()
 		}
 	}
 }
+#endif
 
 void UART0_RX_TX_IRQHandler(void)
 {
@@ -337,7 +407,9 @@ void UART_Deal_MSG(uint8_t buff[])
 }
 float HAL_Get_Speed()
 {
-	return -ENC_Get_Speed() / ENCODER_SCALE / (ENC_Cycle / 1000.0);
+	static float Speed = 0;
+	Speed = -ENC_Get_Speed() / ENCODER_SCALE / (ENC_Cycle / 1000.0);
+	return Speed;
 }
 
 float HAL_Get_Meter()
@@ -368,6 +440,8 @@ void HAL_Action(uint16_t steer, uint16_t esc)
 	if (steer < STEER_PPM_MIN) steer = STEER_PPM_MIN;
 	if (esc > ESC_PPM_MAX) esc = ESC_PPM_MAX;
 	if (esc < ESC_PPM_MIN) esc = ESC_PPM_MIN;
+	//if (esc < BASE_POINT) esc -= 25;
+	Debug[0] = esc;
 	FlexPWM_Independent_Channel_Duty(STEER_CH, FlexPWM_PPMCal_us(Movement_Freq, steer));
 	FlexPWM_Independent_Channel_Duty(ESC_CH, FlexPWM_PPMCal_us(Movement_Freq, esc));
 	FlexPWM_Independent_Channel_LDOK(PWM0, PWM_SM2);
