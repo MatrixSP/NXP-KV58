@@ -18,6 +18,7 @@ typedef enum UARTn_e
   UART_3,
   UART_4,
   UART_5,
+  UART_NULL,
 } UARTn_e;
 
 typedef enum uart_irq
