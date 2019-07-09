@@ -15,14 +15,17 @@
 
 #include "include.h"
 
+/* DEBUG */
+extern float OutData[];
+
 
 /* 速度控制 */
 #define CTRL_Timer				1
 #define BASE_POINT				1500
 #define Kp						30.0
 #define Ki						5.0
-#define SPEED_CONTROL_COUNT		4
-#define DIRECTION_CONTROL_COUNT 4
+#define SPEED_CONTROL_COUNT		2
+#define DIRECTION_CONTROL_COUNT 2
 float u = 0;  // 便于显示屏显示
 
 /* 执行机构 */
@@ -147,6 +150,10 @@ int main(void)
 	PIT_IRQ_Init(PIT0, MSG_Cycle);  // 中断
 	PIT_Timer_Init(PIT1);           // 用作秒表
 	PIT_Timer_Restart(PIT1);
+	DisableInterrupts;
+	PIT_IRQ_Init(PIT2, CTRL_Timer);  // 启动速度和方向控制中断
+	PIT_IQR_Disable(PIT2);
+	EnableInterrupts;
 	/* PIT初始化完成 */
 
 	/* DMA初始化 */
@@ -154,6 +161,11 @@ int main(void)
 		此处应为DMA初始化
 	*/
 	/* DMA初始化完成 */
+
+	/* 外设初始化 */
+	Scope_Init(UART_1, 115200);
+	/* 外设初始化完成 */
+
 	while (1U)
 	{
 		/* LCD Display*/
@@ -345,7 +357,7 @@ void HAL_Start_Control()
 	static bool init = false;
 	if (!init)
 	{
-		PIT_IRQ_Init(PIT2, CTRL_Timer);  // 启动速度和方向控制中断
+		PIT_IQR_Enable(PIT2);
 		init = true;
 	}
 }

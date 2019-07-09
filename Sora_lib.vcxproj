@@ -109,6 +109,7 @@
     <ClInclude Include="device\sora_camera.h" />
     <ClInclude Include="device\sora_camera_mt9v032.h" />
     <ClInclude Include="device\sora_lcd.h" />
+    <ClInclude Include="device\sora_virtualscope.h" />
     <ClInclude Include="drivers\fsl_adc16.h" />
     <ClInclude Include="drivers\fsl_aoi.h" />
     <ClInclude Include="drivers\fsl_clock.h" />
@@ -185,6 +186,7 @@
     <ClCompile Include="device\sora_camera.c" />
     <ClCompile Include="device\sora_camera_mt9v032.c" />
     <ClCompile Include="device\sora_lcd.c" />
+    <ClCompile Include="device\sora_virtualscope.c" />
     <ClCompile Include="drivers\fsl_adc16.c" />
     <ClCompile Include="drivers\fsl_aoi.c" />
     <ClCompile Include="drivers\fsl_clock.c" />

@@ -303,6 +303,9 @@
     <ClInclude Include="source\sora_lptmr.h">
       <Filter>source</Filter>
     </ClInclude>
+    <ClInclude Include="device\sora_virtualscope.h">
+      <Filter>device</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMSIS\system_MKV58F24.c">
@@ -511,6 +514,9 @@
     </ClCompile>
     <ClCompile Include="source\sora_lptmr.c">
       <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="device\sora_virtualscope.c">
+      <Filter>device</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

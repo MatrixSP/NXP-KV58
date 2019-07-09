@@ -2467,6 +2467,12 @@
         <file>
             <name>$PROJ_DIR$\device\sora_lcd.h</name>
         </file>
+        <file>
+            <name>$PROJ_DIR$\device\sora_virtualscope.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\device\sora_virtualscope.h</name>
+        </file>
     </group>
     <group>
         <name>drivers</name>

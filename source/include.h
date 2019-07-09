@@ -106,5 +106,6 @@
 #include "sora_lcd.h"
 //#include "sora_camera.h"
 //#include "sora_camera_mt9v032.h"
+#include "sora_virtualscope.h"
 
 #endif
